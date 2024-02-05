@@ -3,6 +3,7 @@ import Home from "./Home";
 import Stats from './Stats'
 import Sambutan from "./Sambutan";
 import Domain from "./Domain";
+import Berita from "./Berita";
 
 export {
     Navbar,
@@ -10,4 +11,5 @@ export {
     Stats,
     Sambutan,
     Domain,
+    Berita,
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style';
-import {Navbar, Home, Stats, Sambutan, Domain} from './components';
+import {Navbar, Home, Stats, Sambutan, Domain, Berita} from './components';
 
 const App = () => {
   return (
@@ -30,6 +30,12 @@ const App = () => {
         </div>
       </div>
       
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-neutral`}>
+        <div className={`${styles.boxWidth}`}>
+          <Berita />
+        </div>
+      </div>
+
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Stats />

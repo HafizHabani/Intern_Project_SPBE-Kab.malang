@@ -8,7 +8,7 @@ export default {
           "primary": "#55A935",
           "secondary": "#ffffff",
           "accent": "#ffffff",
-          "neutral": "#ffffff",
+          "neutral": "#f1f1f1",
           "base-100": "#ffffff",
           "info": "#ffffff",
           "success": "#11ff01",
@@ -28,7 +28,7 @@ export default {
         },
         extend:{
           backgroundImage: {
-            'sambutan': "url('../public/BgSambutan.png')",
+            'sambutan': "url('/BgSambutan.png')",
           },
         }
       },
