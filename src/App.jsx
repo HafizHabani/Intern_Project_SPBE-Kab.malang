@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style';
-import {Navbar, Home, Stats, Sambutan} from './components';
+import {Navbar, Home, Stats, Sambutan, Domain} from './components';
 
 const App = () => {
   return (
@@ -18,9 +18,15 @@ const App = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-[url('./BgSambutan.png')]`}>
         <div className={`${styles.boxWidth}`}>
           <Sambutan />
+        </div>
+      </div>
+
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Domain />
         </div>
       </div>
       

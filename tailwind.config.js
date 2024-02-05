@@ -5,7 +5,7 @@ export default {
     themes: [
       {
         mytheme: {
-          "primary": "#ffffff",
+          "primary": "#55A935",
           "secondary": "#ffffff",
           "accent": "#ffffff",
           "neutral": "#ffffff",
@@ -26,6 +26,11 @@ export default {
           lg: "1200px",
           xl: "1700px",
         },
+        extend:{
+          backgroundImage: {
+            'sambutan': "url('../public/BgSambutan.png')",
+          },
+        }
       },
     ],
   },

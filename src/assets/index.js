@@ -26,6 +26,11 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import gubMal from "./H._M1.png";
 import logokab from "./logokab.png"
+import bgsambutan from "./BgSambutan.png"
+import kebijakan from "./icon/Kebijakan.png"
+import kelola from "./icon/Kelola.png"
+import layanan from "./icon/Layanan.png";
+import manajemen from "./icon/Manajemen.png"
 
 export {
   airbnb,
@@ -55,5 +60,10 @@ export {
   people02,
   people03,
   gubMal,
-  logokab
+  logokab,
+  bgsambutan,
+  kebijakan,
+  kelola,
+  layanan,
+  manajemen
 };
