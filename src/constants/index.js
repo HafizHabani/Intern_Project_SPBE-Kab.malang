@@ -195,3 +195,24 @@ export const clients = [
     logo: dropbox,
   },
 ];
+
+export const newsDummy = [
+  {
+    author : "dummy",
+    title : "Dummy data for news",
+    description : "This is dummy data to test news card only",
+    image : "./dummy.png"
+  },
+  {
+    author : "dummy",
+    title : "Dummy data for news",
+    description : "This is dummy data to test news card only",
+    image : "./dummy.png"
+  },
+  {
+    author : "dummy",
+    title : "Dummy data for news",
+    description : "This is dummy data to test news card only",
+    image : "./dummy.png"
+  }
+]

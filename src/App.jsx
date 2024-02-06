@@ -4,13 +4,12 @@ import {Navbar, Home, Stats, Sambutan, Domain, Berita} from './components';
 
 const App = () => {
   return (
-    <div className="w-full overflow-hidden">
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+    <div className="w-full overflow-hidden ">
+      <div className={`${styles.paddingX} sm:${styles.flexCenter} sticky top-0`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />
         </div>
       </div>
-
 
       <div className={`${styles.flexStart} bg-gradient-to-r from-indigo-500 from-1% via-sky-500 via-5% to-emerald-400 to-90%`}>
         <div className={`${styles.boxWidth}`}>
@@ -30,7 +29,7 @@ const App = () => {
         </div>
       </div>
       
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-neutral`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-tl from-emerald-400 from-5% `}>
         <div className={`${styles.boxWidth}`}>
           <Berita />
         </div>

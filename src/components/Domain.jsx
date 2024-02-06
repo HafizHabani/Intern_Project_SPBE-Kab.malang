@@ -3,7 +3,7 @@ import { kebijakan, layanan, kelola, manajemen} from '../assets'
 
 const Domain = () => (
     <div className='py-8'>
-      <div className='flex justify-center font-semibold text-lg mb-5'>
+      <div className='flex justify-center font-semibold text-lg text-center mb-5'>
         Domain Yang Tersedia Dalam SPBE Kabupaten Malang
       </div>
       <div className='flex flex-wrap flex-row justify-around sm:mx-20'>
