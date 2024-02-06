@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style';
-import {Navbar, Home, Stats, Sambutan, Domain, Berita} from './components';
+import {Navbar, Home, Footer, Sambutan, Domain, Berita} from './components';
 
 const App = () => {
   return (
@@ -37,7 +37,7 @@ const App = () => {
 
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
-          <Stats />
+          <Footer />
         </div>
       </div>
     </div>

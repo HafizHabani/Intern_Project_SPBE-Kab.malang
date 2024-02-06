@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Home from "./Home";
-import Stats from './Stats'
+import Footer from './Footer'
 import Sambutan from "./Sambutan";
 import Domain from "./Domain";
 import Berita from "./Berita";
@@ -8,7 +8,7 @@ import Berita from "./Berita";
 export {
     Navbar,
     Home,
-    Stats,
+    Footer,
     Sambutan,
     Domain,
     Berita,

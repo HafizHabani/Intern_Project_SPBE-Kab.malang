@@ -1,4 +1,5 @@
 import airbnb from "./airbnb.png";
+import malangmakmur from "./malangmakmur.png"
 import bill from "./bill.png";
 import binance from "./binance.png";
 import card from "./card.png";
@@ -33,6 +34,7 @@ import layanan from "./icon/Layanan.png";
 import manajemen from "./icon/Manajemen.png"
 
 export {
+  malangmakmur,
   airbnb,
   bill,
   logospbe,
