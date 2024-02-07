@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style';
-import {Navbar, Home, Footer, Sambutan, Domain, Berita, Galeri, Media} from '../components';
+import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri} from '../components';
 
 const Dashboard = () => {
   return (
@@ -35,17 +35,18 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} my-7 py-10 border-2 border-solid border-white border-y-gray-300 `}>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
-          <Galeri/>
+          <Galeri  />
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-green-500 bg-opacity-50 `}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} mt-1 bg-green-500 bg-opacity-50 `}>
         <div className={`${styles.boxWidth}`}>
           <Media />
         </div>
       </div>
+      
 
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
