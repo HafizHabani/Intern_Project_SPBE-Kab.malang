@@ -9,6 +9,7 @@ import logo from "./logo.svg";
 import logospbe from './logospbe.png';
 import quotes from "./quotes.svg";
 import robot from "./robot.png";
+import LogoKabMal from "./LogoKabMal.png"
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -34,6 +35,7 @@ import layanan from "./icon/Layanan.png";
 import manajemen from "./icon/Manajemen.png"
 
 export {
+  LogoKabMal,
   malangmakmur,
   airbnb,
   bill,

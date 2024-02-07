@@ -26,7 +26,7 @@ const Footer = () => {
   <nav>
     <h6 className="text-lg font-bold border-4 border-solid border-white border-b-primary py-5 pe-40">Hubungi Kami</h6> 
     <a className="link link-hover">Alamat :
-Jalan Pemuda No.148 Kota Semarang</a>
+Jalan KH. Agus Salim No.7, Kota Malang</a>
     <a className="link link-hover">Email :
 timspbe@semarangkota.go.id</a>
     <a className="link link-hover">Telepon :
