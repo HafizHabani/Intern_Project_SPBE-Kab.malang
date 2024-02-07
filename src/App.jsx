@@ -41,7 +41,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-emerald-400`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-green-500 bg-opacity-50 `}>
         <div className={`${styles.boxWidth}`}>
           <Media />
         </div>

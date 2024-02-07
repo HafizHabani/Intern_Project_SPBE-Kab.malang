@@ -32,9 +32,11 @@ import bgsambutan from "./BgSambutan.png"
 import kebijakan from "./icon/Kebijakan.png"
 import kelola from "./icon/Kelola.png"
 import layanan from "./icon/Layanan.png";
-import manajemen from "./icon/Manajemen.png"
+import manajemen from "./icon/Manajemen.png";
+import suhat_malang from './suhat_malang.png';
 
 export {
+  suhat_malang,
   LogoKabMal,
   malangmakmur,
   airbnb,
