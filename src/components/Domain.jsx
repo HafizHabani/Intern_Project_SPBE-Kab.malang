@@ -24,6 +24,9 @@ const Domain = () => (
           Tata Kelola
         </button>
       </div>
+      <div>
+        
+      </div>
     </div>
   )
 

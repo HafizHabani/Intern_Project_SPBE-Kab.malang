@@ -36,7 +36,7 @@ timspbe@semarangkota.go.id</a>
   </nav> 
   <nav className='flex flex-col font-bold w-full justify-center items-center'>
   <img src={malangmakmur} alt="malangmakmur" className="mx-auto"/>
-  <h5 className='font-bold text-base'>SPBE Kabupaten Malang Copyright Reserved © 2023</h5>
+  <h5 className='font-bold text-base'>SPBE Kabupaten Malang Copyright Reserved © 2024</h5>
   <div className="w-3/5 bg-gray-200 p-4 rounded-md flex flex-col items-center justify-center">
   <a className="">Pengunjung</a> 
   <a className='border-4 border-b-primary  border-gray-200  pb-3'>Sejak 15 Maret 2023</a>

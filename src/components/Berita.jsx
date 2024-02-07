@@ -21,7 +21,10 @@ const Berita = () => (
             <div className="card-body">
               <h2 className="card-title text-sm sm:text-base">{news.title}</h2>
               <p className='text-xs sm:text-base'>{news.description}</p>
-              <div className="card-actions justify-end">
+              <div className="card-actions justify-between ">
+                <div className='text-slate-500'> 
+                  {news.author}
+                </div>
                 <button className="btn btn-xs sm:btn-sm font-normal btn-primary text-xs sm:sm text-white">Selengkapnya</button>
               </div>
             </div>

@@ -198,19 +198,19 @@ export const clients = [
 
 export const newsDummy = [
   {
-    author : "dummy",
+    author : "dummy1",
     title : "Dummy data for news",
     description : "This is dummy data to test news card only",
     image : "./dummy.png"
   },
   {
-    author : "dummy",
+    author : "dummy2",
     title : "Dummy data for news",
     description : "This is dummy data to test news card only",
     image : "./dummy.png"
   },
   {
-    author : "dummy",
+    author : "dummy3",
     title : "Dummy data for news",
     description : "This is dummy data to test news card only",
     image : "./dummy.png"

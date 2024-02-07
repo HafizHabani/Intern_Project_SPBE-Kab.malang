@@ -29,7 +29,7 @@ const App = () => {
         </div>
       </div>
       
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-tl from-emerald-400 from-5% `}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-tl from-emerald-400 from-5%`}>
         <div className={`${styles.boxWidth}`}>
           <Berita />
         </div>
