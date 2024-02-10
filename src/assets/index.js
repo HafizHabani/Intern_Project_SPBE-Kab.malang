@@ -1,6 +1,7 @@
 import airbnb from "./airbnb.png";
 import malangmakmur from "./malangmakmur.png"
 import bill from "./bill.png";
+import kegiatan from "./kegiatan.png"
 import binance from "./binance.png";
 import card from "./card.png";
 import coinbase from "./coinbase.png";
@@ -34,8 +35,13 @@ import kelola from "./icon/Kelola.png"
 import layanan from "./icon/Layanan.png";
 import manajemen from "./icon/Manajemen.png";
 import suhat_malang from './suhat_malang.png';
+import kegiatan2 from './kegiatan2.png'
+import kegiatan3 from './kegiatan3.png'
 
 export {
+  kegiatan3,
+  kegiatan2,
+  kegiatan,
   suhat_malang,
   LogoKabMal,
   malangmakmur,
