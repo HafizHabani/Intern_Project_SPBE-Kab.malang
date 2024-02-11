@@ -12,7 +12,7 @@ const Sambutan = () => (
         <div className='py-6'>
           Assalamualaikum Wr. Wb.
         </div>
-        <div className='pb-5'>
+        <div className='pb-5' style={{ textAlign: 'justify'}}>
           Puji syukur kita panjatkan kehadirat Allah SWT yang telah melimpahkan rahmat dan hidayahnya, sehingga
           Pemerintah Kabupaten Malang bisa menghadirkan portal SPBE Kabupaten Malang. Portal ini sekaligus menandai 
           Kick Off Akselerasi Implementasi SPBE (Sistem Pemerintahan Berbasis Elektronik) Kabupaten Malang di Era 

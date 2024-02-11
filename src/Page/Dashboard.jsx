@@ -29,19 +29,19 @@ const Dashboard = () => {
         </div>
       </div>
       
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-tl from-emerald-400 from-5%`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-t from-emerald-400 from-10%`}>
         <div className={`${styles.boxWidth}`}>
           <Berita />
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-b from-emerald-400 to-green-200 from-50%`}>
         <div className={`${styles.boxWidth}`}>
           <Galeri  />
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} mt-1 bg-green-500 bg-opacity-50 `}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-b from-green-200 form-90%`}>
         <div className={`${styles.boxWidth}`}>
           <Media />
         </div>
