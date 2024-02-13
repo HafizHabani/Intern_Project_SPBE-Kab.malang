@@ -33,12 +33,20 @@ const Galeri = () => {
   };
 
   return (
-    <div className="px-4 md:px-20 py-10"> {/* Added padding on small screens */}
-      <div className="flex flex-col md:flex-row items-center justify-between"> {/* Changed to column layout on small screens */}
-        <div className="flex flex-row items-center mb-4 md:mb-0"> {/* Added margin bottom on small screens */}
-          <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
-          <p className="pl-2 font-bold text-2xl">Kegiatan</p>
-          <div className="mt-2 md:mt-0 ml-10 flex items-center"> {/* Added margin left on small screens */}
+    <div className="md:px-20 pt-28 pb-20"> {/* Added padding on small screens */}
+       {/* Changed to column layout on small screens */}
+        <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0"> {/* Added margin bottom on small screens */}
+
+          <div className="flex flex-row ">
+            <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
+            <p className="pl-2 font-bold text-2xl">Kegiatan</p>
+          </div>
+
+          <div>
+            <a href="#" className="font-bold">Lihat Semua</a>
+          </div>
+        </div>
+        <div className="mt-2 md:mt-0 flex items-center"> {/* Added margin left on small screens */}
             <span
               onClick={toggleVideo}
               className={`cursor-pointer border border-solid ${showVideo ? "border-primary text-primary" : "bg-primary text-white border-primary "
@@ -56,52 +64,47 @@ const Galeri = () => {
               Video
             </span>
           </div>
-        </div>
         
-        <div>
-          <a href="#" className="font-bold">
-            Lihat Semua
-          </a>
+      <div className="pt-10">
+        <div className="flex items-center justify-center ">
+          <button
+            onClick={slideLeft}
+            className="btn btn-circle top-0 bottom-0 left-0 ml-2"
+          >
+            ❮
+          </button>
+          <div className="carousel-container py-6 carousel-item relative justify-center gap-4 w-full overflow-x-auto">
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className={`card ${showVideo ? "video" : "photo"} `}
+              >
+                {showVideo ? (
+                  <video
+                    src={card.src}
+                    controls
+                    className="w-full h-full object-cover"
+                    style={{ maxHeight: "300px", maxWidth: "980px" }}
+                  />
+                ) : (
+                  <img
+                    src={card.src}
+                    alt={`Card ${card.id}`}
+                    className="w-full h-full object-cover"
+                    style={{ maxHeight: "1000px" }}
+                  />
+                )}
+                <a href={card.href} target="_blank" rel="noopener noreferrer"></a>
+              </div>
+            ))}
+          </div>
+          <button
+            onClick={slideRight}
+            className="btn btn-circle top-0 bottom-0 right-0 mr-2"
+          >
+            ❯
+          </button>
         </div>
-      </div>
-      <div className="flex items-center justify-center">
-        <button
-          onClick={slideLeft}
-          className="btn btn-circle top-0 bottom-0 left-0 ml-2"
-        >
-          ❮
-        </button>
-        <div className="carousel-container py-6 carousel-item relative justify-center gap-4 w-full">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className={`card ${showVideo ? "video" : "photo"} `}
-            >
-              {showVideo ? (
-                <video
-                  src={card.src}
-                  controls
-                  className="w-full h-full object-cover"
-                  style={{ maxHeight: "300px" }}
-                />
-              ) : (
-                <img
-                  src={card.src}
-                  alt={`Card ${card.id}`}
-                  className="w-full h-full object-cover"
-                  style={{ maxHeight: "300px" }}
-                />
-              )}
-              <a href={card.href} target="_blank" rel="noopener noreferrer"></a>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={slideRight}
-          className="btn btn-circle top-0 bottom-0 right-0 mr-2"
-        >
-          ❯
-        </button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style';
-import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri} from '../components';
+import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri, Imple} from '../components';
 
 const Dashboard = () => {
   return (
@@ -29,19 +29,25 @@ const Dashboard = () => {
         </div>
       </div>
       
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-t from-emerald-400 from-10%`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-[url('./bgimplementasi.png')] bg-cover bg-no-repeat bg-center`}>
+        <div className={`${styles.boxWidth}`}>
+          <Imple />
+        </div>
+      </div>
+      
+      <div className={`${styles.paddingX} ${styles.flexCenter} `}style={{ backgroundColor: '#F1F1F1' }}>
         <div className={`${styles.boxWidth}`}>
           <Berita />
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-b from-emerald-400 to-green-200 from-50%`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} bg-cover bg-no-repeat bg-center bg-[url('./Bggaleri.png')]`} >
         <div className={`${styles.boxWidth}`}>
           <Galeri  />
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter} bg-gradient-to-b from-green-200 form-90%`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}style={{ backgroundColor: '#55A9355E' }}>
         <div className={`${styles.boxWidth}`}>
           <Media />
         </div>

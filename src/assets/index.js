@@ -37,8 +37,10 @@ import manajemen from "./icon/Manajemen.png";
 import suhat_malang from './suhat_malang.png';
 import kegiatan2 from './kegiatan2.png'
 import kegiatan3 from './kegiatan3.png'
+import imple from './imple.png'
 
 export {
+  imple,
   kegiatan3,
   kegiatan2,
   kegiatan,
