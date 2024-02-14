@@ -23,7 +23,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div id='Domain' className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Domain />
         </div>
