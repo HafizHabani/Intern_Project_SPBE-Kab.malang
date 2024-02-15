@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { kebijakan, layanan, kelola, manajemen } from '../assets';
+import { KebijakanDummy,manajemenDummy,kelolaDummy } from '../constants';
 
 
 
@@ -54,33 +55,162 @@ const Domain = () =>  {
     </div>
     <div className='flex flex-wrap justify-center sm:justify-around md:justify-between lg:justify-around xl:justify-between sm:mx-10 md:mx-20'>
       <button onClick={KebijakanPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
-        <img src={kebijakan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto mx-auto" />
+        <img src={kebijakan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto" />
         Kebijakan
       </button>
       <button onClick={ManajemenPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
-        <img src={manajemen} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto mx-auto" />
+        <img src={manajemen} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Manajemen
       </button>
       <button className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
-        <img src={layanan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto mx-auto" />
+        <img src={layanan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Layanan
       </button>
       <button onClick={KelolaPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
-        <img src={kelola} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto mx-auto" />
+        <img src={kelola} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Tata Kelola
       </button>
     </div>
     
-    <div className={`${KebijakanIsHiden? 'hidden' : ''}`} >
-      Isi Kebijakan
+    <div className={`${KebijakanIsHiden? 'hidden' : ''} my-10 `} >
+      <div className="relative">
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+          >
+              <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+          </svg>
+          <input
+              type="text"
+              placeholder="Search"
+              className="w-80 h-8 py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-primary"
+          />
+      </div>
+      <table className="table">
+        <thead className='text-lg text-primary'>
+          <tr>
+            <th>No</th>
+            <th>Aspek</th>
+            <th>Indikator</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {KebijakanDummy.map((kebijakan)=>(
+            <tr key={kebijakan.nomor}>
+              <td>{kebijakan.nomor}</td>
+              <td>{kebijakan.aspek}</td>
+              <td>{kebijakan.indikator}</td>
+              <td>
+                {kebijakan.penjelasan}<br/> 
+                <a href={kebijakan.linkDoc} className='text-primary'>Selengkapnya</a>
+                </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
 
-    <div className={`${ManajemenIsHiden? 'hidden' : ''}`}>
-      Isi Manajemen
+    <div className={`${ManajemenIsHiden? 'hidden' : ''} my-10 `}>
+    <div className="relative">
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+          >
+              <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+          </svg>
+          <input
+              type="text"
+              placeholder="Search"
+              className="w-80 h-8 py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-primary"
+          />
+      </div>
+      <table className="table ">
+        <thead className='text-lg text-primary'>
+          <tr>
+            <th>No</th>
+            <th>Aspek</th>
+            <th>Indikator</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {manajemenDummy.map((manajemen)=>(
+            <tr key={manajemen.nomor}>
+              <td>{manajemen.nomor}</td>
+              <td>{manajemen.aspek}</td>
+              <td>{manajemen.indikator}</td>
+              <td>
+                {manajemen.penjelasan}<br/> 
+                <a href={manajemen.linkDoc} className='text-primary'>Selengkapnya</a>
+                </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
 
-    <div className={`${KelolaIsHiden? 'hidden' : ''}`}>
-     Isi Kelola
+    <div className={`${KelolaIsHiden? 'hidden' : ''} my-10`}>
+    <div className="relative">
+          <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+          >
+              <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+          </svg>
+          <input
+              type="text"
+              placeholder="Search"
+              className="w-80 h-8 py-3 pl-12 pr-4 text-gray-500 border rounded-md outline-none bg-gray-50 focus:bg-white focus:border-primary"
+          />
+      </div>
+      <table className="table ">
+        <thead className='text-lg text-primary'>
+          <tr>
+            <th>No</th>
+            <th>Aspek</th>
+            <th>Indikator</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {kelolaDummy.map((kelola)=>(
+            <tr key={kelola.nomor}>
+              <td>{kelola.nomor}</td>
+              <td>{kelola.aspek}</td>
+              <td>{kelola.indikator}</td>
+              <td>
+                {kelola.penjelasan}<br/> 
+                <a href={kelola.linkDoc} className='text-primary'>Selengkapnya</a>
+                </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
 
   </div>
