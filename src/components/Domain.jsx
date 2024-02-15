@@ -24,8 +24,6 @@ const Domain = () =>  {
     }
     else {
       handleHideKebijakan();
-      handleHideKelola();
-      handleHideManajemen();
     }
   }
 
@@ -35,9 +33,7 @@ const Domain = () =>  {
       handleHideKebijakan();
       handleHideManajemen();
     } else {
-      handleHideKebijakan();
       handleHideKelola();
-      handleHideManajemen();
     }
   }
 
@@ -47,8 +43,6 @@ const Domain = () =>  {
       handleHideKebijakan();
       handleHideKelola();
     } else {
-      handleHideKebijakan();
-      handleHideKelola();
       handleHideManajemen();
     }
   }
