@@ -2,7 +2,7 @@ import { facebook, instagram, linkedin, twitter, } from "../assets";
 
 export const navLinks = [
   {
-    id: "Beranda",
+    id: "Dashboard",
     title: "Beranda",
   },
   {
