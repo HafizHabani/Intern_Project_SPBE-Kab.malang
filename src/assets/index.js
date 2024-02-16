@@ -1,32 +1,12 @@
-import airbnb from "./airbnb.png";
+
 import malangmakmur from "./malangmakmur.png"
-import bill from "./bill.png";
 import kegiatan from "./kegiatan.png"
-import binance from "./binance.png";
-import card from "./card.png";
-import coinbase from "./coinbase.png";
-import dropbox from "./dropbox.png";
-import logo from "./logo.svg";
 import logospbe from './logospbe.png';
-import quotes from "./quotes.svg";
-import robot from "./robot.png";
 import LogoKabMal from "./LogoKabMal.png"
-import send from "./Send.svg";
-import shield from "./Shield.svg";
-import star from "./Star.svg";
-import menu from "./menu.svg";
-import close from "./close.svg";
-import google from "./google.svg";
-import apple from "./apple.svg";
-import arrowUp from "./arrow-up.svg";
-import discount from "./Discount.svg";
 import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
 import twitter from "./twitter.svg";
-import people01 from "./people01.png";
-import people02 from "./people02.png";
-import people03 from "./people03.png";
 import gubMal from "./H._M1.png";
 import logokab from "./logokab.png"
 import bgsambutan from "./BgSambutan.png"
@@ -38,8 +18,10 @@ import suhat_malang from './suhat_malang.png';
 import kegiatan2 from './kegiatan2.png'
 import kegiatan3 from './kegiatan3.png'
 import imple from './imple.png'
+import kankabmal from './kankabmal.png'
 
 export {
+  kankabmal,
   imple,
   kegiatan3,
   kegiatan2,
@@ -47,32 +29,11 @@ export {
   suhat_malang,
   LogoKabMal,
   malangmakmur,
-  airbnb,
-  bill,
   logospbe,
-  binance,
-  card,
-  coinbase,
-  dropbox,
-  logo,
-  quotes,
-  robot,
-  send,
-  shield,
-  star,
-  menu,
-  close,
-  google,
-  apple,
-  arrowUp,
-  discount,
   facebook,
   instagram,
   linkedin,
   twitter,
-  people01,
-  people02,
-  people03,
   gubMal,
   logokab,
   bgsambutan,

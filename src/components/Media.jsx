@@ -3,7 +3,7 @@ import { LogoKabMal  } from '../assets'
 
 const Media = () => {
   return (
-    <div className="w-full sm:px-20 py-10">
+    <div className="w-full sm:px-20 py-10 ">
   <div className="hero-content flex-col lg:flex-row-reverse flex justify-around">
     <img src={LogoKabMal} alt="LogoKabMal" className="flex max-w-sm rounded-lg" />
     <div className="">

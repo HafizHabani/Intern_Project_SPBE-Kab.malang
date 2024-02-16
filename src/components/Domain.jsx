@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { kebijakan, layanan, kelola, manajemen } from '../assets';
+import { Link } from 'react-router-dom';
 import { KebijakanDummy,manajemenDummy,kelolaDummy } from '../constants';
 
 
@@ -62,10 +63,12 @@ const Domain = () =>  {
         <img src={manajemen} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Manajemen
       </button>
+      <Link to="/Layanan">
       <button className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
         <img src={layanan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Layanan
       </button>
+      </Link>
       <button onClick={KelolaPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
         <img src={kelola} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Tata Kelola
