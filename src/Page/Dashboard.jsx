@@ -4,9 +4,9 @@ import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri, Imple} f
 
 const Dashboard = () => {
   return (
-    <div className="w-full overflow-hidden ">
-      <div className={`${styles.paddingX} sm:${styles.flexCenter} sticky top-0`}>
-        <div className={`${styles.boxWidth}`}>
+    <div className="w-full overflow-hidden">
+      <div className={`${styles.paddingX} sm:${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}  `}>
           <Navbar />
         </div>
       </div>
