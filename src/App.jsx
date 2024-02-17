@@ -1,15 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Dashboard, Tentang, Layanan } from './Page';
+import { Dashboard, Layanan, Login } from './Page';
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Dashboard/>}/>
-        <Route path='/Dashboard' element={<Dashboard/>}/>
+        <Route path='/Login' element={<Login/>}/>
         <Route path='/Layanan' element={<Layanan/>}/>
-        <Route path='/Tentang' element={<Tentang/>}/>
       </Routes>
     </Router>
 

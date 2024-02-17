@@ -19,6 +19,8 @@ import kegiatan2 from './kegiatan2.png'
 import kegiatan3 from './kegiatan3.png'
 import imple from './imple.png'
 import kankabmal from './kankabmal.png'
+import SPBELogin from "./SPBELogin.png"
+import kantorlogin from "./kantorlogin.png"
 
 export {
   kankabmal,
@@ -40,5 +42,7 @@ export {
   kebijakan,
   kelola,
   layanan,
-  manajemen
+  manajemen,
+  SPBELogin,
+  kantorlogin,
 };

@@ -1,9 +1,9 @@
 import Dashboard from "./Dashboard";
-import Tentang from "./Tentang";
 import Layanan from "./Layanan";
+import Login from "./Login";
 
 export{
     Dashboard,
-    Tentang,
     Layanan,
+    Login,
 }
