@@ -7,7 +7,7 @@ const Login = () => {
       <div className={`hidden sm:flex`}>
         <img src={kantorlogin} className='size-auto'/>
       </div>
-      <div className='flex flex-col content-center mr-10 py-16'>
+      <div className='flex flex-col content-center mx-4 sm:mr-10 py-16'>
         <img src={SPBELogin} className='max-w-3/6'/>
         <p className='text-3xl font-bold'>
             Selamat Datang di Panel SPBE

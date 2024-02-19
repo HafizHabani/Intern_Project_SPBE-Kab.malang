@@ -27,6 +27,13 @@ export const navLinks = [
   }
 ];
 
+export const navAdm = [
+  {
+    id:"Profile",
+    title :"Profile"
+  }
+]
+
 export const stats = [
   {
     id: "stats-1",

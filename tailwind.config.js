@@ -34,5 +34,5 @@ export default {
       },
     ],
   },
-  plugins: [require('@tailwindcss/typography'), require("daisyui")],
+  plugins: [require('@tailwindcss/typography'), require("daisyui"), require("@material-tailwind/react/utils/withMT")],
 };

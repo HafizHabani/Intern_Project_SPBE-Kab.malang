@@ -9,6 +9,11 @@ import Media from "./Media";
 import Imple from "./Imple";
 import Homlay from "./Homlay";
 import Islay from "./Islay";
+import FormBerita from "./FormBerita";
+import FormGambar from "./FormGambar";
+import TabelBerita from "./TabelBerita";
+import TabelDomain from "./TabelDomain";
+import TabelGambar from "./TabelGambar";
 
 export {
     Islay,
@@ -22,4 +27,9 @@ export {
     Berita,
     Galeri,
     Media,
+    FormBerita,
+    FormGambar,
+    TabelBerita,
+    TabelDomain,
+    TabelGambar
 }
