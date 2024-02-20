@@ -1,24 +1,24 @@
 import React from 'react'
 import { logokab } from '../assets'
 import {
-    Card,
-    Typography,
-    List,
-    ListItem,
-    ListItemPrefix,
-    Accordion,
-    AccordionHeader,
-    AccordionBody,
-    
-  } from "@material-tailwind/react";
-  import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { KebijakanDummy, manajemenDummy, kelolaDummy } from '../constants';
-import TabelDomain from '../components/TabelDomain';
+  Card,
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+
+} from "@material-tailwind/react";
+import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { KebijakanDummy, manajemenDummy, kelolaDummy, beritaDummy, galeriDummy} from '../constants';
+import { TabelGaleri, TabelBerita, TabelDomain } from '../components';
 
 const Admin = () => {
   const [open, setOpen] = React.useState(0);
   const [component, setComponent] = React.useState(0);
- 
+
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -27,74 +27,82 @@ const Admin = () => {
     <div>
       <div className='px-10 shadow-lg'>
         <nav className="w-full flex py-3 justify-between items-center navbar ">
-            <img src={logokab} alt="logospbe" className="w-24 sm:w-auto" /> {/* Adjusted logo size */}
+          <img src={logokab} alt="logospbe" className="w-24 sm:w-auto" /> {/* Adjusted logo size */}
         </nav>
       </div>
       <div className='flex flex-row'>
         <div className='bg-gradient-to-br from-emerald-500 from-5% to-white to-95% shadow-xl'>
-            <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 bg-transparent shadow-none">
+          <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 bg-transparent shadow-none">
             <List className='flex justify-center'>
-            <Accordion
+              <Accordion
                 open={open === 1}
                 icon={
-                    <ChevronDownIcon
+                  <ChevronDownIcon
                     strokeWidth={2.5}
                     className={`mx-auto h-4 w-4 transition-transform ${open === 1 ? "rotate-180" : ""}`}
-                    />
+                  />
                 }
-                >
+              >
                 <ListItem className="p-0" selected={open === 1}>
-                    <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 px-10 py-0 pt-4 font-bold">
+                  <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 px-10 py-0 pt-4 font-bold">
                     <Typography color="blue-gray" className="font-bold">
-                        Domain
+                      Domain
                     </Typography>
-                    </AccordionHeader>
+                  </AccordionHeader>
                 </ListItem>
                 <AccordionBody className="py-0 ml-8">
-                    <List className="p-0">
-                    <ListItem onClick={()=>setComponent(0)}>
-                        <ListItemPrefix>
+                  <List className="p-0">
+                    <ListItem onClick={() => setComponent(0)}>
+                      <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                        </ListItemPrefix>
-                        Kebijakan
+                      </ListItemPrefix>
+                      Kebijakan
                     </ListItem>
-                    <ListItem onClick={()=>setComponent(1)}>
-                        <ListItemPrefix>
+                    <ListItem onClick={() => setComponent(1)}>
+                      <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                        </ListItemPrefix>
-                        Manajemen
+                      </ListItemPrefix>
+                      Manajemen
                     </ListItem>
                     <ListItem>
-                        <ListItemPrefix>
+                      <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                        </ListItemPrefix>
-                        Layanan
+                      </ListItemPrefix>
+                      Layanan
                     </ListItem>
-                    <ListItem onClick={()=>setComponent(2)}>
-                        <ListItemPrefix>
+                    <ListItem onClick={() => setComponent(2)}>
+                      <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                        </ListItemPrefix>
-                        Tata Kelola
+                      </ListItemPrefix>
+                      Tata Kelola
                     </ListItem>
-                    </List>
+                  </List>
                 </AccordionBody>
-                </Accordion>
-                <ListItem className='px-10 pt-4 font-bold'>
+              </Accordion>
+              <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(4)}>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
                 Berita
-                </ListItem>
-                <ListItem className='px-10 pt-4 font-bold'>
-                Galeri 
-                </ListItem>
-                <ListItem className='px-10 pt-4 font-bold text-red-600'>
+              </ListItem>
+              <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(5)}>
+                <ListItemPrefix>
+                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
+                </ListItemPrefix>
+                Galeri
+              </ListItem>
+              <ListItem className='px-10 pt-4 font-bold text-red-600'>
                 Log Out
-                </ListItem>
+              </ListItem>
             </List>
-            </Card>
+          </Card>
         </div>
         <div className=''>
-          {component == 0 && <TabelDomain domain = {KebijakanDummy} keterangan = "Kebijakan"/>}
-          {component == 1 && <TabelDomain domain = {manajemenDummy} keterangan = "Manajemen"/>}
-          {component == 2 && <TabelDomain domain = {kelolaDummy} keterangan = "Tata Kelola"/>}
+          {component == 0 && <TabelDomain domain={KebijakanDummy} keterangan="Kebijakan" />}
+          {component == 1 && <TabelDomain domain={manajemenDummy} keterangan="Manajemen" />}
+          {component == 2 && <TabelDomain domain={kelolaDummy} keterangan="Tata Kelola" />}
+          {component == 4 && <TabelBerita berita={beritaDummy} keterangan="Berita"/>}
+          {component == 5 && <TabelGaleri galeri={galeriDummy} keterangan="Galeri"/>}
         </div>
       </div>
     </div>
