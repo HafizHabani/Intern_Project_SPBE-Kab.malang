@@ -13,6 +13,7 @@ const TabelDomain = (prop) => {
           </svg>
           Tambah Indikator
         </button>
+        
       </div>
       <table className="table border-solid border-2">
         <thead className='text-lg text-primary border-solid border-2'>

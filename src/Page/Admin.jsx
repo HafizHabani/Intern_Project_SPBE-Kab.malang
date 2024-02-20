@@ -12,15 +12,17 @@ import {
     
   } from "@material-tailwind/react";
   import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { KebijakanDummy } from '../constants';
+import { KebijakanDummy, manajemenDummy, kelolaDummy } from '../constants';
 import TabelDomain from '../components/TabelDomain';
 
 const Admin = () => {
   const [open, setOpen] = React.useState(0);
+  const [component, setComponent] = React.useState(0);
  
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
+
   return (
     <div>
       <div className='px-10 shadow-lg'>
@@ -29,8 +31,8 @@ const Admin = () => {
         </nav>
       </div>
       <div className='flex flex-row'>
-        <div className='bg-gradient-to-br from-emerald-500 from-5% to-white to-95%'>
-            <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <div className='bg-gradient-to-br from-emerald-500 from-5% to-white to-95% shadow-xl'>
+            <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 bg-transparent shadow-none">
             <List className='flex justify-center'>
             <Accordion
                 open={open === 1}
@@ -42,21 +44,21 @@ const Admin = () => {
                 }
                 >
                 <ListItem className="p-0" selected={open === 1}>
-                    <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 px-10 py-0 pt-4  font-bold">
-                    <Typography color="blue-gray" className="">
+                    <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 px-10 py-0 pt-4 font-bold">
+                    <Typography color="blue-gray" className="font-bold">
                         Domain
                     </Typography>
                     </AccordionHeader>
                 </ListItem>
                 <AccordionBody className="py-0 ml-8">
                     <List className="p-0">
-                    <ListItem>
+                    <ListItem onClick={()=>setComponent(0)}>
                         <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                         </ListItemPrefix>
                         Kebijakan
                     </ListItem>
-                    <ListItem>
+                    <ListItem onClick={()=>setComponent(1)}>
                         <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                         </ListItemPrefix>
@@ -68,7 +70,7 @@ const Admin = () => {
                         </ListItemPrefix>
                         Layanan
                     </ListItem>
-                    <ListItem>
+                    <ListItem onClick={()=>setComponent(2)}>
                         <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                         </ListItemPrefix>
@@ -90,7 +92,9 @@ const Admin = () => {
             </Card>
         </div>
         <div className=''>
-          <TabelDomain domain = {KebijakanDummy} keterangan = "Kebijakan"/>
+          {component == 0 && <TabelDomain domain = {KebijakanDummy} keterangan = "Kebijakan"/>}
+          {component == 1 && <TabelDomain domain = {manajemenDummy} keterangan = "Manajemen"/>}
+          {component == 2 && <TabelDomain domain = {kelolaDummy} keterangan = "Tata Kelola"/>}
         </div>
       </div>
     </div>
