@@ -80,15 +80,9 @@ const Admin = () => {
                 </AccordionBody>
               </Accordion>
               <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(4)}>
-                <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                </ListItemPrefix>
                 Berita
               </ListItem>
               <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(5)}>
-                <ListItemPrefix>
-                  <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
-                </ListItemPrefix>
                 Galeri
               </ListItem>
               <ListItem className='px-10 pt-4 font-bold text-red-600'>
