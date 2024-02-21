@@ -37,7 +37,7 @@ const Galeri = () => {
        {/* Changed to column layout on small screens */}
         <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0"> {/* Added margin bottom on small screens */}
 
-          <div className="flex flex-row ">
+          <div className="flex flex-row pb-2">
             <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
             <p className="pl-2 font-bold text-2xl">Kegiatan</p>
           </div>

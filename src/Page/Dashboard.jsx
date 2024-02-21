@@ -11,7 +11,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div id='Dashboard' className={`${styles.flexStart} bg-gradient-to-r from-indigo-500 from-1% via-sky-500 via-5% to-emerald-400 to-90%`}>
+      <div id='Dashboard' className={`${styles.flexStart} bg-gradient-to-r from-rose-900 from-5% via-red-700 via-2% to-red-500 to-90%`}>
         <div className={`${styles.boxWidth}`}>
           <Home />
         </div>
@@ -47,8 +47,8 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}style={{ backgroundColor: '#55A9355E' }}>
-        <div className={`${styles.boxWidth}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}style={{ backgroundColor: '#DF4141' }}>
+        <div className={`${styles.boxWidth} text-white`}>
           <Media />
         </div>
       </div>

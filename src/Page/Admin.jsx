@@ -31,7 +31,7 @@ const Admin = () => {
         </nav>
       </div>
       <div className='flex flex-row'>
-        <div className='bg-gradient-to-br from-emerald-500 from-5% to-white to-95% shadow-xl'>
+        <div className='bg-gradient-to-b from-red-600 from-10% to-white to-80% shadow-xl'>
           <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 bg-transparent shadow-none">
             <List className='flex justify-center'>
               <Accordion
@@ -85,8 +85,8 @@ const Admin = () => {
               <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(5)}>
                 Galeri
               </ListItem>
-              <ListItem className='px-10 pt-4 font-bold text-red-600'>
-                Log Out
+              <ListItem className='px-4 ml-2 mt-4 font-bold'>
+                <div className=' text-white py-1 bg-rose-800 px-3 rounded-md'>Log Out</div>
               </ListItem>
             </List>
           </Card>

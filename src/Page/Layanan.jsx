@@ -11,7 +11,7 @@ const Layanan = () => {
         </div>
       </div>
 
-      <div className={`${styles.flexStart} bg-gradient-to-r from-indigo-500 from-1% via-sky-500 via-5% to-emerald-400 to-90%`}>
+      <div className={`${styles.flexStart} bg-gradient-to-r from-rose-900 from-5% via-red-700 via-2% to-red-500 to-90%`}>
         <div className={`${styles.boxWidth}`}>
           <Homlay />
         </div>

@@ -55,24 +55,24 @@ const Domain = () =>  {
       Domain Yang Tersedia Dalam SPBE Kabupaten Malang
     </div>
     <div className='flex flex-wrap justify-center sm:justify-around md:justify-between lg:justify-around xl:justify-between sm:mx-10 md:mx-20'>
-      <button onClick={KebijakanPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
+      <button onClick={KebijakanPressed} className="btn w-full text-white sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-rose-900 via-red-700 to-red-500 mb-4 md:mb-0 md:mr-4 lg:mr-0">
         <img src={kebijakan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto" />
         Kebijakan
       </button>
-      <button onClick={ManajemenPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
+      <button onClick={KelolaPressed} className="btn text-white w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-rose-900 via-red-700 to-red-500 mb-4 md:mb-0 md:mr-4 lg:mr-0">
+        <img src={kelola} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
+        Tata Kelola
+      </button>
+      <button onClick={ManajemenPressed} className="btn text-white w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-rose-900 via-red-700 to-red-500 mb-4 md:mb-0 md:mr-4 lg:mr-0">
         <img src={manajemen} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Manajemen
       </button>
       <Link to="/Layanan" className='w-full sm:w-48 md:w-40 lg:w-48 xl:w-56'>
-      <button className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
+      <button className="btn w-full text-white sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-rose-900 via-red-700 to-red-500 mb-4 md:mb-0 md:mr-4 lg:mr-0">
         <img src={layanan} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
         Layanan
       </button>
       </Link>
-      <button onClick={KelolaPressed} className="btn w-full sm:w-48 md:w-40 lg:w-48 xl:w-56 btn-lg bg-gradient-to-t from-indigo-500 via-sky-500 to-emerald-400 mb-4 md:mb-0 md:mr-4 lg:mr-0">
-        <img src={kelola} alt='none' className="w-10 h-10 sm:w-auto sm:h-auto " />
-        Tata Kelola
-      </button>
     </div>
     
     <div className={`${KebijakanIsHiden? 'hidden' : ''} my-10 `} >
