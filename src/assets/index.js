@@ -21,6 +21,7 @@ import imple from './imple.png'
 import kankabmal from './kankabmal.png'
 import SPBELogin from "./SPBELogin.png"
 import kantorlogin from "./kantorlogin.png"
+import Pendopo from "./Pendopo.png"
 
 export {
   kankabmal,
@@ -45,4 +46,5 @@ export {
   manajemen,
   SPBELogin,
   kantorlogin,
+  Pendopo,
 };

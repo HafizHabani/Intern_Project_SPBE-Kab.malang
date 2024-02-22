@@ -33,7 +33,7 @@ const Galeri = () => {
   };
 
   return (
-    <div className="md:px-20 pt-28 pb-20"> {/* Added padding on small screens */}
+    <div className="md:px-20 pt-20 pb-20"> {/* Added padding on small screens */}
        {/* Changed to column layout on small screens */}
         <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0"> {/* Added margin bottom on small screens */}
 
@@ -69,7 +69,7 @@ const Galeri = () => {
         <div className="flex items-center justify-center ">
           <button
             onClick={slideLeft}
-            className="btn btn-circle top-0 bottom-0 left-0 ml-2"
+            className="btn btn-circle bg-primary hover:bg-red-700 border-none text-white top-0 bottom-0 left-0 mr-2"
           >
             ❮
           </button>
@@ -100,7 +100,7 @@ const Galeri = () => {
           </div>
           <button
             onClick={slideRight}
-            className="btn btn-circle top-0 bottom-0 right-0 mr-2"
+            className="btn btn-circle bg-primary hover:bg-red-700 border-none text-white top-0 bottom-0 right-0 ml-2"
           >
             ❯
           </button>
