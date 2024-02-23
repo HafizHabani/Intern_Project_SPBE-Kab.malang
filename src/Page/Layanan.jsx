@@ -23,8 +23,8 @@ const Layanan = () => {
         </div>
       </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}style={{ backgroundColor: '#55A9355E' }}>
-        <div className={`${styles.boxWidth}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} mt-5`}style={{ backgroundColor: '#DF4141' }}>
+        <div className={`${styles.boxWidth} text-white`}>
           <Media />
         </div>
       </div>

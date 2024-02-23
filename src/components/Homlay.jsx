@@ -1,5 +1,5 @@
 import React from 'react';
-import { kankabmal } from '../assets';
+import { Pendopo } from '../assets';
 
 const Homlay = () => (
 <div className='flex flex-col items-center justify-around pt-5 sm:flex-row text-white'>
@@ -14,7 +14,7 @@ const Homlay = () => (
     
   </div>
   <div className='mt-5 sm:mt-0 sm:ml-24'>
-    <img src={kankabmal} alt="kankabmal" className='w-full ' />
+    <img src={Pendopo} alt="kankabmal" className='w-full ' />
   </div>
 </div>
 
