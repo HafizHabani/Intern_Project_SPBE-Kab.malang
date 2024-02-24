@@ -43,7 +43,7 @@ const Galeri = () => {
           </div>
 
           <div>
-            <a href="#" className="font-bold">Lihat Semua</a>
+            <a href="#" className="font-bold text-white">Lihat Semua</a>
           </div>
         </div>
         <div className="mt-2 md:mt-0 flex items-center"> {/* Added margin left on small screens */}

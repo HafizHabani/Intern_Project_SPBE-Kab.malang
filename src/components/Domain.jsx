@@ -101,6 +101,11 @@ const Domain = () =>  {
           ))}
         </tbody>
       </table>
+      <div className="join flex justify-center mt-5">
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
+      </div>
     </div>
 
     <div className={`${ManajemenIsHiden? 'hidden' : ''} my-10 `}>
@@ -130,6 +135,11 @@ const Domain = () =>  {
           ))}
         </tbody>
       </table>
+      <div className="join flex justify-center mt-5">
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
+      </div>
     </div>
 
     <div className={`${KelolaIsHiden? 'hidden' : ''} my-10`}>
@@ -159,6 +169,11 @@ const Domain = () =>  {
           ))}
         </tbody>
       </table>
+      <div className="join flex justify-center mt-5">
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
+        <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
+      </div>
     </div>
 
   </div>
