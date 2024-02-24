@@ -14,6 +14,7 @@ import FormGambar from "./FormGambar";
 import TabelBerita from "./TabelBerita";
 import TabelDomain from "./TabelDomain";
 import TabelGaleri from "./TabelGaleri";
+import Artikel from "./Artikel";
 
 export {
     Islay,
@@ -32,4 +33,5 @@ export {
     TabelBerita,
     TabelDomain,
     TabelGaleri,
+    Artikel,
 }
