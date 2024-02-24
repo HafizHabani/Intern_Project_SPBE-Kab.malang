@@ -12,7 +12,7 @@ import {
 
 } from "@material-tailwind/react";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { KebijakanDummy, manajemenDummy, kelolaDummy, beritaDummy, galeriDummy} from '../constants';
+import { kebijakanDummy, manajemenDummy, kelolaDummy, newsDummy, galleryPhoto} from '../constants';
 import { TabelGaleri, TabelBerita, TabelDomain } from '../components';
 
 const Admin = () => {
@@ -92,11 +92,11 @@ const Admin = () => {
           </Card>
         </div>
         <div className=''>
-          {component == 0 && <TabelDomain domain={KebijakanDummy} keterangan="Kebijakan" />}
-          {component == 1 && <TabelDomain domain={manajemenDummy} keterangan="Manajemen" />}
-          {component == 2 && <TabelDomain domain={kelolaDummy} keterangan="Tata Kelola" />}
-          {component == 4 && <TabelBerita berita={beritaDummy} keterangan="Berita"/>}
-          {component == 5 && <TabelGaleri galeri={galeriDummy} keterangan="Galeri"/>}
+          {component == 0 && <TabelDomain domain={kebijakanDummy.data.data} keterangan="Kebijakan" />}
+          {component == 1 && <TabelDomain domain={manajemenDummy.data.data} keterangan="Manajemen" />}
+          {component == 2 && <TabelDomain domain={kelolaDummy.data.data} keterangan="Tata Kelola" />}
+          {component == 4 && <TabelBerita berita={newsDummy.data} keterangan="Berita"/>}
+          {component == 5 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri"/>}
         </div>
       </div>
     </div>

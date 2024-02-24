@@ -21,24 +21,22 @@ const TabelBerita = (props) => {
             <th className='border-solid border-2'>No</th>
             <th className='border-solid border-2'>Judul</th>
             <th className='border-solid border-2'>Tanggal</th>
-            <th className='border-solid border-2'>Waktu</th>
             <th className='border-solid border-2'>Foto</th>
             <th className='border-solid border-2'>Penjelasan</th>
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {props.berita.map((berita) => (
-            <tr key={berita.nomor}>
-              <td className='border-solid border-2'>{berita.nomor}</td>
-              <td className='border-solid border-2'>{berita.judul}</td>
-              <td className='border-solid border-2'>{berita.tanggal}</td>
-              <td className='border-solid border-2'>{berita.waktu}</td>
+          {props.berita.map((berita, index) => (
+            <tr key={index}>
+              <td className='border-solid border-2'>{index+1}</td>
+              <td className='border-solid border-2'>{berita.title}</td>
+              <td className='border-solid border-2'>{berita.updated_at.slice(0, 10)}</td>
               <td className='border-solid border-2'>
-                <img src={berita.foto} alt={berita.judul} className="w-32 h-auto" />
+                <img src={berita.image} alt={berita.title} className="w-32 h-auto" />
               </td>
               <td className='border-solid border-2'>
-                {berita.penjelasan}<br />
-                <a href={berita.linkDoc} className='text-primary'>Selengkapnya</a>
+                {berita.description}<br />
+                <a href={berita.link} className='text-primary'>Selengkapnya</a>
               </td>
               <td>
                 <div className='flex flex-row justify-center items-center '>

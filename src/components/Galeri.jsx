@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { kegiatan, kegiatan2, kegiatan3 } from "../assets";
+import { galleryPhoto } from "../constants";
 
 const Galeri = () => {
-  const [cards, setCards] = useState([
-    { id: 1, type: "photo", src: kegiatan, href: "link1" },
-    { id: 2, type: "photo", src: kegiatan2, href: "link2" },
-    { id: 3, type: "photo", src: kegiatan3, href: "link3" },
-  ]);
+  const kartu = galleryPhoto.data.map(item => ({
+    id: item.id,
+    type: "photo",
+    src: item.image,
+    href: item.image 
+  }))
+
+  const [cards, setCards] = useState(kartu);
 
   const [showVideo, setShowVideo] = useState(false);
 

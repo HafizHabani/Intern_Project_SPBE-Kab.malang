@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { kebijakan, layanan, kelola, manajemen } from '../assets';
 import { Link } from 'react-router-dom';
-import { KebijakanDummy,manajemenDummy,kelolaDummy } from '../constants';
+import { kebijakanDummy,manajemenDummy,kelolaDummy } from '../constants';
 
 
 
@@ -88,14 +88,14 @@ const Domain = () =>  {
           </tr>
         </thead>
         <tbody>
-          {KebijakanDummy.map((kebijakan)=>(
-            <tr key={kebijakan.nomor}>
-              <td>{kebijakan.nomor}</td>
+          {kebijakanDummy.data.data.map((kebijakan, index)=>(
+            <tr key={kebijakan.id}>
+              <td>{index}</td>
               <td>{kebijakan.aspek}</td>
               <td>{kebijakan.indikator}</td>
               <td>
                 {kebijakan.penjelasan}<br/> 
-                <a href={kebijakan.linkDoc} className='text-primary'>Selengkapnya</a>
+                <a href={kebijakan.link} className='text-primary'>Selengkapnya</a>
                 </td>
             </tr>
           ))}
@@ -122,14 +122,14 @@ const Domain = () =>  {
           </tr>
         </thead>
         <tbody>
-          {manajemenDummy.map((manajemen)=>(
-            <tr key={manajemen.nomor}>
-              <td>{manajemen.nomor}</td>
+          {manajemenDummy.data.data.map((manajemen, index)=>(
+            <tr key={manajemen.id}>
+              <td>{index}</td>
               <td>{manajemen.aspek}</td>
               <td>{manajemen.indikator}</td>
               <td>
                 {manajemen.penjelasan}<br/> 
-                <a href={manajemen.linkDoc} className='text-primary'>Selengkapnya</a>
+                <a href={manajemen.link} className='text-primary'>Selengkapnya</a>
                 </td>
             </tr>
           ))}
@@ -156,14 +156,14 @@ const Domain = () =>  {
           </tr>
         </thead>
         <tbody>
-          {kelolaDummy.map((kelola)=>(
-            <tr key={kelola.nomor}>
-              <td>{kelola.nomor}</td>
+          {kelolaDummy.data.data.map((kelola, index)=>(
+            <tr key={kelola.id}>
+              <td>{index}</td>
               <td>{kelola.aspek}</td>
               <td>{kelola.indikator}</td>
               <td>
                 {kelola.penjelasan}<br/> 
-                <a href={kelola.linkDoc} className='text-primary'>Selengkapnya</a>
+                <a href={kelola.link} className='text-primary'>Selengkapnya</a>
                 </td>
             </tr>
           ))}

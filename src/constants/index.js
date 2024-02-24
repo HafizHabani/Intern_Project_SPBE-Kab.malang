@@ -1,4 +1,6 @@
 import { facebook, instagram, linkedin, twitter, } from "../assets";
+import axios from "axios"
+const baseUrl = 'http://localhost:8000/api/';
 
 export const navLinks = [
   {
@@ -103,155 +105,15 @@ export const socialMedia = [
   },
 ];
 
+// Berita
+export const newsDummy = await axios.get(baseUrl+'abcd/show');
+// Galeri Foto
+export const galleryPhoto = await axios.get(baseUrl+'zxcv/show');
 
-export const newsDummy = [
-  {
-    author : "dummy1",
-    title : "Dummy data for news",
-    description : "This is dummy data to test news card only",
-    image : "./dummy.png"
-  },
-  {
-    author : "dummy2",
-    title : "Dummy data for news",
-    description : "This is dummy data to test news card only",
-    image : "./dummy.png"
-  },
-  {
-    author : "dummy3",
-    title : "Dummy data for news",
-    description : "This is dummy data to test news card only",
-    image : "./dummy.png"
-  }
-]
-
-export const KebijakanDummy = [
-  {
-    nomor : 1,
-    aspek : "Kebijakan Internal terkait Tata Kelola SPBE",
-    indikator : "Tingkat Kematangan Kebijakan Internal Arsitektur SPBE Instansi Pusat/Pemerintah Daerah",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 2,
-    aspek : "Kebijakan Internal Terkait Tata Kelola SPBE",
-    indikator : "Tingkat Kematangan Kebijakan Internal Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 3,
-    aspek : "Kebijakan Internal Terkait Tata Kelola SPBE",
-    indikator : "Tingkat Kematangan Kebijakan Internal Manajemen Data",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 4,
-    aspek : "Kebijakan Internal Terkait Tata Kelola SPBE",
-    indikator : "Tingkat Kematangan Kebijakan Internal Manajemen Data",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  }
-]
-
-export const manajemenDummy = [
-  {
-    nomor : 1,
-    aspek : "Penerapan Manejemen SPBE",
-    indikator : "Tingkat Kematangan Penerapan Manajemen Risiko SPBE",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 2,
-    aspek : "Penerapan Manejemen SPBE",
-    indikator : "Tingkat Kematangan Penerapan Manajemen Keamanan Informasi",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 3,
-    aspek : "Penerapan Manejemen SPBE",
-    indikator : "Tingkat Kematangan Penerapan Manajemen Data",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 4,
-    aspek : "Penerapan Manejemen SPBE",
-    indikator : "Tingkat Kematangan Penerapan Manajemen Aset TIK",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  }
-]
-
-export const kelolaDummy = [
-  {
-    nomor : 1,
-    aspek : "Perencanaa Strategis SPBE",
-    indikator : "Tingkat Kematangan Arsitektur SPBE Instansi Pusat/Pemerintah Daerah",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 2,
-    aspek : "Perencanaa Strategis SPBE",
-    indikator : "Tingkat Kematangan Peta Rencana SPBE Instansi Pusat/Pemerintah Daerah.",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 3,
-    aspek : "Perencanaa Strategis SPBE",
-    indikator : "Tingkat Kematangan Keterpaduan Rencana dan Anggaran SPBE",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  },
-  {
-    nomor : 4,
-    aspek : "Perencanaa Strategis SPBE",
-    indikator : "Tingkat Kematangan Inovasi Proses Bisnis SPBE",
-    penjelasan : "Data dummy masih perlu dihubungkan dengan database untuk menampilkan data real dan akurat",
-    linkDoc : "",
-  }
-]
-
-export const beritaDummy = [
-  {
-    nomor: 1,
-    judul: "Lorem Ipsum Dolor Sit Amet",
-    tanggal: "2024-02-21",
-    waktu: "10:00 AM",
-    foto: "https://example.com/image1.jpg", // Example image URL
-    penjelasan: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    nomor: 2,
-    judul: "Consectetur Adipiscing Elit",
-    tanggal: "2024-02-22",
-    waktu: "11:00 AM",
-    foto: "https://example.com/image2.jpg", // Example image URL
-    penjelasan: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    nomor: 3,
-    judul: "Ut Enim Ad Minim Veniam",
-    tanggal: "2024-02-23",
-    waktu: "12:00 PM",
-    foto: "https://example.com/image3.jpg", // Example image URL
-    penjelasan: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    nomor: 4,
-    judul: "Duis Aute Irure Dolor",
-    tanggal: "2024-02-24",
-    waktu: "1:00 PM",
-    foto: "https://example.com/image4.jpg", // Example image URL
-    penjelasan: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-  }
-];
+// Manajemen Portal
+export const kebijakanDummy = await axios.get(baseUrl+'kebijakan/show');
+export const manajemenDummy = await axios.get(baseUrl+'manajemen/show');
+export const kelolaDummy = await axios.get(baseUrl+'kelola/show');
 
 
 export const galeriDummy = [
