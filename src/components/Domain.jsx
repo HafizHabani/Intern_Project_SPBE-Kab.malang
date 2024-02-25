@@ -90,7 +90,7 @@ const Domain = () =>  {
         <tbody>
           {kebijakanDummy.data.data.map((kebijakan, index)=>(
             <tr key={kebijakan.id}>
-              <td>{index}</td>
+              <td>{index+1}</td>
               <td>{kebijakan.aspek}</td>
               <td>{kebijakan.indikator}</td>
               <td>
@@ -124,7 +124,7 @@ const Domain = () =>  {
         <tbody>
           {manajemenDummy.data.data.map((manajemen, index)=>(
             <tr key={manajemen.id}>
-              <td>{index}</td>
+              <td>{index+1}</td>
               <td>{manajemen.aspek}</td>
               <td>{manajemen.indikator}</td>
               <td>
@@ -158,7 +158,7 @@ const Domain = () =>  {
         <tbody>
           {kelolaDummy.data.data.map((kelola, index)=>(
             <tr key={kelola.id}>
-              <td>{index}</td>
+              <td>{index+1}</td>
               <td>{kelola.aspek}</td>
               <td>{kelola.indikator}</td>
               <td>

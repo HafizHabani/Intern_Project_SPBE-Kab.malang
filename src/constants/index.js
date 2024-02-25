@@ -114,7 +114,7 @@ export const galleryPhoto = await axios.get(baseUrl+'zxcv/show');
 export const kebijakanDummy = await axios.get(baseUrl+'kebijakan/show');
 export const manajemenDummy = await axios.get(baseUrl+'manajemen/show');
 export const kelolaDummy = await axios.get(baseUrl+'kelola/show');
-
+export const layananDummy = await axios.get(baseUrl+'layanan/show')
 
 export const galeriDummy = [
   {
