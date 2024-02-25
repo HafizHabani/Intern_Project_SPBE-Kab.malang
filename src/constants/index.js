@@ -1,6 +1,6 @@
 import { facebook, instagram, linkedin, twitter, } from "../assets";
 import axios from "axios"
-const baseUrl = 'http://localhost:8000/api/';
+const baseUrl = 'https://own-modes-jeff-award.trycloudflare.com/api/';
 
 export const navLinks = [
   {
