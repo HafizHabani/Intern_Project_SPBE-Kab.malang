@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style';
-import {Navbar, Footer, Media, Lsber} from '../components';
+import {Navbar, Footer, Media, Isber} from '../components';
 const HalamanBerita = () => {
   return (
     <div className="w-full overflow-hidden">
@@ -17,7 +17,7 @@ const HalamanBerita = () => {
 
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        <Lsber />
+        <Isber />
       </div>
     </div>
 

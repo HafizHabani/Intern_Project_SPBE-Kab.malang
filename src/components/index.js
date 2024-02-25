@@ -15,11 +15,11 @@ import TabelBerita from "./TabelBerita";
 import TabelDomain from "./TabelDomain";
 import TabelGaleri from "./TabelGaleri";
 import Artikel from "./Artikel";
-import Lsber from "./lsber";
+import Isber from "./Isber";
 
 export {
     Islay,
-    Lsber,
+    Isber,
     Homlay,
     Imple,
     Navbar,

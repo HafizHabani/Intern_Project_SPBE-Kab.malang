@@ -9,7 +9,7 @@ const Berita = () => (
         <p className='pl-2 font-bold'>Terkini</p>
       </div>
       <div>
-        <a href='#' className='font-bold text-sm md:text-base'>Lihat Semua</a> {/* Adjusted font size */}
+        <a href='/Berita' className='font-bold text-sm md:text-base'>Lihat Semua</a> {/* Adjusted font size */}
       </div>
     </div>
     <div className='relative flex flex-wrap justify-around pt-4 md:pt-10'> {/* Adjusted padding */}

@@ -2,7 +2,7 @@ import React from 'react'
 import {  berita} from '../assets'
 
 
-const Lsber = () => {
+const Isber = () => {
   return (
     <div>
       <h6 className="text-lg font-bold border-4 border-solid border-white border-b-primary py-5 pe-40">Berita Terkini</h6>
@@ -18,7 +18,7 @@ const Lsber = () => {
              <h5 className='font-bold text-center text-base '>Demi Kenyamanan Peziarah, Mbak Ita Resmikan Renovasi Makam Kyai Sholeh Darat</h5>
              <h2 className="text-sm ">{`Upaya mewujudkan Kota Semarang sebagai salah satu destinasi wisata reliji terus dilakukan oleh Pemerintah Kota Semarang. Dalam rangka itu,`}</h2>
            </div>
-           <button className="mt-5 btn mx-28 text-white w-4/6 btn-primary">Selengkapnya -{'>'}</button>
+           <button className="mt-5 btn mx-28 text-white w-4/6 btn-primary"> <a href="/Berita/:id">Selengkapnya -{'>'}</a></button>
          </div>
 
          
@@ -101,4 +101,4 @@ const Lsber = () => {
   )
 }
 
-export default Lsber
+export default Isber

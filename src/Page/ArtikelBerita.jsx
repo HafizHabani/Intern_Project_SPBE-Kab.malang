@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style';
-import {Navbar, Homlay, Footer, Media, Islay} from '../components';
+import {Navbar, Homlay, Footer, Media, Islay, FormBerita} from '../components';
 
 
 const ArtikelBerita = () => {
@@ -14,13 +14,12 @@ const ArtikelBerita = () => {
 
       <div className={`${styles.flexStart} bg-gradient-to-r from-rose-900 from-5% via-red-700 via-2% to-red-500 to-90%`}>
         <div className={`${styles.boxWidth}`}>
-          <Homlay />
         </div>
       </div>
 
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
-          <Islay />
+          <FormBerita />
         </div>
       </div>
 
