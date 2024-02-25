@@ -15,9 +15,11 @@ import TabelBerita from "./TabelBerita";
 import TabelDomain from "./TabelDomain";
 import TabelGaleri from "./TabelGaleri";
 import Artikel from "./Artikel";
+import Lsber from "./lsber";
 
 export {
     Islay,
+    Lsber,
     Homlay,
     Imple,
     Navbar,
@@ -34,4 +36,5 @@ export {
     TabelDomain,
     TabelGaleri,
     Artikel,
+    
 }

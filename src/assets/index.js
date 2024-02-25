@@ -22,6 +22,19 @@ import kankabmal from './kankabmal.png'
 import SPBELogin from "./SPBELogin.png"
 import kantorlogin from "./kantorlogin.png"
 import Pendopo from "./Pendopo.png"
+import jdih from "./logo_layanan/jdih.png";
+import kamasuta from "./logo_layanan/kamasuta.png";
+import lapor from "./logo_layanan/lapor.png";
+import lpse from "./logo_layanan/lpse.png";
+import sakip from "./logo_layanan/sakip.jpg";
+import siapel from "./logo_layanan/siapel.png";
+import siapik from "./logo_layanan/siapik.png";
+import siapkerja from "./logo_layanan/siapkerja.png";
+import sipanji from "./logo_layanan/sipanji.png";
+import spid from "./logo_layanan/spid.png";
+import srikandi from "./logo_layanan/srikandi.png";
+import tindikanting from "./logo_layanan/tindikanting.jpg";
+import berita from './berita01.png'
 
 export {
   kankabmal,
@@ -47,4 +60,17 @@ export {
   SPBELogin,
   kantorlogin,
   Pendopo,
+  jdih,
+  kamasuta,
+  lapor,
+  lpse,
+  sakip,
+  siapel,
+  siapik,
+  siapkerja,
+  sipanji,
+  spid,
+  srikandi,
+  tindikanting,
+  berita,
 };
