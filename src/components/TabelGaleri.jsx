@@ -21,26 +21,19 @@ const TabelGaleri = (props) => {
             <th className='border-solid border-2'>No</th>
             <th className='border-solid border-2'>Nama Foto</th>
             <th className='border-solid border-2'>Tanggal</th>
-            <th className='border-solid border-2'>Waktu</th>
             <th className='border-solid border-2'>Gambar</th>
-            <th className='border-solid border-2'>Penjelasan</th>
             <th className='border-solid border-2'>Action</th>
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {props.galeri.map((galeri)=>(
-            <tr  key={galeri.nomor}>
-              <td className='border-solid border-2'>{galeri.nomor}</td>
-              <td className='border-solid border-2'>{galeri.namaFoto}</td>
-              <td className='border-solid border-2'>{galeri.tanggal}</td>
-              <td className='border-solid border-2'>{galeri.waktu}</td>
+          {props.galeri.map((galeri, index)=>(
+            <tr  key={index}>
+              <td className='border-solid border-2'>{index+1}</td>
+              <td className='border-solid border-2'>{galeri.title}</td>
+              <td className='border-solid border-2'>{galeri.updated_at.slice(0, 10)}</td>
               <td className='border-solid border-2'>
-                <img src={galeri.imageURL} alt={galeri.namaFoto} className="w-32 h-auto" />
+                <img src={galeri.image} alt={galeri.title} className="w-32 h-auto" />
               </td>
-              <td className='border-solid border-2'>
-                {galeri.penjelasan}<br/> 
-                <a href={galeri.linkDoc} className='text-primary'>Selengkapnya</a>
-                </td>
               <td>
                 <div className='flex flex-row justify-center items-center '>
                   <button className='btn btn-square bg-emerald-400'>

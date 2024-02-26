@@ -26,14 +26,14 @@ const TabelDomain = (prop) => {
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {prop.domain.map((domain)=>(
-            <tr  key={domain.nomor}>
-              <td className='border-solid border-2'>{domain.nomor}</td>
+          {prop.domain.map((domain, index)=>(
+            <tr  key={index+1}>
+              <td className='border-solid border-2'>{index+1}</td>
               <td className='border-solid border-2'>{domain.aspek}</td>
               <td className='border-solid border-2'>{domain.indikator}</td>
               <td className='border-solid border-2'>
                 {domain.penjelasan}<br/> 
-                <a href={domain.linkDoc} className='text-primary'>Selengkapnya</a>
+                <a href={domain.link} className='text-primary'>Selengkapnya</a>
                 </td>
               <td>
                 <div className='flex flex-row justify-center items-center '>
