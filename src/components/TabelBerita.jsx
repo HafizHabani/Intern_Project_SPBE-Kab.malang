@@ -1,5 +1,10 @@
 import React from 'react';
+// Import React FilePond
+import { FilePond } from 'react-filepond';
 
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css';
 const TabelBerita = (props) => {
   return (
     <div className='p-4'>
@@ -7,11 +12,11 @@ const TabelBerita = (props) => {
         <p className='font-bold text-2xl'>
           Tabel {props.keterangan}
         </p>
-        <button className='btn btn-sm bg-primary text-white'>
+        <button className='btn btn-sm bg-primary hover:bg-red-800 text-white' onClick={()=>document.getElementById('my_modal_4').showModal()}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
-          Tambah Indikator
+          Tambah Berita
         </button>
 
       </div>
@@ -56,6 +61,33 @@ const TabelBerita = (props) => {
           ))}
         </tbody>
       </table>
+      <dialog id="my_modal_4" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Tambah Berita</h3>
+          <form>
+            <div className="label">
+              <span className="label-text font-bold">Judul Berita</span>
+            </div>
+            <input type="text" placeholder="Type here" className="input input-md input-bordered w-3/5 mb-3" />
+            <div className="label">
+              <span className="label-text font-bold">Gambar Sampul</span>
+            </div>
+            <FilePond className="mb-5"/>
+            <div className="label">
+              <span className="label-text font-bold">Deskripsi</span>
+            </div>
+            <textarea className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
+            <div>
+            </div>
+          </form>
+          <div className="modal-action">
+            <form  >
+              <button formMethod='dialog' className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+
     </div>
   )
 }

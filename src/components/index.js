@@ -36,5 +36,4 @@ export {
     TabelDomain,
     TabelGaleri,
     Artikel,
-    
 }
