@@ -77,14 +77,10 @@ const TabelBerita = (props) => {
               <span className="label-text font-bold">Deskripsi</span>
             </div>
             <textarea className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
-            <div>
+            <div className="modal-action">
+              <button formMethod='dialog' className="btn">Close</button>
             </div>
           </form>
-          <div className="modal-action">
-            <form  >
-              <button formMethod='dialog' className="btn">Close</button>
-            </form>
-          </div>
         </div>
       </dialog>
 

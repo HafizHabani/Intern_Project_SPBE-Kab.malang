@@ -64,12 +64,11 @@ const TabelGaleri = (props) => {
               <span className="label-text font-bold">Gambar</span>
             </div>
             <FilePond className="mb-5"/>
-          </form>
-          <div className="modal-action">
-            <form  >
+            <div className="modal-action">
               <button formMethod='dialog' className="btn">Close</button>
-            </form>
-          </div>
+            </div>
+          </form>
+          
         </div>
       </dialog>
     </div>
