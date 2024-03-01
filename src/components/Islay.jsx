@@ -1,5 +1,4 @@
 import React from 'react'
-// import { LogoKabMal } from '../assets'
 import { layananDummy } from '../constants'
 
 const Islay = () => {
