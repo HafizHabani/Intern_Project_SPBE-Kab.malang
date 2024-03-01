@@ -17,6 +17,7 @@ import TabelGaleri from "./TabelGaleri";
 import Artikel from "./Artikel";
 import Isber from "./Isber";
 
+
 export {
     Islay,
     Isber,
