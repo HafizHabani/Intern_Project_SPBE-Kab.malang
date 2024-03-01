@@ -1,13 +1,15 @@
 import React from 'react';
 // Import React FilePond
 import { FilePond } from 'react-filepond';
+import UpdateBerita from './UpdateBerita';
 
 
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
 const TabelBerita = (props) => {
+  const [dataNews, setDataNews] = React.useState()
   return (
-    <div className='p-4'>
+    <div className='p-4 ml-4'>
       <div className='flex flex-row justify-between items-center py-2'>
         <p className='font-bold text-2xl'>
           Tabel {props.keterangan}
@@ -39,13 +41,13 @@ const TabelBerita = (props) => {
               <td className='border-solid border-2'>
                 <img src={berita.image} alt={berita.title} className="w-32 h-auto" />
               </td>
-              <td className='border-solid border-2'>
+              <td className='border-solid border-2 max-w-96'>
                 {berita.description}<br />
                 <a href={berita.link} className='text-primary'>Selengkapnya</a>
               </td>
               <td>
                 <div className='flex flex-row justify-center items-center '>
-                  <button className='btn btn-square bg-emerald-400'>
+                  <button className='btn btn-square bg-emerald-400' onClick={()=>{setDataNews(berita.id); document.getElementById('my_modal_2').showModal(); }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                     </svg>
@@ -58,6 +60,7 @@ const TabelBerita = (props) => {
                 </div>
               </td>
             </tr>
+            
           ))}
         </tbody>
       </table>
@@ -77,13 +80,15 @@ const TabelBerita = (props) => {
               <span className="label-text font-bold">Deskripsi</span>
             </div>
             <textarea className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
-            <div className="modal-action">
+            <div className="modal-action flex-row">
+              <button>Save</button>
               <button formMethod='dialog' className="btn">Close</button>
             </div>
           </form>
         </div>
       </dialog>
-
+      <UpdateBerita data={dataNews} id='my_modal_2'/>
+      
     </div>
   )
 }

@@ -85,6 +85,9 @@ const Admin = () => {
               <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(5)}>
                 Galeri
               </ListItem>
+              <ListItem className='px-10 pt-4 font-bold' onClick={() => setComponent(6)}>
+                Indeks SPBE
+              </ListItem>
               <ListItem className='px-4 ml-2 mt-4 font-bold'>
                 <div className=' text-white py-1 bg-rose-800 px-3 rounded-md'>Log Out</div>
               </ListItem>
@@ -97,6 +100,7 @@ const Admin = () => {
           {component == 2 && <TabelDomain domain={kelolaDummy.data.data} keterangan="Tata Kelola" />}
           {component == 4 && <TabelBerita berita={newsDummy.data} keterangan="Berita"/>}
           {component == 5 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri"/>}
+          {component == 6 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri"/>}
         </div>
       </div>
     </div>
