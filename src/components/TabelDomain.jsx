@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {urlAPI} from '../constants'
 
 const TabelDomain = (prop) => {
   return (
@@ -62,58 +62,57 @@ const TabelDomain = (prop) => {
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
           <h3 className="font-bold text-lg">Tambah Indikator</h3>
-          <form>
+          <form action={`${urlAPI}${prop.keterangan}/create`.toLocaleLowerCase()} method='post'>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
-                <label htmlFor="nomor" className="block text-gray-700 text-sm font-bold mb-2">Nomor:</label>
-                <input type="text" id="nomor"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
+                <input type="text" name='domain' value={ `${prop.keterangan} SPBE`} id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" id="aspek"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='aspek' id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='indikator' id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
-                <textarea id="penjelasan"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                <textarea id="penjelasan" name='penjelasan' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
               </div>
               <div className="mb-4">
-                <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
-                <input type="text" id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <label htmlFor="link" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
+                <input type="text" name='link' id="link"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='dialog' className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <button type="submit" formMethod='post' className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
                 Tambah
               </button>
               
               <button formMethod='dialog' className="btn w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm modal-action">Batal</button>
             
             </div>
-          </form>
-          
+          </form>       
         </div>
       </dialog>
 
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
           <h3 className="font-bold text-lg">Edit Indikator</h3>
-          <form>
+          <form action={`${urlAPI}${prop.keterangan}/update/${prop.domain.id}`.toLocaleLowerCase()} method='post'>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
-                <label htmlFor="nomor" className="block text-gray-700 text-sm font-bold mb-2">Nomor:</label>
-                <input type="text" id="nomor"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
+                <input type="text" id="domain" value={ `${prop.keterangan} SPBE`} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" id="aspek"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" id="aspek" value={`${urlAPI}${prop.keterangan}/update/${prop.component}`.toLocaleLowerCase()} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" id="indikator" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
@@ -139,5 +138,4 @@ const TabelDomain = (prop) => {
     </div>
   )
 }
-
 export default TabelDomain
