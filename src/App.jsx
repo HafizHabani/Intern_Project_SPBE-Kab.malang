@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Dashboard, Layanan, Login, Admin, HalamanBerita, ArtikelBerita, DetailLayanan } from './Page';
+import { Dashboard, Login, Admin, HalamanBerita, ArtikelBerita, DetailLayanan } from './Page';
 
 const App = () => {
 
@@ -9,7 +9,6 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Dashboard/>}/>
         <Route path='/Login' element={<Login/>}/>
-        <Route path='/Layanan' element={<Layanan/>}/>
         <Route path='/Layanan/Detail' element={<DetailLayanan/>}/>
         <Route path='/Admin' element={<Admin/>} />
         <Route path='/Berita' element={<HalamanBerita/>}/>

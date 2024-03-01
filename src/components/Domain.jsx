@@ -215,7 +215,8 @@ const Domain = () => {
                         <button>close</button>
                       </form>
                     </dialog>
-                    <a href={layanan.link} className="mt-3 btn btn-sm text-sm text-white btn-primary">Kunjungi</a>
+                    
+                    <a href={layanan.link} target="_blank" className="mt-3 btn btn-sm text-sm text-white btn-primary">Kunjungi</a>
                   </div>
                 </div>
               ))}
