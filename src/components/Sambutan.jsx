@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import React, { useState } from 'react';
 
 const Sambutan = () => {
@@ -11,25 +12,42 @@ const Sambutan = () => {
     <div className='sm:px-20 py-10'>
       <div className='font-bold text-lg'>
         <div className='text-primary text-xl'>
-          Sambutan
+          Tentang
         </div>
-        Bupati Kabupaten Malang
+        SPBE Kabupaten Malang
       </div>
       <div>
         <div className='py-6'>
-          Assalamualaikum Wr. Wb.
+        Menuju Tata Kelola Pemerintahan yang Bersih, Efektif, dan Akuntabel
         </div>
         <div className='pb-5' style={{ textAlign: 'justify'}}>
-          Puji syukur kita panjatkan kehadirat Allah SWT yang telah melimpahkan rahmat dan hidayahnya, sehingga
-          Pemerintah Kabupaten Malang bisa menghadirkan portal SPBE Kabupaten Malang. Portal ini sekaligus menandai 
-          Kick Off Akselerasi Implementasi SPBE (Sistem Pemerintahan Berbasis Elektronik) Kabupaten Malang di Era 
-          Society 5.0. SPBE pada era sekarang bukan sesuatu pilihan tetapi merupakan suatu keharusan dalam mendukung 
-          pengelolaan dan penyelenggaran Pemerintahan. Seperti disampaikan Menteri Pendayaagunaan ApararaturNegara dan 
-          Reformasi Birokrasi (MENPANRB) Republik Indonesia bahwa diperlukan penguatan SPBE melalui penerapan 
-          Reformasi Birokrasi Tematik 
+        Pemerintah Kabupaten Malang berkomitmen untuk menghadirkan tata kelola pemerintahan yang lebih baik melalui penerapan Sistem Pemerintahan Berbasis Elektronik (SPBE). SPBE merupakan pemanfaatan teknologi informasi dan komunikasi untuk memberikan layanan kepada masyarakat secara lebih efektif, transparan, dan akuntabel.
           {expanded && (
             <>
-            . Harapannya terciptanya birokrasi tangkas dan pelayanan publik berbasis digital untuk memudahkan rakyat yang berbasis struktur digital, budaya digital dan kompetensi digital pada birokrasi. Sehingga akan mewujudkan penerapan sistem kerja yang fleksibel. Fleksibilitas ini memungkinkan ASN bisa melaksanakan tugas di kantor maupun di rumah dan sistem kerja tersebut memerlukan dukungan TIK yang memadai agar roda pemerintahan dan pelayanan publik tetap berjalan dengan baik. Penerapan SPBE Kabupaten Malang menjadi kunci dalam penegelolaan dan penyelenggaraan pemerintahan dan pelayanan publik yang berkinerja tinggi, oleh karena itu Saya mengajak seluruh jajaran Pemkot Kabupaten Malang mulai dari diri saya sendiri dan Bapak Sekda sekaligus Ketua Tim Koordinasi SPBE, hingga staf dan Non ASN yang ada di Pemkot Semarang mulai tayang portal ini sekaligus kita Kick Off untuk akselerasi Implementasi SPBE Kabupaten Malang. Saya berharap SPBE ini akan dapat menjadikan salah satu penopang dari slogan "Semarang Rumah Kita". Melalui SPBE Kota Semarang akan dapat mensinergikan dan mensikronisasikan berbagai program-program TIK Pemkot Kabupaten Malang seperti program: Reformasi Birokrasi, Smart City, Satu Data, Satu Peta, Penanganan Kemiskinan dan Stunting, Inovasi yang berbasis TIK, serta program-program lainnya. Portal SPBE yang dioperasionalkan menjadi perhatian kita semua, karena merupakan pintu masuk dan potret SPBE Kabupaten Malang. Akhir kata saya ucapkan terima kasih kepada semua pihak yang telah membantu terwujudnya portal SPBE ini. Semoga portal ini bisa bermanfaat untuk mendukung publikasi Sistem Pemerintahan Berbasis Elektronik Kota Semarang, yang berguna untuk internal Pemkot Kabupaten Malang dan eksternal para pemangku kepentingan pembangunan di Kota Semarang. Semoga Allah SWT selalu meridhoi niat luhur kita semua, Aamiin. Wassalamualaikum Warahmatullahi Wabarakatuh.
+            
+           
+            
+            <p style={{ marginTop:20 }}><strong>Manfaat SPBE bagi Masyarakat Kabupaten Malang:</strong></p>
+<br />
+<ol>
+	<li style={{ marginTop:10 }}><strong>1. Pelayanan publik yang lebih mudah dan cepat:</strong>&nbsp;Masyarakat dapat mengakses berbagai layanan publik, seperti perizinan, kependudukan, dan pendidikan, secara online tanpa harus datang ke kantor pemerintahan.</li>
+  
+	<li style={{ marginTop:10 }}><strong>2. Pemerintahan yang lebih transparan:</strong>&nbsp;Masyarakat dapat memantau kinerja pemerintah dan penggunaan anggaran daerah secara online.</li>
+  
+	<li style={{ marginTop:10 }}><strong>3. Peningkatan efisiensi dan efektivitas:</strong>&nbsp;SPBE dapat membantu pemerintah dalam mengelola sumber daya dan menyelesaikan tugas-tugas dengan lebih efisien dan
+ efektif.</li>
+</ol>
+<br />
+<p><strong>Beberapa contoh penerapan SPBE di Kabupaten Malang:</strong></p>
+<br />
+<ol>
+	<li style={{ marginTop:10 }}><strong>1. Layanan Perizinan Online:</strong>&nbsp;Masyarakat dapat mengurus izin usaha dan berbagai perizinan lainnya secara online melalui aplikasi SIPD.</li>
+	<li style={{ marginTop:10 }}><strong>2. Layanan Kependudukan Online:</strong>&nbsp;Masyarakat dapat mencetak KTP elektronik, akta kelahiran, dan dokumen kependudukan lainnya secara online melalui aplikasi Dispendukcapil.</li>
+	<li style={{ marginTop:10 }}><strong>3. Sistem Pengaduan Online:</strong>&nbsp;Masyarakat dapat menyampaikan pengaduan dan keluhan terkait pelayanan publik melalui aplikasi Lapor!.</li>
+</ol>
+
+<p style={{ marginTop:20 }}>Pemerintah Kabupaten Malang terus berkomitmen untuk mengembangkan dan meningkatkan SPBE. Dengan SPBE, diharapkan tata kelola pemerintahan di Kabupaten Malang menjadi lebih baik dan masyarakat dapat merasakan manfaatnya secara langsung. Mari bersama-sama mendukung SPBE untuk membangun Malang yang lebih baik!</p>
+
             </>
           )}
         </div>
