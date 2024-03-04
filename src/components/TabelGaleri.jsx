@@ -1,5 +1,7 @@
 import React from 'react'
-import { FilePond } from 'react-filepond';
+import { FilePond, registerPlugin,} from 'react-filepond';
+import  FilePondPluginFileValidateType  from 'filepond-plugin-file-validate-type';
+registerPlugin(FilePondPluginFileValidateType);
 
 const TabelGaleri = (props) => {
   return (
@@ -63,7 +65,11 @@ const TabelGaleri = (props) => {
             <div className="label">
               <span className="label-text font-bold">Gambar</span>
             </div>
-            <FilePond className="mb-5"/>
+            <FilePond
+              className='mb-5'
+              allowFileTypeValidation={true}
+              acceptedFileTypes={['image/*']}
+            ></FilePond>
             <div className="modal-action">
               <button formMethod='dialog' className="btn">Close</button>
             </div>

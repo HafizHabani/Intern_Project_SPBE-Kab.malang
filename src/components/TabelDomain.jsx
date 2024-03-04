@@ -1,14 +1,19 @@
 import React from 'react'
 import {urlAPI} from '../constants'
 
+
 const TabelDomain = (prop) => {
+  const [id, setId]=React.useState()
+  const [data, setData]=React.useState({})
+  const map = data
+  
   return (
     <div className='p-4'>
       <div className='flex flex-row justify-between items-center py-2'>
         <p className='font-bold text-2xl'>
           Tabel Domain {prop.keterangan}
         </p>
-        <button className='btn btn-sm bg-primary hover:bg-green-700 text-white' onClick={()=>document.getElementById('my_modal_4').showModal()}>
+        <button className='btn btn-sm bg-primary hover:bg-red-700 text-white' onClick={()=>document.getElementById('my_modal_4').showModal()}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
@@ -40,14 +45,14 @@ const TabelDomain = (prop) => {
 
                 {/* ini button edit */}
                 <div className='flex flex-row justify-center items-center '>
-                  <button className='btn btn-square bg-emerald-400 hover:bg-emerald-600'onClick={()=>document.getElementById('my_modal_3').showModal()}>
+                  <button className='btn btn-square bg-emerald-400 hover:bg-emerald-600'onClick={()=>{document.getElementById('my_modal_3').showModal(); setId(domain.id); setData(domain)}}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
                     </svg>
                   </button>
 
                   {/* Ini button delete */}
-                  <button className='btn btn-square bg-red-500 hover:bg-red-800'> 
+                  <button className='btn btn-square bg-red-500 hover:bg-red-800' onClick={console.log(map)}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                     </svg>
@@ -61,6 +66,10 @@ const TabelDomain = (prop) => {
 
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
+          </form>
           <h3 className="font-bold text-lg">Tambah Indikator</h3>
           <form action={`${urlAPI}${prop.keterangan}/create`.toLocaleLowerCase()} method='post'>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
@@ -70,11 +79,11 @@ const TabelDomain = (prop) => {
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" name='aspek' id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='aspek'  id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" name='indikator' id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='indikator'  id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
@@ -85,13 +94,10 @@ const TabelDomain = (prop) => {
                 <input type="text" name='link' id="link"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='post' className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+            <div className=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
                 Tambah
               </button>
-              
-              <button formMethod='dialog' className="btn w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm modal-action">Batal</button>
-            
             </div>
           </form>       
         </div>
@@ -99,8 +105,12 @@ const TabelDomain = (prop) => {
 
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
-          <h3 className="font-bold text-lg">Edit Indikator</h3>
-          <form action={`${urlAPI}${prop.keterangan}/update/${prop.domain.id}`.toLocaleLowerCase()} method='post'>
+        <form method="dialog">
+          {/* if there is a button in form, it will close the modal */}
+          <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
+        </form>
+        <h3 className="font-bold text-lg">Edit Indikator</h3>
+          <form action={`${urlAPI}${prop.keterangan}/update/${id}`.toLocaleLowerCase()} method='post'>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
                 <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
@@ -108,28 +118,25 @@ const TabelDomain = (prop) => {
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" id="aspek" value={`${urlAPI}${prop.keterangan}/update/${prop.component}`.toLocaleLowerCase()} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" id="aspek" defaultValue={map.aspek} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" id="indikator" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" id="indikator" defaultValue={map.indikator} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
-                <textarea id="penjelasan"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                <textarea id="penjelasan" defaultValue={map.penjelasan} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
-                <input type="text" id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" id="indikator" defaultValue={map.link} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='dialog' className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <button type="submit" formMethod='dialog' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
                 Tambah
               </button>
-              
-              <button formMethod='dialog' className="btn w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm modal-action">Batal</button>
-            
             </div>
           </form>
           
