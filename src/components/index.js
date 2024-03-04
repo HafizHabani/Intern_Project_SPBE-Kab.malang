@@ -16,7 +16,7 @@ import TabelDomain from "./TabelDomain";
 import TabelGaleri from "./TabelGaleri";
 import Artikel from "./Artikel";
 import Isber from "./Isber";
-import NilaiIndikator from "./NilaiIndikator";
+import NilaiIndikator from "./TabelNilaiIndikator";
 
 
 export {

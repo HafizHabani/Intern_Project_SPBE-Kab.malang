@@ -100,7 +100,7 @@ const Admin = () => {
           {component == 2 && <TabelDomain domain={kelolaDummy.data.data} keterangan="Tata Kelola" />}
           {component == 4 && <TabelBerita berita={newsDummy.data} keterangan="Berita"/>}
           {component == 5 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri"/>}
-          {component == 6 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri"/>}
+          {component == 6 && <TabelGaleri galeri={galleryPhoto.data} keterangan="Nilai Indikator SPBE"/>}
         </div>
       </div>
     </div>
