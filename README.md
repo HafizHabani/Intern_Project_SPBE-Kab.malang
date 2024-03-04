@@ -1,6 +1,6 @@
 
 # Project SPBE Kabupaten Malang
-adalah sebuah project magang kami yang diberikan oleh Dinas Komunikasi dan Informatika Kabupaten Malang, untuk membuat sebuah website Sistem Pemerintahan Berbasis Teknologi untuk Kabupaten Malang, pada tahapannya kami melakukan analisis kebutuhan, desain, dan implementasi. Untuk teknologi yang digunakan adalah untuk desain kami menggunakan Figma, lalu untuk implementasi Front End kami menggunakan React Js dan Back End kami menggunakan Laravel.
+adalah sebuah project magang kami yang diberikan oleh Dinas Komunikasi dan Informatika Kabupaten Malang, untuk membuat sebuah website Sistem Pemerintahan Berbasis Elektronik untuk Kabupaten Malang, pada tahapannya kami melakukan analisis kebutuhan, desain, dan implementasi. Untuk teknologi yang digunakan adalah untuk desain kami menggunakan Figma, lalu untuk implementasi Front End kami menggunakan React Js dan Back End kami menggunakan Laravel.
 
 Link untuk bagian Back End : https://github.com/kilaspintas/magang-backend
 
