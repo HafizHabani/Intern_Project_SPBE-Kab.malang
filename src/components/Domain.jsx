@@ -104,7 +104,7 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {kebijakanDummy.data.data.map((kebijakan, index) => (
+            {kebijakanDummy.data.map((kebijakan, index) => (
               <tr key={kebijakan.id}>
                 <td>{index + 1}</td>
                 <td>{kebijakan.aspek}</td>
@@ -117,11 +117,6 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
-        <div className="join flex justify-center mt-5">
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
-        </div>
       </div>
 
       <div className={`${ManajemenIsHiden ? 'hidden' : ''} my-10 `}>
@@ -151,11 +146,6 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
-        <div className="join flex justify-center mt-5">
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
-        </div>
       </div>
 
       <div className={`${KelolaIsHiden ? 'hidden' : ''} my-10`}>
@@ -185,11 +175,6 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
-        <div className="join flex justify-center mt-5">
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
-        </div>
       </div>
 
 
@@ -205,7 +190,7 @@ const Domain = () => {
                     <h5 className='ml-3 font-bold text-sm'>{layanan.nama}</h5>
                   </div>
                   <div className='flex flex-col items-center'>
-                    <button className="btn px-6 btn-sm text-sm text-white  btn-primary" onClick={() => document.getElementById('my_modal_2').showModal()}>Detail</button>
+                    <button className="btn px-6 btn-sm text-sm text-white  btn-primary" onClick={() => {document.getElementById('my_modal_2').showModal(); }}>Detail</button>
                     <dialog id="my_modal_2" className="modal">
                       <div className="modal-box">
                         <h3 className="font-bold text-lg">{layanan.nama}</h3>
@@ -223,11 +208,7 @@ const Domain = () => {
             </div>
           </div>
         </div>
-        <div className="join flex justify-center mt-5">
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">«</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">Page 1</button>
-          <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">»</button>
-        </div>
+
       </div>
 
     </div>

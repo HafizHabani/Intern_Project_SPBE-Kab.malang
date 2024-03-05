@@ -114,27 +114,27 @@ const TabelDomain = (prop) => {
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
                 <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
-                <input type="text" id="domain" value={ `${prop.keterangan} SPBE`} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
+                <input type="text" name='domain' id="domain" value={ `${prop.keterangan} SPBE`} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" id="aspek" defaultValue={map.aspek} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='aspek' id="aspek" defaultValue={map.aspek} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" id="indikator" defaultValue={map.indikator} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='indikator' id="indikator" defaultValue={map.indikator} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
-                <textarea id="penjelasan" defaultValue={map.penjelasan} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                <textarea id="penjelasan" name='penjelasan' defaultValue={map.penjelasan} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
-                <input type="text" id="indikator" defaultValue={map.link} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='link' id="link" defaultValue={map.link} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='dialog' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
                 Tambah
               </button>
             </div>
