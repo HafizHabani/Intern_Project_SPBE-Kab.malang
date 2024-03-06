@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { kebijakan, layanan, kelola, manajemen } from '../assets';
 import { Link } from 'react-router-dom';
 import { kebijakanDummy, manajemenDummy, kelolaDummy, layananDummy } from '../constants';
+import axios from 'axios';
+import Pagination from 'react-js-pagination';
 
 
 
@@ -10,6 +12,10 @@ const Domain = () => {
   const [KelolaIsHiden, setKelolaIsHiden] = useState(true);
   const [LayananIsHiden, setLayananIsHiden] = useState(true);
   const [ManajemenIsHiden, setManajemenIsHiden] = useState(true);
+  const [DataKebijakan, setDataKebijakan]=useState(1)
+  const [DataKelola, setDataKelola]=useState(1)
+  const [DataLayanan, setDataLayanan]=useState(1)
+  const [DataManajemen, setDataManajemen]=useState(1)
 
   const handleShowKebijakan = () => setKebijakanIsHiden(false);
   const handleShowKelola = () => setKelolaIsHiden(false);
@@ -146,6 +152,7 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
+        <Pagination></Pagination>
       </div>
 
       <div className={`${KelolaIsHiden ? 'hidden' : ''} my-10`}>
@@ -210,7 +217,7 @@ const Domain = () => {
         </div>
 
       </div>
-
+      <button className='btn' onClick={console.log(manajemenDummy)}>coba</button>
     </div>
   );
 }
