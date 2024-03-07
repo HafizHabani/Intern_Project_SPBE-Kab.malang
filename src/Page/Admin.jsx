@@ -117,7 +117,7 @@ const Admin = () => {
           </Card>
         </div>
         <div className="">
-          {component == 0 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Kebijakan" />)}
+          {component == 0 && (<TabelDomain domain={kebijakanDummy.data.data} keterangan="Kebijakan" />)}
           {component == 1 && (<TabelDomain domain={manajemenDummy.data.data} keterangan="Manajemen"/>)}
           {component == 2 && (<TabelDomain domain={kelolaDummy.data.data} keterangan="Tata Kelola"/>)}
           {component == 4 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}

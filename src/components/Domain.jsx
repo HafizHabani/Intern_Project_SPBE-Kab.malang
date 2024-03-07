@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { kebijakan, layanan, kelola, manajemen } from '../assets';
 import { Link } from 'react-router-dom';
 import { kebijakanDummy, manajemenDummy, kelolaDummy, layananDummy } from '../constants';
-import axios from 'axios';
-import Pagination from 'react-js-pagination';
+import axios from 'axios'
 
 
 
@@ -12,10 +11,12 @@ const Domain = () => {
   const [KelolaIsHiden, setKelolaIsHiden] = useState(true);
   const [LayananIsHiden, setLayananIsHiden] = useState(true);
   const [ManajemenIsHiden, setManajemenIsHiden] = useState(true);
-  const [DataKebijakan, setDataKebijakan]=useState(1)
-  const [DataKelola, setDataKelola]=useState(1)
-  const [DataLayanan, setDataLayanan]=useState(1)
-  const [DataManajemen, setDataManajemen]=useState(1)
+
+  const [kebijakanData, setKebijakanData] = useState(kebijakanDummy);
+  const [layananData, setLayananData]=useState(layananDummy);
+  const [kelolaData, setKelolaData] = useState(kelolaDummy);
+  const [manajemenData, setManajemenData] = useState(manajemenDummy);
+
 
   const handleShowKebijakan = () => setKebijakanIsHiden(false);
   const handleShowKelola = () => setKelolaIsHiden(false);
@@ -73,6 +74,25 @@ const Domain = () => {
     }
   }
 
+  const HandlerKebijakan = async (link) => {
+    const data = await axios.get(link)
+    setKebijakanData(data)
+  }
+  const HandlerManajemen = async (link) => {
+    const data = await axios.get(link)
+    setManajemenData(data)
+  }
+  const HandlerKelola = async (link) => {
+    const data = await axios.get(link)
+    setKelolaData(data)
+  }
+  // const HandlerLayanan = async (prop) => {
+  //   const data = await axios.get(prop.link)
+  //   setKebijakanData(data)
+  // }
+
+
+
   return (
     <div className='py-8'>
       <div className='flex justify-center font-semibold text-lg text-center mb-5'>
@@ -110,7 +130,7 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {kebijakanDummy.data.map((kebijakan, index) => (
+            {kebijakanData.data.data.map((kebijakan, index) => (
               <tr key={kebijakan.id}>
                 <td>{index + 1}</td>
                 <td>{kebijakan.aspek}</td>
@@ -123,6 +143,11 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
+        <div className="join flex justify-center text-white mt-5">
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${kebijakanData.data.prev_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerKebijakan(kebijakanData.data.prev_page_url)}>«</button>
+          <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">Page {kebijakanData.data.current_page}</button>
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${kebijakanData.data.next_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerKebijakan(kebijakanData.data.next_page_url)}>»</button>
+        </div>
       </div>
 
       <div className={`${ManajemenIsHiden ? 'hidden' : ''} my-10 `}>
@@ -139,7 +164,7 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {manajemenDummy.data.data.map((manajemen, index) => (
+            {manajemenData.data.data.map((manajemen, index) => (
               <tr key={manajemen.id}>
                 <td>{index + 1}</td>
                 <td>{manajemen.aspek}</td>
@@ -152,7 +177,11 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
-        <Pagination></Pagination>
+        <div className="join flex justify-center text-white mt-5">
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${manajemenData.data.prev_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerManajemen(manajemenData.data.prev_page_url)}>«</button>
+          <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">Page {manajemenData.data.current_page}</button>
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${manajemenData.data.next_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerManajemen(manajemenData.data.next_page_url)}>»</button>
+        </div>
       </div>
 
       <div className={`${KelolaIsHiden ? 'hidden' : ''} my-10`}>
@@ -169,7 +198,7 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {kelolaDummy.data.data.map((kelola, index) => (
+            {kelolaData.data.data.map((kelola, index) => (
               <tr key={kelola.id}>
                 <td>{index + 1}</td>
                 <td>{kelola.aspek}</td>
@@ -182,6 +211,11 @@ const Domain = () => {
             ))}
           </tbody>
         </table>
+        <div className="join flex justify-center text-white mt-5">
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${kelolaData.data.prev_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerKelola(kelolaData.data.prev_page_url)}>«</button>
+          <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">Page {kelolaData.data.current_page}</button>
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${kelolaData.data.next_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerKelola(kelolaData.data.next_page_url)}>»</button>
+        </div>
       </div>
 
 
@@ -190,7 +224,7 @@ const Domain = () => {
           <h6 className="text-lg font-bold border-4 border-solid border-white border-b-primary py-5 pe-40">Layanan Kabupaten Malang</h6>
           <div className='pt-10 flex flex-col'>
             <div className='flex flex-wrap justify-around'>
-              {layananDummy.data.map((layanan, index) => (
+              {layananData.data.map((layanan, index) => (
                 <div key={index} className='flex flex-row items-center justify-between border-4 border-solid border-gray-300 rounded-lg mt-5 p-4 w-96'>
                   <div className='flex flex-row'>
                     <img src={layanan.logo} alt="LogoKabMal" className="flex max-w-sm rounded-lg" style={{ maxHeight: "80px", maxWidth: "40px" }} />
@@ -208,7 +242,7 @@ const Domain = () => {
                       </form>
                     </dialog>
                     
-                    <a href={layanan.link} target="_blank" className="mt-3 btn btn-sm text-sm text-white btn-primary">Kunjungi</a>
+                    <a href={layanan.link} target="_blank" rel='noreferrer' className="mt-3 btn btn-sm text-sm text-white btn-primary">Kunjungi</a>
                   </div>
                 </div>
               ))}
@@ -217,7 +251,7 @@ const Domain = () => {
         </div>
 
       </div>
-      <button className='btn' onClick={console.log(manajemenDummy)}>coba</button>
+      <button className='btn' onClick={console.log(manajemenData.data.next_page_url)}>coba</button>
     </div>
   );
 }

@@ -49,7 +49,7 @@ const TabelDomain = (prop) => {
 
   const getData = async() =>{
     const data = await axios.get(`${urlAPI}${prop.keterangan}/show`.toLocaleLowerCase())
-    setDomain(data.data)
+    setDomain(data.data.data)
   }
   
   
@@ -109,7 +109,7 @@ const TabelDomain = (prop) => {
           ))}
         </tbody>
       </table>
-
+      
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
           <form method="dialog">
