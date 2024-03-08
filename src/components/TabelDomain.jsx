@@ -7,7 +7,14 @@ const TabelDomain = (prop) => {
   const [id, setId]=React.useState()
   const [data, setData]=React.useState({})
   const [Domain, setDomain]= React.useState(prop.domain)
+  const [linkPage, setLinkPage] = React.useState(`${urlAPI}${prop.keterangan}/show`.toLocaleLowerCase())
   const map = data
+
+  const HandlerDomain = async (link) => {
+    setLinkPage(link)
+    const data = await axios.get(link)
+    setDomain(data.data)
+  }
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -17,7 +24,7 @@ const TabelDomain = (prop) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitUpdate = (e) => {
     e.preventDefault();
     const userData = {
       domain : data.domain,
@@ -47,9 +54,39 @@ const TabelDomain = (prop) => {
       });
   };
 
+  const handleSubmitCreate = (e) => {
+    e.preventDefault();
+    const userData = {
+      domain : `${prop.keterangan} SPBE`,
+      aspek : data.aspek,
+      indikator : data.indikator,
+      penjelasan: data.penjelasan,
+      link : data.link,
+    };
+
+    console.log(userData)
+
+    axios
+      .post(`${urlAPI}${prop.keterangan}/create`.toLocaleLowerCase(), userData)
+      .then((response) => {
+        console.log(response);
+        getData()
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+  };
+
   const getData = async() =>{
-    const data = await axios.get(`${urlAPI}${prop.keterangan}/show`.toLocaleLowerCase())
-    setDomain(data.data.data)
+    const data = await axios.get(linkPage)
+    setDomain(data.data)
   }
   
   
@@ -78,7 +115,7 @@ const TabelDomain = (prop) => {
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {Domain.map((domain, index)=>(
+          {Domain.data.map((domain, index)=>(
             <tr  key={index+1}>
               <td className='border-solid border-2'>{index+1}</td>
               <td className='border-solid border-2'>{domain.aspek}</td>
@@ -109,6 +146,11 @@ const TabelDomain = (prop) => {
           ))}
         </tbody>
       </table>
+        <div className="join flex justify-center text-white mt-5">
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${Domain.prev_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerDomain(Domain.prev_page_url)}>«</button>
+          <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">Page {Domain.current_page}</button>
+          <button className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${Domain.next_page_url === null ? "btn-disabled": " "}`} onClick={async ()=>HandlerDomain(Domain.next_page_url)}>»</button>
+        </div>
       
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-5/12 max-w-5xl">
@@ -117,27 +159,27 @@ const TabelDomain = (prop) => {
             <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
           </form>
           <h3 className="font-bold text-lg">Tambah Indikator</h3>
-          <form action={`${urlAPI}${prop.keterangan}/create`.toLocaleLowerCase()} method='post'>
+          <form onSubmit={handleSubmitCreate}>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
                 <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
-                <input type="text" name='domain' value={ `${prop.keterangan} SPBE`} id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
+                <input type="text" name='domain' onSubmit={handleChange} onChange={handleChange} value={ `${prop.keterangan} SPBE`.toString()} id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readOnly />
               </div>
               <div className="mb-4">
                 <label htmlFor="aspek" className="block text-gray-700 text-sm font-bold mb-2">Aspek:</label>
-                <input type="text" name='aspek'  id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='aspek' onChange={handleChange} id="aspek" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Indikator:</label>
-                <input type="text" name='indikator'  id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='indikator' onChange={handleChange} id="indikator"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="penjelasan" className="block text-gray-700 text-sm font-bold mb-2">Penjelasan:</label>
-                <textarea id="penjelasan" name='penjelasan' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                <textarea id="penjelasan" name='penjelasan' onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
               </div>
               <div className="mb-4">
                 <label htmlFor="link" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
-                <input type="text" name='link' id="link"  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+                <input type="text" name='link' id="link" onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
             </div>
             <div className=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -156,7 +198,7 @@ const TabelDomain = (prop) => {
           <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
         </form>
         <h3 className="font-bold text-lg">Edit Indikator</h3>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmitUpdate} method='dialog'>
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
                 <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
@@ -180,7 +222,7 @@ const TabelDomain = (prop) => {
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                 Update
               </button>
             </div>

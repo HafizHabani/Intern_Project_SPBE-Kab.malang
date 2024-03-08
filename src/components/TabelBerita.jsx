@@ -4,12 +4,50 @@ import { FilePond, registerPlugin,} from 'react-filepond';
 import UpdateBerita from './UpdateBerita';
 import  FilePondPluginFileValidateType  from 'filepond-plugin-file-validate-type';
 registerPlugin(FilePondPluginFileValidateType);
+import axios from 'axios'
+import {urlAPI} from '../constants'
 
 
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
 const TabelBerita = (props) => {
   const [dataNews, setDataNews] = React.useState({})
+  const [data, setData] = React.useState({});
+  const [files, setFiles] = React.useState([]);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+  const handlerFormSubmit = (e) =>{
+    e.preventDefault();
+    const newsData = {
+      title : data.judul,
+      description: data.deskripsi,
+      image : files
+    };
+
+    axios
+      .post(`${urlAPI}abcd/create/`.toLocaleLowerCase(), newsData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("server responded");
+        } else if (error.request) {
+          console.log("network error");
+        } else {
+          console.log(error);
+        }
+      });
+  };
+
   return (
     <div className='p-4 ml-4'>
       <div className='flex flex-row justify-between items-center py-2'>
@@ -69,23 +107,32 @@ const TabelBerita = (props) => {
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">Tambah Berita</h3>
-          <form>
+          <form onSubmit={handlerFormSubmit} method='dialog'>
             <div className="label">
               <span className="label-text font-bold">Judul Berita</span>
             </div>
-            <input type="text" placeholder="Type here" className="input input-md input-bordered w-3/5 mb-3" />
+            <input onChange={handleChange} name="judul" type="text" placeholder="Type here" className="input input-md input-bordered w-3/5 mb-3" />
             <div className="label">
               <span className="label-text font-bold">Gambar Sampul</span>
             </div>
             <FilePond
+              files={files}
+              onupdatefiles={setFiles}
               className='mb-5'
               allowFileTypeValidation={true}
               acceptedFileTypes={['image/*']}
+              name="foto"
+              server={{
+                url: urlAPI,
+                process: "/create",
+                
+              }}
+              onaddfile={handleChange}
             ></FilePond>
             <div className="label">
               <span className="label-text font-bold">Deskripsi</span>
             </div>
-            <textarea className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
+            <textarea onChange={handleChange} name="" className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
             <div className="modal-action flex-row">
               <button className='btn bg-emerald-400 hover:bg-emerald-700 text-white'>Save</button>
               <button formMethod='dialog' className="btn bg-primary hover:bg-red-700 text-white">Close</button>
