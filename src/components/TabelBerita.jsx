@@ -28,7 +28,6 @@ const TabelBerita = (props) => {
     const newsData = {
       title : data.judul,
       description: data.deskripsi,
-      image : files
     };
 
     axios
@@ -121,13 +120,13 @@ const TabelBerita = (props) => {
               className='mb-5'
               allowFileTypeValidation={true}
               acceptedFileTypes={['image/*']}
-              name="foto"
+              name='foto'
+              value=""
               server={{
                 url: urlAPI,
-                process: "/create",
-                
+                process: "./create",
+
               }}
-              onaddfile={handleChange}
             ></FilePond>
             <div className="label">
               <span className="label-text font-bold">Deskripsi</span>

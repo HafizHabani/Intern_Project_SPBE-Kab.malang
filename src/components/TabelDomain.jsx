@@ -119,7 +119,7 @@ const TabelDomain = (prop) => {
             <tr  key={index+1}>
               <td className='border-solid border-2'>{index+1}</td>
               <td className='border-solid border-2'>{domain.aspek}</td>
-              <td className='border-solid border-2'>{domain.indikator}</td>
+              <td className='border-solid border-2 max-w-96'>{domain.indikator}</td>
               <td className='border-solid border-2'>
                 {domain.penjelasan}<br/> 
                 <a href={domain.link} className='text-primary'>Selengkapnya</a>

@@ -18,7 +18,7 @@ import {
   newsDummy,
   galleryPhoto,
 } from "../constants";
-import { TabelGaleri, TabelBerita, TabelDomain } from "../components";
+import { TabelGaleri, TabelBerita, TabelDomain, NilaiIndikator } from "../components";
 
 const Admin = () => {
   const [open, setOpen] = React.useState(0);
@@ -122,7 +122,7 @@ const Admin = () => {
           {component == 2 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
           {component == 4 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
           {component == 5 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
-          {component == 6 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Nilai Indikator SPBE"/>)}
+          {component == 6 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
         </div>
       </div>
     </div>
