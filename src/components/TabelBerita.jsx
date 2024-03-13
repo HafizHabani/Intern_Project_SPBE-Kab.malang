@@ -106,7 +106,7 @@ const TabelBerita = (props) => {
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">Tambah Berita</h3>
-          <form onSubmit={handlerFormSubmit} method='dialog'>
+          <form onSubmit={handlerFormSubmit} encType="multipart/form-data" method='dialog'>
             <div className="label">
               <span className="label-text font-bold">Judul Berita</span>
             </div>
@@ -120,11 +120,11 @@ const TabelBerita = (props) => {
               className='mb-5'
               allowFileTypeValidation={true}
               acceptedFileTypes={['image/*']}
-              name='foto'
+              name='image'
               value=""
               server={{
                 url: urlAPI,
-                process: "./create",
+                process: "abcd/create/",
 
               }}
             ></FilePond>

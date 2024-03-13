@@ -198,7 +198,7 @@ const TabelDomain = (prop) => {
           <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
         </form>
         <h3 className="font-bold text-lg">Edit Indikator</h3>
-          <form onSubmit={handleSubmitUpdate} method='dialog'>
+          <form onSubmit={handleSubmitUpdate} method="dialog">
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div className="mb-4">
                 <label htmlFor="domain" className="block text-gray-700 text-sm font-bold mb-2">Domain:</label>
@@ -222,7 +222,7 @@ const TabelDomain = (prop) => {
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
+              <button type="submit" formMethod='dialog' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">
                 Update
               </button>
             </div>

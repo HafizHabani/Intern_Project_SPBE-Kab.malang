@@ -35,6 +35,7 @@ import spid from "./logo_layanan/spid.png";
 import srikandi from "./logo_layanan/srikandi.png";
 import tindikanting from "./logo_layanan/tindikanting.jpg";
 import berita from './berita01.png'
+import logoBaru from './logo.png'
 
 export {
   kankabmal,
@@ -73,4 +74,5 @@ export {
   srikandi,
   tindikanting,
   berita,
+  logoBaru,
 };
