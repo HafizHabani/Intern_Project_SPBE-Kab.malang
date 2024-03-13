@@ -32,6 +32,7 @@ const TabelDomain = (prop) => {
       indikator : data.indikator,
       penjelasan: data.penjelasan,
       link : data.link,
+      nilai : data.nilai,
     };
 
     console.log(userData)
@@ -62,6 +63,7 @@ const TabelDomain = (prop) => {
       indikator : data.indikator,
       penjelasan: data.penjelasan,
       link : data.link,
+      nilai : data.nilai,
     };
 
     console.log(userData)
@@ -111,6 +113,7 @@ const TabelDomain = (prop) => {
             <th className='border-solid border-2'>Aspek</th>
             <th className='border-solid border-2'>Indikator</th>
             <th className='border-solid border-2'>Penjelasan</th>
+            <th className='border-solid border-2'>Nilai Indikator</th>
             <th className='border-solid border-2'>Action</th>
           </tr>
         </thead>
@@ -181,6 +184,10 @@ const TabelDomain = (prop) => {
                 <label htmlFor="link" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
                 <input type="text" name='link' id="link" onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
               </div>
+              <div className="mb-4">
+                <label htmlFor="nilai" className="block text-gray-700 text-sm font-bold mb-2">Nilai Index:</label>
+                <textarea id="nilai" name='nilai' onSubmit={handleChange} onChange={handleChange} defaultValue={map.penjelasan} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+              </div>
             </div>
             <div className=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
               <button type="submit" formMethod='post' className="btn bg-primary text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
@@ -219,6 +226,10 @@ const TabelDomain = (prop) => {
               <div className="mb-4">
                 <label htmlFor="indikator" className="block text-gray-700 text-sm font-bold mb-2">Link Document:</label>
                 <input type="text" name='link' id="link" onSubmit={handleChange} onChange={handleChange} defaultValue={map.link} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="nilai" className="block text-gray-700 text-sm font-bold mb-2">Nilai Index:</label>
+                <textarea id="nilai" name='nilai' onSubmit={handleChange} onChange={handleChange} defaultValue={map.penjelasan} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

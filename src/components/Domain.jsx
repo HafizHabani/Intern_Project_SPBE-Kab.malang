@@ -17,6 +17,8 @@ const Domain = () => {
   const [kelolaData, setKelolaData] = useState(kelolaDummy);
   const [manajemenData, setManajemenData] = useState(manajemenDummy);
 
+  const [namaLayanan, setNamaLayanan] = useState();
+
 
   const handleShowKebijakan = () => setKebijakanIsHiden(false);
   const handleShowKelola = () => setKelolaIsHiden(false);
@@ -127,6 +129,7 @@ const Domain = () => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Penjelasan</th>
+              <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
@@ -161,6 +164,7 @@ const Domain = () => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Penjelasan</th>
+              <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
@@ -195,6 +199,7 @@ const Domain = () => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Penjelasan</th>
+              <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
@@ -219,7 +224,7 @@ const Domain = () => {
       </div>
 
 
-      <div className={`${LayananIsHiden ? 'hidden' : ''} my-10`}>
+      <div className={`${LayananIsHiden ? 'hidden' : ''} mb-10`}>
         <div>
           <h6 className="text-lg font-bold border-4 border-solid border-white border-b-primary py-5 pe-40">Layanan Kabupaten Malang</h6>
           <div className='pt-10 flex flex-col'>
@@ -231,22 +236,21 @@ const Domain = () => {
                     <h5 className='ml-3 font-bold text-sm'>{layanan.nama}</h5>
                   </div>
                   <div className='flex flex-col items-center'>
-                    <button className="btn px-6 btn-sm text-sm text-white  btn-primary" onClick={() => {document.getElementById('my_modal_2').showModal(); }}>Detail</button>
-                    <dialog id="my_modal_2" className="modal">
-                      <div className="modal-box">
-                        <h3 className="font-bold text-lg">{layanan.nama}</h3>
-                        <p className="py-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      </div>
-                      <form method="dialog" className="modal-backdrop">
-                        <button>close</button>
-                      </form>
-                    </dialog>
-                    
+                    <button className="btn px-6 btn-sm text-sm text-white  btn-primary" onClick={() => {document.getElementById('my_modal_2').showModal(); setNamaLayanan(layanan.nama) }}>Detail</button>
                     <a href={layanan.link} target="_blank" rel='noreferrer' className="mt-3 btn btn-sm text-sm text-white btn-primary">Kunjungi</a>
                   </div>
                 </div>
               ))}
             </div>
+            <dialog id="my_modal_2" className="modal">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg">{namaLayanan}</h3>
+                <p className="py-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
           </div>
         </div>
 
