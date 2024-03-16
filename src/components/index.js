@@ -17,6 +17,7 @@ import TabelGaleri from "./TabelGaleri";
 import Artikel from "./Artikel";
 import Isber from "./Isber";
 import NilaiIndikator from "./TabelNilaiIndikator";
+import TabelLayanan from "./TabelLayanan";
 
 
 export {
@@ -39,4 +40,5 @@ export {
     TabelGaleri,
     Artikel,
     NilaiIndikator,
+    TabelLayanan,
 }

@@ -14,11 +14,12 @@ import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   kebijakanDummy,
   manajemenDummy,
+  layananDummy,
   kelolaDummy,
   newsDummy,
   galleryPhoto,
 } from "../constants";
-import { TabelGaleri, TabelBerita, TabelDomain, NilaiIndikator } from "../components";
+import { TabelGaleri, TabelBerita, TabelDomain, NilaiIndikator, TabelLayanan } from "../components";
 
 const Admin = () => {
   const [open, setOpen] = React.useState(0);
@@ -75,13 +76,14 @@ const Admin = () => {
                       </ListItemPrefix>
                       Manajemen
                     </ListItem>
-                    <ListItem>
+                    
+                    <ListItem onClick={() => setComponent(2)}>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                       </ListItemPrefix>
-                      Layanan
-                    </ListItem>
-                    <ListItem onClick={() => setComponent(2)}>
+                        Layanan
+                      </ListItem>
+                    <ListItem onClick={() => setComponent(3)}>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                       </ListItemPrefix>
@@ -119,7 +121,8 @@ const Admin = () => {
         <div className="">
           {component == 0 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Kebijakan" />)}
           {component == 1 && (<TabelDomain domain={manajemenDummy.data} keterangan="Manajemen"/>)}
-          {component == 2 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
+          {component == 2 && (<TabelLayanan berita={layananDummy.data} keterangan="Layanan"/>)}
+          {component == 3 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
           {component == 4 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
           {component == 5 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
           {component == 6 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
