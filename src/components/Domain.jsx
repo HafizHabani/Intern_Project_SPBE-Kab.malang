@@ -255,7 +255,7 @@ const Domain = () => {
         </div>
 
       </div>
-      <button className='btn' onClick={console.log(manajemenData.data.next_page_url)}>coba</button>
+      {/* <button className='btn' onClick={console.log(manajemenData.data.next_page_url)}>coba</button> */}
     </div>
   );
 }

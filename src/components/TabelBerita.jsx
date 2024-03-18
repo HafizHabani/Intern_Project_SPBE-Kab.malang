@@ -14,6 +14,7 @@ const TabelBerita = (props) => {
   const [dataNews, setDataNews] = React.useState({})
   const [data, setData] = React.useState({});
   const [files, setFiles] = React.useState([]);
+  const [id, setId] = React.useState();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -105,8 +106,12 @@ const TabelBerita = (props) => {
       </table>
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute text-xl right-6 top-6">✕</button>
+          </form>
           <h3 className="font-bold text-lg">Tambah Berita</h3>
-          <form onSubmit={handlerFormSubmit} encType="multipart/form-data" method='dialog'>
+          <form onSubmit={()=>{handlerFormSubmit(); document.getElementById("formAdd").reset();}} encType="multipart/form-data" id='formAdd' method='dialog'>
             <div className="label">
               <span className="label-text font-bold">Judul Berita</span>
             </div>
@@ -125,7 +130,7 @@ const TabelBerita = (props) => {
               server={{
                 url: urlAPI,
                 process: "abcd/create/",
-
+                onload : (response) => {setId(response.id)}
               }}
             ></FilePond>
             <div className="label">
@@ -133,8 +138,7 @@ const TabelBerita = (props) => {
             </div>
             <textarea onChange={handleChange} name="" className="textarea textarea-bordered w-full mb-3" placeholder="Isi Berita"></textarea>
             <div className="modal-action flex-row">
-              <button className='btn bg-emerald-400 hover:bg-emerald-700 text-white'>Save</button>
-              <button formMethod='dialog' className="btn bg-primary hover:bg-red-700 text-white">Close</button>
+              <button type='submit' className='btn bg-emerald-400 hover:bg-emerald-700 text-white'>Save</button>
             </div>
           </form>
         </div>

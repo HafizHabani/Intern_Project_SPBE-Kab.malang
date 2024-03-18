@@ -16,7 +16,7 @@ const Berita = () => (
       {newsDummy.data.map((news, index) => (
         <div key={index} className="card card-compact w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-base-100 mt-2 md:mt-0 md:mr-4 lg:mr-0"> {/* Adjusted card width and added margin-right */}
           <figure>
-            <img src={news.image} alt="Shoes" className="w-full" /> {/* Adjusted image width */}
+            <img src={news.image} alt="Shoes" className="max-h-52" /> {/* Adjusted image width */}
           </figure>
           <div className="card-body">
             <h2 className="card-title text-base md:text-lg">{news.title}</h2> {/* Adjusted font size */}

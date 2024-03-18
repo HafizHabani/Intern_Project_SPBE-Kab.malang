@@ -1,8 +1,9 @@
 import React from 'react'
+import { urlAPI } from '../constants'
 import { FilePond } from 'react-filepond'
 
 const UpdateBerita = (prop) => { 
-    
+  const [files, setFiles] = React.useState();
   return (
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
@@ -16,9 +17,17 @@ const UpdateBerita = (prop) => {
               <span className="label-text font-bold">Gambar Sampul</span>
             </div>
             <FilePond
+              files={files}
+              onupdatefiles={setFiles}
               className='mb-5'
               allowFileTypeValidation={true}
               acceptedFileTypes={['image/*']}
+              name='image'
+              value=""
+              server={{
+                url: urlAPI,
+                process: `abcd//update/${prop.data.id}`
+              }}
             ></FilePond>
             <div className="label">
               <span className="label-text font-bold">Deskripsi</span>

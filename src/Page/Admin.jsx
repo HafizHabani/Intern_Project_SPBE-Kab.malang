@@ -1,29 +1,15 @@
 import React from "react";
-import { logokab } from "../assets";
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-} from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import { logoBaru } from "../assets";
+import {Card,Typography,List,ListItem,ListItemPrefix,Accordion,AccordionHeader,AccordionBody,} from "@material-tailwind/react";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import {
-  kebijakanDummy,
-  manajemenDummy,
-  layananDummy,
-  kelolaDummy,
-  newsDummy,
-  galleryPhoto,
-} from "../constants";
+import {kebijakanDummy,manajemenDummy,layananDummy,kelolaDummy,newsDummy,galleryPhoto,} from "../constants";
 import { TabelGaleri, TabelBerita, TabelDomain, NilaiIndikator, TabelLayanan } from "../components";
 
 const Admin = () => {
   const [open, setOpen] = React.useState(0);
   const [component, setComponent] = React.useState(0);
+  const [token, setToken] = React.useState();
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -33,7 +19,9 @@ const Admin = () => {
     <div>
       <div className="px-10 shadow-lg">
         <nav className="w-full flex py-3 justify-between items-center navbar ">
-          <img src={logokab} alt="logospbe" className="w-24 sm:w-auto" />{" "}
+          <Link to='/'>
+            <img src={logoBaru} alt="logospbe" className=" max-h-14 sm:w-auto hover:cursor-pointer" />
+          </Link>
           {/* Adjusted logo size */}
         </nav>
       </div>

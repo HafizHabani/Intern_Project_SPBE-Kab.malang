@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pendopo } from '../assets'
+import { kankabmal } from '../assets'
 
 const Home = () => (
     <div className='shrink flex justify-between items-center px-1 '> 
@@ -13,7 +13,7 @@ const Home = () => (
         </div>
       </div>
       <div className='w-2/3'>
-        <img src={Pendopo} alt="logospbe" className="divide-opacity-10 "/>
+        <img src={kankabmal} alt="logospbe" className="divide-opacity-10 "/>
       </div>
     </div>
   )

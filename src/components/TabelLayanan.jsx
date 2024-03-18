@@ -83,8 +83,8 @@ const TabelLayanan = (props) => {
               <td className='border-solid border-2'>{index+1}</td>
               <td className='border-solid border-2'>{berita.nama}</td>
               <td className='border-solid border-2'>{berita.updated_at.slice(0, 10)}</td>
-              <td className='border-solid border-2'>
-                <img src={berita.logo} alt={berita.nama} className="w-32 h-auto" />
+              <td className='border-solid border-2 flex justify-center'>
+                <img src={berita.logo} alt={berita.nama} className="w-auto max-h-20" />
               </td>
               <td className='border-solid border-2 max-w-96'>
                 {/* iki sing deskripsi kok gak ke get */}
