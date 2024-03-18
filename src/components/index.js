@@ -20,6 +20,7 @@ import NilaiIndikator from "./TabelNilaiIndikator";
 import TabelLayanan from "./TabelLayanan";
 
 
+
 export {
     Islay,
     Isber,
@@ -41,4 +42,5 @@ export {
     Artikel,
     NilaiIndikator,
     TabelLayanan,
+    
 }

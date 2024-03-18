@@ -84,20 +84,27 @@ const Admin = () => {
                 className="px-10 pt-4 font-bold"
                 onClick={() => setComponent(4)}
               >
-                Berita
+                Indeks SPBE
               </ListItem>
               <ListItem
                 className="px-10 pt-4 font-bold"
                 onClick={() => setComponent(5)}
               >
-                Galeri
+                Portal Layanan
               </ListItem>
               <ListItem
                 className="px-10 pt-4 font-bold"
                 onClick={() => setComponent(6)}
               >
-                Indeks SPBE
+                Berita
               </ListItem>
+              <ListItem
+                className="px-10 pt-4 font-bold"
+                onClick={() => setComponent(7)}
+              >
+                Galeri
+              </ListItem>
+             
               <ListItem className="px-4 ml-2 mt-4 font-bold">
                 <div className=" text-white py-1 bg-rose-800 px-3 rounded-md">
                   Log Out
@@ -109,11 +116,14 @@ const Admin = () => {
         <div className="">
           {component == 0 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Kebijakan" />)}
           {component == 1 && (<TabelDomain domain={manajemenDummy.data} keterangan="Manajemen"/>)}
-          {component == 2 && (<TabelLayanan berita={layananDummy.data} keterangan="Layanan"/>)}
+          {/* ini perlu dirubah untuk domain layanan */}
+          {component == 2 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Layanan"/>)} 
           {component == 3 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
           {component == 4 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
-          {component == 5 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
-          {component == 6 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
+          {component == 5 && (<TabelLayanan berita={layananDummy.data} keterangan="Layanan"/>)}
+          {component == 6 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
+          {component == 7 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
+
         </div>
       </div>
     </div>

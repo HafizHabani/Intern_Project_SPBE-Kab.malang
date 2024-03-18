@@ -17,7 +17,7 @@ const Islay = () => {
         <h6 className="pl-2 font-bold">Kabupaten Malang</h6>
       </div>
 
-      <Swiper pagination={true} autoplay={{ delay:2000 }} modules={[Pagination, Autoplay]} className="mySwiper mb-2"
+      <Swiper pagination={true} autoplay={{ delay:3000 }} modules={[Pagination, Autoplay]} className="mySwiper mb-2"
         spaceBetween={20}
         slidesPerView={3}
         
