@@ -119,10 +119,11 @@ const Admin = () => {
           {/* ini perlu dirubah untuk domain layanan */}
           {component == 2 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Layanan"/>)} 
           {component == 3 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
-          {component == 4 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
+          {component == 4 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
           {component == 5 && (<TabelLayanan berita={layananDummy.data} keterangan="Layanan"/>)}
-          {component == 6 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
-          {component == 7 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
+          {component == 6 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
+          {component == 7 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
+          
 
         </div>
       </div>
