@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../style';
-import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri, Imple} from '../components';
+import {Navbar, Home, Footer, Sambutan, Domain, Berita,  Media, Galeri, Imple, Islay} from '../components';
 
 const Dashboard = () => {
   return (
@@ -32,6 +32,12 @@ const Dashboard = () => {
       <div className={`${styles.paddingX} ${styles.flexCenter} bg-[url('./bgimplementasi.png')] bg-cover bg-no-repeat bg-center`}>
         <div className={`${styles.boxWidth}`}>
           <Imple />
+        </div>
+      </div>
+
+      <div id='Domain' className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Islay />
         </div>
       </div>
       
