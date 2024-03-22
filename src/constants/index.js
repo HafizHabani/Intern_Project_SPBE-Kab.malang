@@ -1,6 +1,6 @@
 import { facebook, instagram, linkedin, twitter, } from "../assets";
 import axios from "axios"
-const baseUrl = 'https://threats-ng-im-buses.trycloudflare.com/api/';
+const baseUrl = 'https://oxide-alpha-ran-forwarding.trycloudflare.com/api/';
 
 export const navLinks = [
   {
