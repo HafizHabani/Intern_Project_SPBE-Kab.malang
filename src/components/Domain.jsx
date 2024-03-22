@@ -93,6 +93,18 @@ const Domain = () => {
   //   setKebijakanData(data)
   // }
 
+  const [selectedYear, setSelectedYear] = useState('All'); // State untuk menyimpan tahun yang dipilih
+
+  // Fungsi untuk menangani perubahan tahun yang dipilih
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+    // Tambahkan logika filter data berdasarkan tahun yang dipilih di sini
+  };
+
+  // Daftar tahun yang tersedia
+  const availableYears = ['All', '2022', '2023', '2024']; // Sesuaikan dengan tahun yang tersedia
+
+
   return (
     <div className="py-8">
       <div className="flex justify-center font-semibold text-lg text-center mb-5">
@@ -146,76 +158,115 @@ const Domain = () => {
       </div>
 
       <div className={`${KebijakanIsHiden ? "hidden" : ""} my-10 `}>
-        <div className="relative"></div>
-        <table className="table">
-          <thead className="text-lg text-primary">
-            <tr>
-              <th>No</th>
-              <th>Aspek</th>
-              <th>Indikator</th>
-              <th>Penjelasan</th>
-              <th>Nilai Indikator</th>
+      <div className="relative"></div>
+      <table className="table">
+        <thead className="text-lg text-primary">
+          <tr>
+          <th>
+              {/* Tambahkan dropdown untuk memilih tahun */}
+              <div className="flex items-center">
+                <span>Tahun:</span>
+                <select
+                  className="ml-2 p-1 border border-gray-300 rounded"
+                  value={selectedYear}
+                  onChange={(e) => handleYearChange(e.target.value)}
+                >
+                  {availableYears.map((year, index) => (
+                    <option key={index} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </th>
+            <th>No</th>
+            <th>Aspek</th>
+            <th>Indikator</th>
+            <th>Narasi</th>
+            <th>Nilai Indikator</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Render data sesuai dengan logika filter tahun */}
+          {kebijakanData.data.data.map((kebijakan, index) => (
+            <tr key={kebijakan.id}>
+              <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
+              <td>{index + 1}</td>
+             
+              <td>{kebijakan.aspek}</td>
+              <td>{kebijakan.indikator}</td>
+              <td>
+                {kebijakan.penjelasan}
+                <br />
+                <a href={kebijakan.link} className="text-primary">
+                  Selengkapnya
+                </a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {kebijakanData.data.data.map((kebijakan, index) => (
-              <tr key={kebijakan.id}>
-                <td>{index + 1}</td>
-                <td>{kebijakan.aspek}</td>
-                <td>{kebijakan.indikator}</td>
-                <td>
-                  {kebijakan.penjelasan}
-                  <br />
-                  <a href={kebijakan.link} className="text-primary">
-                    Selengkapnya
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="join flex justify-center text-white mt-5">
-          <button
-            className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
-              kebijakanData.data.prev_page_url === null ? "btn-disabled" : " "
-            }`}
-            onClick={async () =>
-              HandlerKebijakan(kebijakanData.data.prev_page_url)
-            }
-          >
-            «
-          </button>
-          <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
-            Page {kebijakanData.data.current_page}
-          </button>
-          <button
-            className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
-              kebijakanData.data.next_page_url === null ? "btn-disabled" : " "
-            }`}
-            onClick={async () =>
-              HandlerKebijakan(kebijakanData.data.next_page_url)
-            }
-          >
-            »
-          </button>
-        </div>
+          ))}
+        </tbody>
+      </table>
+      <div className="join flex justify-center text-white mt-5">
+        <button
+          className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
+            kebijakanData.data.prev_page_url === null ? "btn-disabled" : " "
+          }`}
+          onClick={async () =>
+            HandlerKebijakan(kebijakanData.data.prev_page_url)
+          }
+        >
+          «
+        </button>
+        <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
+          Page {kebijakanData.data.current_page}
+        </button>
+        <button
+          className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
+            kebijakanData.data.next_page_url === null ? "btn-disabled" : " "
+          }`}
+          onClick={async () =>
+            HandlerKebijakan(kebijakanData.data.next_page_url)
+          }
+        >
+          »
+        </button>
       </div>
+    </div>
+  
 
       <div className={`${ManajemenIsHiden ? "hidden" : ""} my-10 `}>
         <div className="relative"></div>
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
+            <th>
+              {/* Tambahkan dropdown untuk memilih tahun */}
+              <div className="flex items-center">
+                <span>Tahun:</span>
+                <select
+                  className="ml-2 p-1 border border-gray-300 rounded"
+                  value={selectedYear}
+                  onChange={(e) => handleYearChange(e.target.value)}
+                >
+                  {availableYears.map((year, index) => (
+                    <option key={index} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </th>
               <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
-              <th>Penjelasan</th>
+              <th>Narasi</th>
               <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
             {manajemenData.data.data.map((manajemen, index) => (
               <tr key={manajemen.id}>
+                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
                 <td>{index + 1}</td>
                 <td>{manajemen.aspek}</td>
                 <td>{manajemen.indikator}</td>
@@ -262,16 +313,34 @@ const Domain = () => {
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
+            <th>
+              {/* Tambahkan dropdown untuk memilih tahun */}
+              <div className="flex items-center">
+                <span>Tahun:</span>
+                <select
+                  className="ml-2 p-1 border border-gray-300 rounded"
+                  value={selectedYear}
+                  onChange={(e) => handleYearChange(e.target.value)}
+                >
+                  {availableYears.map((year, index) => (
+                    <option key={index} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </th>
               <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
-              <th>Penjelasan</th>
+              <th>Narasi</th>
               <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
             {kelolaData.data.data.map((kelola, index) => (
               <tr key={kelola.id}>
+                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
                 <td>{index + 1}</td>
                 <td>{kelola.aspek}</td>
                 <td>{kelola.indikator}</td>
@@ -315,16 +384,34 @@ const Domain = () => {
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
+            <th>
+              {/* Tambahkan dropdown untuk memilih tahun */}
+              <div className="flex items-center">
+                <span>Tahun:</span>
+                <select
+                  className="ml-2 p-1 border border-gray-300 rounded"
+                  value={selectedYear}
+                  onChange={(e) => handleYearChange(e.target.value)}
+                >
+                  {availableYears.map((year, index) => (
+                    <option key={index} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </th>
               <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
-              <th>Penjelasan</th>
+              <th>Narasi</th>
               <th>Nilai Indikator</th>
             </tr>
           </thead>
           <tbody>
             {kelolaData.data.data.map((kelola, index) => (
               <tr key={kelola.id}>
+                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
                 <td>{index + 1}</td>
                 <td>{kelola.aspek}</td>
                 <td>{kelola.indikator}</td>

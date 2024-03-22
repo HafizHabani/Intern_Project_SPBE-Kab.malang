@@ -115,7 +115,7 @@ const TabelDomain = (prop) => {
             <th className='border-solid border-2'>No</th>
             <th className='border-solid border-2'>Aspek</th>
             <th className='border-solid border-2'>Indikator</th>
-            <th className='border-solid border-2'>Penjelasan</th>
+            <th className='border-solid border-2'>Narasi</th>
             <th className='border-solid border-2'>Nilai Indikator</th>
             <th className='border-solid border-2'>Action</th>
           </tr>
