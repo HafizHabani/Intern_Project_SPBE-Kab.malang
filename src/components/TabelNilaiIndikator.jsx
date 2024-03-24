@@ -9,7 +9,7 @@ const NilaiIndikator = (props) => {
     <div className='p-4'>
       <div className='flex flex-row justify-between items-center py-2'>
         <p className='font-bold text-2xl'>
-          Tabel {props.keterangan}
+          Tabel {props.nama}
         </p>
         <button className='btn btn-sm bg-primary hover:bg-red-800 text-white' onClick={()=>document.getElementById('my_modal_4').showModal()}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">

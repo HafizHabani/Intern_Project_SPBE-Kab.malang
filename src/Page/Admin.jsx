@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { logoBaru } from "../assets";
 import {Card,Typography,List,ListItem,ListItemPrefix,Accordion,AccordionHeader,AccordionBody,} from "@material-tailwind/react";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import {kebijakanDummy,manajemenDummy,layananDummy,kelolaDummy,newsDummy,galleryPhoto,} from "../constants";
+import {kebijakanDummy,manajemenDummy,layananDummy,kelolaDummy,newsDummy,galleryPhoto,layanansDummy} from "../constants";
 import { TabelGaleri, TabelBerita, TabelDomain, NilaiIndikator, TabelLayanan } from "../components";
 
 const Admin = () => {
@@ -114,15 +114,15 @@ const Admin = () => {
           </Card>
         </div>
         <div className="">
-          {component == 0 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Kebijakan" />)}
-          {component == 1 && (<TabelDomain domain={manajemenDummy.data} keterangan="Manajemen"/>)}
+          {component == 0 && (<TabelDomain domain={kebijakanDummy.data} nama="Kebijakan" keterangan="Kebijakan" />)}
+          {component == 1 && (<TabelDomain domain={manajemenDummy.data} nama="Manajemen" keterangan="Manajemen"/>)}
           {/* ini perlu dirubah untuk domain layanan */}
-          {component == 2 && (<TabelDomain domain={kebijakanDummy.data} keterangan="Layanan"/>)} 
-          {component == 3 && (<TabelDomain domain={kelolaDummy.data} keterangan="Tata Kelola"/>)}
-          {component == 4 && (<NilaiIndikator nilai={galleryPhoto.data} keterangan="Nilai SPBE"/>)}
-          {component == 5 && (<TabelLayanan berita={layananDummy.data} keterangan="Layanan"/>)}
-          {component == 6 && (<TabelBerita berita={newsDummy.data} keterangan="Berita" />)}
-          {component == 7 && (<TabelGaleri galeri={galleryPhoto.data} keterangan="Galeri" />)}
+          {component == 2 && (<TabelDomain domain={layanansDummy.data} nama="Layanan" keterangan="Layanans"/>)} 
+          {component == 3 && (<TabelDomain domain={kelolaDummy.data} nama="Tata Kelola"  keterangan="Kelola"/>)}
+          {component == 4 && (<NilaiIndikator nilai={galleryPhoto.data} nama="Nilai SPBE" keterangan="Nilai SPBE"/>)}
+          {component == 5 && (<TabelLayanan berita={layananDummy.data} nama="Layanan" keterangan="Layanan"/>)}
+          {component == 6 && (<TabelBerita berita={newsDummy.data} nama="Berita" keterangan="Berita" />)}
+          {component == 7 && (<TabelGaleri galeri={galleryPhoto.data} nama="Galeri" keterangan="Galeri" />)}
           
 
         </div>

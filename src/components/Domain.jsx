@@ -5,7 +5,7 @@ import {
   kebijakanDummy,
   manajemenDummy,
   kelolaDummy,
-  layananDummy,
+  layanansDummy,
 } from "../constants";
 import axios from "axios";
 
@@ -16,11 +16,12 @@ const Domain = () => {
   const [ManajemenIsHiden, setManajemenIsHiden] = useState(true);
 
   const [kebijakanData, setKebijakanData] = useState(kebijakanDummy);
-  const [layananData, setLayananData] = useState(layananDummy);
+  const [layananData, setLayananData] = useState(layanansDummy);
   const [kelolaData, setKelolaData] = useState(kelolaDummy);
   const [manajemenData, setManajemenData] = useState(manajemenDummy);
 
-  const [namaLayanan, setNamaLayanan] = useState();
+
+  // const [namaLayanan, setNamaLayanan] = useState();
 
   const handleShowKebijakan = () => setKebijakanIsHiden(false);
   const handleShowKelola = () => setKelolaIsHiden(false);
@@ -88,21 +89,69 @@ const Domain = () => {
     const data = await axios.get(link);
     setKelolaData(data);
   };
-  // const HandlerLayanan = async (prop) => {
-  //   const data = await axios.get(prop.link)
-  //   setKebijakanData(data)
-  // }
+
+  const HandlerLayanan = async (prop) => {
+    const data = await axios.get(prop.link)
+    setLayananData(data)
+  }
 
   const [selectedYear, setSelectedYear] = useState('All'); // State untuk menyimpan tahun yang dipilih
 
   // Fungsi untuk menangani perubahan tahun yang dipilih
-  const handleYearChange = (year) => {
-    setSelectedYear(year);
+  const handleYearChange = (tahun) => {
+    setSelectedYear(tahun);
     // Tambahkan logika filter data berdasarkan tahun yang dipilih di sini
   };
 
-  // Daftar tahun yang tersedia
-  const availableYears = ['All', '2022', '2023', '2024']; // Sesuaikan dengan tahun yang tersedia
+  // Daftar tahun yang tersedia, diurutkan dari terkecil ke terbesar
+const uniqueYearsKebijakan = [...new Set(kebijakanData.data.data.map(kebijakan => kebijakan.tahun))]
+.sort((a, b) => a - b);
+
+  const uniqueYearsManajemen = [...new Set(manajemenData.data.data.map(manajemen => manajemen.tahun))].sort((a, b) => a - b);
+  const uniqueYearsTatakelola = [...new Set(kelolaData.data.data.map(kelola => kelola.tahun))].sort((a, b) => a - b);
+  const uniqueYearsLayanan = [...new Set(layananData.data.data.map(layanans => layanans.tahun))].sort((a, b) => a - b);
+  
+
+
+// Filter data berdasarkan tahun yang dipilih
+const filteredKebijakanData = kebijakanData.data.data.filter(kebijakan => {
+  // Jika tahun yang dipilih adalah 'All', tampilkan semua data
+  if (selectedYear === 'All') {
+    return true;
+  }
+  // Jika tahun dari kebijakan sama dengan tahun yang dipilih, tampilkan data tersebut
+  return kebijakan.tahun === selectedYear;
+});
+
+// Filter data berdasarkan tahun yang dipilih
+const filteredManajemenData = manajemenData.data.data.filter(manajemen => {
+  // Jika tahun yang dipilih adalah 'All', tampilkan semua data
+  if (selectedYear === 'All') {
+    return true;
+  }
+  // Jika tahun dari kebijakan sama dengan tahun yang dipilih, tampilkan data tersebut
+  return manajemen.tahun === selectedYear;
+});
+
+// Filter data berdasarkan tahun yang dipilih
+const filteredTatakelolaData = kelolaData.data.data.filter(kelola => {
+  // Jika tahun yang dipilih adalah 'All', tampilkan semua data
+  if (selectedYear === 'All') {
+    return true;
+  }
+  // Jika tahun dari kebijakan sama dengan tahun yang dipilih, tampilkan data tersebut
+  return kelola.tahun === selectedYear;
+});
+
+// Filter data berdasarkan tahun yang dipilih
+const filteredLayananData = layananData.data.data.filter(layanans => {
+  // Jika tahun yang dipilih adalah 'All', tampilkan semua data
+  if (selectedYear === 'All') {
+    return true;
+  }
+  // Jika tahun dari kebijakan sama dengan tahun yang dipilih, tampilkan data tersebut
+  return layanans.tahun === selectedYear;
+});
 
 
   return (
@@ -157,82 +206,83 @@ const Domain = () => {
         </button>
       </div>
 
-      <div className={`${KebijakanIsHiden ? "hidden" : ""} my-10 `}>
-      <div className="relative"></div>
-      <table className="table">
-        <thead className="text-lg text-primary">
-          <tr>
+    <div className={`${KebijakanIsHiden ? "hidden" : ""} my-10 `}>
+    <div className="relative"></div>
+    <table className="table">
+      <thead className="text-lg text-primary">
+        <tr>
           <th>
-              {/* Tambahkan dropdown untuk memilih tahun */}
-              <div className="flex items-center">
-                <span>Tahun:</span>
-                <select
-                  className="ml-2 p-1 border border-gray-300 rounded"
-                  value={selectedYear}
-                  onChange={(e) => handleYearChange(e.target.value)}
-                >
-                  {availableYears.map((year, index) => (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </th>
-            <th>No</th>
-            <th>Aspek</th>
-            <th>Indikator</th>
-            <th>Narasi</th>
-            <th>Nilai Indikator</th>
+            {/* Tambahkan dropdown untuk memilih tahun */}
+            <div className="flex items-center">
+              <span>Tahun:</span>
+              <select
+                className="ml-2 p-1 border border-gray-300 rounded"
+                value={selectedYear}
+                onChange={(e) => handleYearChange(e.target.value)}
+              >
+                {/* Buat opsi untuk setiap tahun unik */}
+                <option value="All">All</option>
+                {uniqueYearsKebijakan.map((year, index) => (
+                  <option key={index} value={year}>{year}</option>
+                ))}
+              </select>
+            </div>
+          </th>
+          <th>No</th>
+          <th>Aspek</th>
+          <th>Indikator</th>
+          <th>Narasi</th>
+          <th>Nilai Indikator</th>
+          <th>Link Dokumen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/* Render data sesuai dengan logika filter tahun */}
+        {filteredKebijakanData.map((kebijakan) => (
+          <tr key={kebijakan.id}>
+            <td>{kebijakan.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+            <td>{kebijakan.id}</td>
+           
+            <td>{kebijakan.aspek}</td>
+            <td>{kebijakan.indikator}</td>
+            <td>
+              {kebijakan.penjelasan}
+            </td>
+            <td>{kebijakan.nilai}</td>
+            <td><a href={kebijakan.link} className="text-primary">
+                Selengkapnya Lihat Disini
+              </a></td>
+              
           </tr>
-        </thead>
-        <tbody>
-          {/* Render data sesuai dengan logika filter tahun */}
-          {kebijakanData.data.data.map((kebijakan, index) => (
-            <tr key={kebijakan.id}>
-              <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
-              <td>{index + 1}</td>
-             
-              <td>{kebijakan.aspek}</td>
-              <td>{kebijakan.indikator}</td>
-              <td>
-                {kebijakan.penjelasan}
-                <br />
-                <a href={kebijakan.link} className="text-primary">
-                  Selengkapnya
-                </a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="join flex justify-center text-white mt-5">
-        <button
-          className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
-            kebijakanData.data.prev_page_url === null ? "btn-disabled" : " "
-          }`}
-          onClick={async () =>
-            HandlerKebijakan(kebijakanData.data.prev_page_url)
-          }
-        >
-          «
-        </button>
-        <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
-          Page {kebijakanData.data.current_page}
-        </button>
-        <button
-          className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
-            kebijakanData.data.next_page_url === null ? "btn-disabled" : " "
-          }`}
-          onClick={async () =>
-            HandlerKebijakan(kebijakanData.data.next_page_url)
-          }
-        >
-          »
-        </button>
-      </div>
+        ))}
+      </tbody>
+    </table>
+    <div className="join flex justify-center text-white mt-5">
+      <button
+        className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
+          kebijakanData.data.prev_page_url === null ? "btn-disabled" : " "
+        }`}
+        onClick={async () =>
+          HandlerKebijakan(kebijakanData.data.prev_page_url)
+        }
+      >
+        «
+      </button>
+      <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
+        Page {kebijakanData.data.current_page}
+      </button>
+      <button
+        className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
+          kebijakanData.data.next_page_url === null ? "btn-disabled" : " "
+        }`}
+        onClick={async () =>
+          HandlerKebijakan(kebijakanData.data.next_page_url)
+        }
+      >
+        »
+      </button>
     </div>
-  
+  </div>
 
       <div className={`${ManajemenIsHiden ? "hidden" : ""} my-10 `}>
         <div className="relative"></div>
@@ -244,16 +294,16 @@ const Domain = () => {
               <div className="flex items-center">
                 <span>Tahun:</span>
                 <select
-                  className="ml-2 p-1 border border-gray-300 rounded"
-                  value={selectedYear}
-                  onChange={(e) => handleYearChange(e.target.value)}
-                >
-                  {availableYears.map((year, index) => (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
+              className="ml-2 p-1 border border-gray-300 rounded"
+              value={selectedYear}
+              onChange={(e) => handleYearChange(e.target.value)}
+            >
+              {/* Buat opsi untuk setiap tahun unik */}
+              <option value="All">All</option>
+              {uniqueYearsManajemen.map((year, index) => (
+                <option key={index} value={year}>{year}</option>
+              ))}
+            </select>
               </div>
             </th>
               <th>No</th>
@@ -264,21 +314,24 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {manajemenData.data.data.map((manajemen, index) => (
-              <tr key={manajemen.id}>
-                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
-                <td>{index + 1}</td>
-                <td>{manajemen.aspek}</td>
-                <td>{manajemen.indikator}</td>
-                <td>
-                  {manajemen.penjelasan}
-                  <br />
-                  <a href={manajemen.link} className="text-primary">
-                    Selengkapnya
-                  </a>
-                </td>
-              </tr>
-            ))}
+            {/* Render data sesuai dengan logika filter tahun */}
+        {filteredManajemenData.map((manajemen) => (
+          <tr key={manajemen.id}>
+            <td>{manajemen.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+            <td>{manajemen.id}</td>
+           
+            <td>{manajemen.aspek}</td>
+            <td>{manajemen.indikator}</td>
+            <td>
+              {manajemen.penjelasan}
+            </td>
+            <td>{manajemen.nilai}</td>
+            <td><a href={manajemen.link} className="text-primary">
+                Selengkapnya Lihat Disini
+              </a></td>
+              
+          </tr>
+        ))}
           </tbody>
         </table>
         <div className="join flex justify-center text-white mt-5">
@@ -318,16 +371,16 @@ const Domain = () => {
               <div className="flex items-center">
                 <span>Tahun:</span>
                 <select
-                  className="ml-2 p-1 border border-gray-300 rounded"
-                  value={selectedYear}
-                  onChange={(e) => handleYearChange(e.target.value)}
-                >
-                  {availableYears.map((year, index) => (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
+              className="ml-2 p-1 border border-gray-300 rounded"
+              value={selectedYear}
+              onChange={(e) => handleYearChange(e.target.value)}
+            >
+              {/* Buat opsi untuk setiap tahun unik */}
+              <option value="All">All</option>
+              {uniqueYearsTatakelola.map((year, index) => (
+                <option key={index} value={year}>{year}</option>
+              ))}
+            </select>
               </div>
             </th>
               <th>No</th>
@@ -338,21 +391,24 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {kelolaData.data.data.map((kelola, index) => (
-              <tr key={kelola.id}>
-                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
-                <td>{index + 1}</td>
-                <td>{kelola.aspek}</td>
-                <td>{kelola.indikator}</td>
-                <td>
-                  {kelola.penjelasan}
-                  <br />
-                  <a href={kelola.link} className="text-primary">
-                    Selengkapnya
-                  </a>
-                </td>
-              </tr>
-            ))}
+            {/* Render data sesuai dengan logika filter tahun */}
+        {filteredTatakelolaData.map((kelola) => (
+          <tr key={kelola.id}>
+            <td>{kelola.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+            <td>{kelola.id}</td>
+           
+            <td>{kelola.aspek}</td>
+            <td>{kelola.indikator}</td>
+            <td>
+              {kelola.penjelasan}
+            </td>
+            <td>{kelola.nilai}</td>
+            <td><a href={kelola.link} className="text-primary">
+                Selengkapnya Lihat Disini
+              </a></td>
+              
+          </tr>
+        ))}
           </tbody>
         </table>
         <div className="join flex justify-center text-white mt-5">
@@ -389,16 +445,16 @@ const Domain = () => {
               <div className="flex items-center">
                 <span>Tahun:</span>
                 <select
-                  className="ml-2 p-1 border border-gray-300 rounded"
-                  value={selectedYear}
-                  onChange={(e) => handleYearChange(e.target.value)}
-                >
-                  {availableYears.map((year, index) => (
-                    <option key={index} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
+              className="ml-2 p-1 border border-gray-300 rounded"
+              value={selectedYear}
+              onChange={(e) => handleYearChange(e.target.value)}
+            >
+              {/* Buat opsi untuk setiap tahun unik */}
+              <option value="All">All</option>
+              {uniqueYearsLayanan.map((year, index) => (
+                <option key={index} value={year}>{year}</option>
+              ))}
+            </select>
               </div>
             </th>
               <th>No</th>
@@ -409,40 +465,43 @@ const Domain = () => {
             </tr>
           </thead>
           <tbody>
-            {kelolaData.data.data.map((kelola, index) => (
-              <tr key={kelola.id}>
-                <td>{kebijakan.year}</td> {/* Ganti ini dengan properti tahun dari data */}
-                <td>{index + 1}</td>
-                <td>{kelola.aspek}</td>
-                <td>{kelola.indikator}</td>
-                <td>
-                  {kelola.penjelasan}
-                  <br />
-                  <a href={kelola.link} className="text-primary">
-                    Selengkapnya
-                  </a>
-                </td>
-              </tr>
-            ))}
+            {/* Render data sesuai dengan logika filter tahun */}
+        {filteredLayananData.map((layanans) => (
+          <tr key={layanans.id}>
+            <td>{layanans.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+            <td>{layanans.id}</td>
+           
+            <td>{layanans.aspek}</td>
+            <td>{layanans.indikator}</td>
+            <td>
+              {layanans.penjelasan}
+            </td>
+            <td>{layanans.nilai}</td>
+            <td><a href={layanans.link} className="text-primary">
+                Selengkapnya Lihat Disini
+              </a></td>
+              
+          </tr>
+        ))}
           </tbody>
         </table>
         <div className="join flex justify-center text-white mt-5">
           <button
             className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
-              kelolaData.data.prev_page_url === null ? "btn-disabled" : " "
+              layananData.data.prev_page_url === null ? "btn-disabled" : " "
             }`}
-            onClick={async () => HandlerKelola(kelolaData.data.prev_page_url)}
+            onClick={async () => HandlerLayanan(layananData.data.prev_page_url)}
           >
             «
           </button>
           <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
-            Page {kelolaData.data.current_page}
+            Page {layananData.data.current_page}
           </button>
           <button
             className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
-              kelolaData.data.next_page_url === null ? "btn-disabled" : " "
+              layananData.data.next_page_url === null ? "btn-disabled" : " "
             }`}
-            onClick={async () => HandlerKelola(kelolaData.data.next_page_url)}
+            onClick={async () => HandlerLayanan(layananData.data.next_page_url)}
           >
             »
           </button>
