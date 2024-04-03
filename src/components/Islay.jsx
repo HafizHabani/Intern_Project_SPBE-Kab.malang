@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { layananDummy } from '../constants';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.css';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination, Autoplay } from 'swiper/modules';
-
+import React, { useState, useEffect } from "react";
+import { layananDummy } from "../constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const Islay = () => {
-  const [namaLayanan, setNamaLayanan] = useState('');
+  const [namaLayanan, setNamaLayanan] = useState("");
+  const [deskripsiLayanan, setDeskripsiLayanan] = useState("");
 
   return (
     <div className="py-10">
@@ -17,16 +17,19 @@ const Islay = () => {
         <h6 className="pl-2 font-bold">Kabupaten Malang</h6>
       </div>
 
-      <Swiper pagination={true} autoplay={{ delay:3000 }} modules={[Pagination, Autoplay]} className="mySwiper mb-2"
+      <Swiper
+        pagination={true}
+        autoplay={{ delay: 3000 }}
+        modules={[Pagination, Autoplay]}
+        className="mySwiper mb-2"
         spaceBetween={20}
         slidesPerView={3}
-        
         breakpoints={{
           // Konfigurasi jumlah slide yang ditampilkan pada berbagai lebar layar
-          375 : {
+          375: {
             slidesPerView: 1,
           },
-          390 : {
+          390: {
             slidesPerView: 1,
           },
           412: {
@@ -44,25 +47,32 @@ const Islay = () => {
         }}
       >
         {layananDummy.data.map((layanan, index) => (
-          <SwiperSlide key={index} className='mb-12'>
-            <div className="flex flex-col items-center border-4 border-solid border-gray-300 rounded-lg mt-5 p-4 w-96 mx-auto">
+          <SwiperSlide key={index} className="mb-12">
+            <div className="flex flex-col items-center justify-center border-4 border-solid border-gray-300 rounded-lg mt-5 p-4 w-96 min-h-80 mx-auto">
               <div className="flex justify-center">
+                {/* Modifikasi URL logo di sini */}
                 <img
-                  src={layanan.logo}
-                  alt="LogoKabMal"
+                  src={layanan.logo.replace(
+                    "http://127.0.0.1:8000/C:\\xampp\\htdocs\\magang-backend\\public\\",
+                    "/storage/"
+                  )}
+                  alt={layanan.nama}
                   className="flex max-w-sm rounded-lg"
-                  style={{ maxHeight: '150px', maxWidth: '150px' }} // Ubah ukuran logo gambar di sini
+                  style={{ maxHeight: "150px", maxWidth: "150px" }}
                 />
               </div>
-              <h5 className="mt-3 mb-3 font-bold text-lg">{layanan.nama}</h5> {/* Perbesar teks nama */}
+              <h5 className="mt-3 mb-3 font-bold text-lg text-center">
+                {layanan.nama}
+              </h5>
               <div className="flex flex-row justify-between">
                 <button
                   className="btn px-6 btn-sm text-sm text-white  btn-primary"
                   onClick={() => {
-                    document.getElementById('my_modal_2').showModal();
+                    document.getElementById("my_modal_2").showModal();
                     setNamaLayanan(layanan.nama);
+                    setDeskripsiLayanan(layanan.deskripsi);
                   }}
-                  style={{ marginRight: '10px' }}
+                  style={{ marginRight: "10px" }}
                 >
                   Detail
                 </button>
@@ -70,7 +80,7 @@ const Islay = () => {
                   href={layanan.link}
                   target="_blank"
                   rel="noreferrer"
-                  className=" btn btn-sm text-sm text-white btn-primary"
+                  className="btn btn-sm text-sm text-white btn-primary"
                 >
                   Kunjungi
                 </a>
@@ -83,26 +93,14 @@ const Islay = () => {
       <dialog id="my_modal_2" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">{namaLayanan}</h3>
-          <p className="py-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </p>
+          <p className="py-4">{deskripsiLayanan}</p>
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
         </form>
       </dialog>
-
-      
     </div>
-
-    
   );
 };
 
 export default Islay;
-
-

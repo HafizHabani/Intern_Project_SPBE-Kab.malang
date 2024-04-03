@@ -211,12 +211,12 @@ const TabelDomain = (prop) => {
                 {domain.penjelasan}
               </td>
               <td className="border-solid border-2 max-w-96">{domain.nilai}</td>
-              <td className="border-solid border-2">
-                <a href={domain.link} className="text-primary">
+              <td className="border-solid border-2 ">
+                <a href={domain.link} target="_blank" rel="noreferrer" className="text-primary" >
                   {domain.link}
                 </a>
               </td>
-              <td>{domain.tahun}</td>{" "}
+              <td className="border-solid border-2">{ domain.tahun}</td>{" "}
               {/* Ganti ini dengan properti tahun dari data */}
               <td>
                 {/* ini button edit */}

@@ -211,6 +211,8 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
     <table className="table">
       <thead className="text-lg text-primary">
         <tr>
+          
+          <th>No</th>
           <th>
             {/* Tambahkan dropdown untuk memilih tahun */}
             <div className="flex items-center">
@@ -228,7 +230,6 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               </select>
             </div>
           </th>
-          <th>No</th>
           <th>Aspek</th>
           <th>Indikator</th>
           <th>Narasi</th>
@@ -240,16 +241,15 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
         {/* Render data sesuai dengan logika filter tahun */}
         {filteredKebijakanData.map((kebijakan) => (
           <tr key={kebijakan.id}>
-            <td>{kebijakan.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
             <td>{kebijakan.id}</td>
-           
+            <td>{kebijakan.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
             <td>{kebijakan.aspek}</td>
             <td>{kebijakan.indikator}</td>
             <td>
               {kebijakan.penjelasan}
             </td>
             <td>{kebijakan.nilai}</td>
-            <td><a href={kebijakan.link} className="text-primary">
+            <td><a href={kebijakan.link} target="_blank" className="text-primary" rel="noreferrer">
                 Selengkapnya Lihat Disini
               </a></td>
               
@@ -289,7 +289,9 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
-            <th>
+         
+              <th>No</th>
+              <th>
               {/* Tambahkan dropdown untuk memilih tahun */}
               <div className="flex items-center">
                 <span>Tahun:</span>
@@ -306,7 +308,6 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             </select>
               </div>
             </th>
-              <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
@@ -317,8 +318,9 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             {/* Render data sesuai dengan logika filter tahun */}
         {filteredManajemenData.map((manajemen) => (
           <tr key={manajemen.id}>
-            <td>{manajemen.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+           
             <td>{manajemen.id}</td>
+            <td>{manajemen.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
            
             <td>{manajemen.aspek}</td>
             <td>{manajemen.indikator}</td>
@@ -326,7 +328,7 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               {manajemen.penjelasan}
             </td>
             <td>{manajemen.nilai}</td>
-            <td><a href={manajemen.link} className="text-primary">
+            <td><a href={manajemen.link} target="_blank" rel="noreferrer" className="text-primary">
                 Selengkapnya Lihat Disini
               </a></td>
               
@@ -366,7 +368,9 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
-            <th>
+            
+              <th>No</th>
+              <th>
               {/* Tambahkan dropdown untuk memilih tahun */}
               <div className="flex items-center">
                 <span>Tahun:</span>
@@ -383,7 +387,6 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             </select>
               </div>
             </th>
-              <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
@@ -394,8 +397,9 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             {/* Render data sesuai dengan logika filter tahun */}
         {filteredTatakelolaData.map((kelola) => (
           <tr key={kelola.id}>
-            <td>{kelola.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+           
             <td>{kelola.id}</td>
+            <td>{kelola.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
            
             <td>{kelola.aspek}</td>
             <td>{kelola.indikator}</td>
@@ -403,7 +407,7 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               {kelola.penjelasan}
             </td>
             <td>{kelola.nilai}</td>
-            <td><a href={kelola.link} className="text-primary">
+            <td><a href={kelola.link} target="_blank" rel="noreferrer" className="text-primary">
                 Selengkapnya Lihat Disini
               </a></td>
               
@@ -440,7 +444,9 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
         <table className="table ">
           <thead className="text-lg text-primary">
             <tr>
-            <th>
+           
+              <th>No</th>
+              <th>
               {/* Tambahkan dropdown untuk memilih tahun */}
               <div className="flex items-center">
                 <span>Tahun:</span>
@@ -457,7 +463,6 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             </select>
               </div>
             </th>
-              <th>No</th>
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
@@ -468,16 +473,16 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
             {/* Render data sesuai dengan logika filter tahun */}
         {filteredLayananData.map((layanans) => (
           <tr key={layanans.id}>
-            <td>{layanans.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
+          
             <td>{layanans.id}</td>
-           
+            <td>{layanans.tahun}</td> {/* Ganti ini dengan properti tahun dari data */}
             <td>{layanans.aspek}</td>
             <td>{layanans.indikator}</td>
             <td>
               {layanans.penjelasan}
             </td>
             <td>{layanans.nilai}</td>
-            <td><a href={layanans.link} className="text-primary">
+            <td><a href={layanans.link} target="_blank" rel="noreferrer" className="text-primary">
                 Selengkapnya Lihat Disini
               </a></td>
               

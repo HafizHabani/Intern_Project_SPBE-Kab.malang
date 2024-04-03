@@ -2,14 +2,21 @@ import React, { useState } from "react";
 import { galleryPhoto } from "../constants";
 
 const Galeri = () => {
-  const kartu = galleryPhoto.data.map(item => ({
+  const foto = galleryPhoto.data.map((item) => ({
     id: item.id,
-    type: "photo",
-    src: item.image,
-    href: item.image 
-  }))
+    title: item.title,
+    image: item.image,
+    href: item.image,
+  }));
 
-  const [cards, setCards] = useState(kartu);
+  // const video = galleryVideo.data.map((item) => ({
+  //   id: item.id,
+  //   type: "video",
+  //   src: item.image,
+  //   href: item.image,
+  // }));
+
+  const [cards, setCards] = useState(foto);
 
   const [showVideo, setShowVideo] = useState(false);
 
@@ -36,38 +43,49 @@ const Galeri = () => {
   };
 
   return (
-    <div className="md:px-20 pt-20 pb-20"> {/* Added padding on small screens */}
-       {/* Changed to column layout on small screens */}
-        <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0"> {/* Added margin bottom on small screens */}
-
-          <div className="flex flex-row pb-2">
-            <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
-            <p className="pl-2 font-bold text-2xl">Kegiatan</p>
-          </div>
-
-          <div>
-            <a href="#" className="font-bold text-white">Lihat Semua</a>
-          </div>
+    <div className="md:px-20 pt-20 pb-20">
+      {" "}
+      {/* Added padding on small screens */}
+      {/* Changed to column layout on small screens */}
+      <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0">
+        {" "}
+        {/* Added margin bottom on small screens */}
+        <div className="flex flex-row pb-2">
+          <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
+          <p className="pl-2 font-bold text-2xl">Kegiatan</p>
         </div>
-        <div className="mt-2 md:mt-0 flex items-center"> {/* Added margin left on small screens */}
-            <span
-              onClick={toggleVideo}
-              className={`cursor-pointer border border-solid ${showVideo ? "border-primary text-primary" : "bg-primary text-white border-primary "
-                }`}
-              style={{ padding: "4px 35px ", borderRadius: "4px 0 0 4px" }}
-            >
-              Photo
-            </span>
-            <span
-              onClick={toggleVideo}
-              className={`cursor-pointer border border-solid  ${showVideo ? "border-primary bg-primary text-white" : "border-primary text-primary "
-                }`}
-              style={{ padding: "4px 35px", borderRadius: "0 4px 4px 0" }}
-            >
-              Video
-            </span>
-          </div>
-        
+        <div>
+          <a href="#" className="font-bold text-white">
+            Lihat Semua
+          </a>
+        </div>
+      </div>
+      <div className="mt-2 md:mt-0 flex items-center">
+        {" "}
+        {/* Added margin left on small screens */}
+        <span
+          onClick={toggleVideo}
+          className={`cursor-pointer border border-solid ${
+            showVideo
+              ? "border-primary text-primary"
+              : "bg-primary text-white border-primary "
+          }`}
+          style={{ padding: "4px 35px ", borderRadius: "4px 0 0 4px" }}
+        >
+          Photo
+        </span>
+        <span
+          onClick={toggleVideo}
+          className={`cursor-pointer border border-solid  ${
+            showVideo
+              ? "border-primary bg-primary text-white"
+              : "border-primary text-primary "
+          }`}
+          style={{ padding: "4px 35px", borderRadius: "0 4px 4px 0" }}
+        >
+          Video
+        </span>
+      </div>
       <div className="pt-10">
         <div className="flex items-center justify-center ">
           <button
@@ -91,13 +109,20 @@ const Galeri = () => {
                   />
                 ) : (
                   <img
-                    src={card.src}
+                    src={card.image.replace(
+                      "http://127.0.0.1:8000/C:\\xampp\\htdocs\\magang-backend\\public\\",
+                      "/storage/"
+                    )}
                     alt={`Card ${card.id}`}
                     className="w-full h-full object-cover"
                     style={{ maxHeight: "1000px" }}
                   />
                 )}
-                <a href={card.href} target="_blank" rel="noopener noreferrer"></a>
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
               </div>
             ))}
           </div>

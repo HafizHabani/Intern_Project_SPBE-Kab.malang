@@ -2,6 +2,7 @@ import { facebook, instagram, linkedin, twitter, } from "../assets";
 import axios from "axios"
 const baseUrl = 'http://127.0.0.1:8000/api/';
 
+
 export const navLinks = [
   {
     id: "#Dashboard",
@@ -109,15 +110,19 @@ export const socialMedia = [
 export const newsDummy = await axios.get(baseUrl+'abcd/show');
 // Galeri Foto
 export const galleryPhoto = await axios.get(baseUrl+'zxcv/show');
+export const galleryVideo = await axios.get(baseUrl+'tyuio/show');
 
 // Manajemen Portal Show
 export const kebijakanDummy = await axios.get(baseUrl+'kebijakan/show');
 export const manajemenDummy = await axios.get(baseUrl+'manajemen/show');
 export const kelolaDummy = await axios.get(baseUrl+'kelola/show');
 export const layanansDummy = await axios.get(baseUrl+'layanans/show');
+export const indikatorDummy = await axios.get(baseUrl+'indikator/show');
 
 //show list aplikasi layanan
 export const layananDummy = await axios.get(baseUrl+'layanan/show')
 
 // Manajemen Portal Edit
 export const urlAPI = baseUrl;
+
+
