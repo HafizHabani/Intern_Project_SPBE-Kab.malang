@@ -233,7 +233,7 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
           <th>Aspek</th>
           <th>Indikator</th>
           <th>Narasi</th>
-          <th>Nilai Indikator</th>
+          <th>Nilai</th>
           <th>Link Dokumen</th>
         </tr>
       </thead>
@@ -311,7 +311,8 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
-              <th>Nilai Indikator</th>
+              <th>Nilai</th>
+              <th>Link Dokumen</th>
             </tr>
           </thead>
           <tbody>
@@ -390,7 +391,8 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
-              <th>Nilai Indikator</th>
+              <th>Nilai</th>
+              <th>Link Dokumen</th>
             </tr>
           </thead>
           <tbody>
@@ -466,7 +468,8 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
               <th>Aspek</th>
               <th>Indikator</th>
               <th>Narasi</th>
-              <th>Nilai Indikator</th>
+              <th>Nilai </th>
+              <th>Link Dokumen</th>
             </tr>
           </thead>
           <tbody>

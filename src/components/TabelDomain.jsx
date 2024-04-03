@@ -177,7 +177,7 @@ const TabelDomain = (prop) => {
             <th className="border-solid border-2">Aspek</th>
             <th className="border-solid border-2">Indikator</th>
             <th className="border-solid border-2">Narasi</th>
-            <th className="border-solid border-2">Nilai Indikator</th>
+            <th className="border-solid border-2">Nilai</th>
             <th className="border-solid border-2">Link Dokumen</th>
             {/* Tambahkan dropdown untuk memilih tahun */}
             <th className="flex items-center">
@@ -204,14 +204,14 @@ const TabelDomain = (prop) => {
             <tr key={domain.id}>
               <td className="border-solid border-2">{domain.id}</td>
               <td className="border-solid border-2">{domain.aspek}</td>
-              <td className="border-solid border-2 max-w-96">
+              <td className="border-solid border-2 max-w-52">
                 {domain.indikator}
               </td>
-              <td className="border-solid border-2 max-w-96">
+              <td className="border-solid border-2">
                 {domain.penjelasan}
               </td>
               <td className="border-solid border-2 max-w-96">{domain.nilai}</td>
-              <td className="border-solid border-2 ">
+              <td className="border-solid border-2 max-w-28 ">
                 <a href={domain.link} target="_blank" rel="noreferrer" className="text-primary" >
                   {domain.link}
                 </a>
@@ -220,7 +220,7 @@ const TabelDomain = (prop) => {
               {/* Ganti ini dengan properti tahun dari data */}
               <td>
                 {/* ini button edit */}
-                <div className="flex flex-row justify-center items-center ">
+                <div className="flex flex-col justify-center items-center ">
                   <button
                     className="btn btn-square bg-emerald-400 hover:bg-emerald-600"
                     onClick={() => {

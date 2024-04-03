@@ -151,7 +151,7 @@ const TabelGaleriVideo = (prop) => {
         </tr>
       </thead>
       <tbody className="border-solid border-2">
-      {Array.isArray(prop.galeriVideo) && prop.galeriVideo.map((galeriVideo) => (
+      {Galeri.data.map((galeriVideo) => (
           <tr key={galeriVideo.id}>
             <td className="border-solid border-2">{galeriVideo.id}</td>
             <td className="border-solid border-2">{galeriVideo.title}</td>
