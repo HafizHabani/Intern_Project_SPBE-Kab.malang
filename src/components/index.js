@@ -5,7 +5,6 @@ import Sambutan from "./Sambutan";
 import Domain from "./Domain";
 import Berita from "./Berita";
 import Galeri from "./Galeri";
-import GaleriVideo from "./GaleriVideo";
 import Media from "./Media";
 import Imple from "./Imple";
 import Homlay from "./Homlay";
@@ -45,7 +44,6 @@ export {
     Artikel,
     NilaiIndikator,
     TabelLayanan,
-    GaleriVideo,
     TabelGaleriVideo
     
 }

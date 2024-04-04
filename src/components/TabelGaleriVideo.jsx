@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { urlAPI } from '../constants';
 import axios from 'axios';
 
 const TabelGaleriVideo = (prop) => {
     const [id, setId] = React.useState();
     const [data, setData] = React.useState({});
-    const [Galeri, setDomain] = React.useState(prop.galeriVideo);
-    const [linkPage, setLinkPage] = React.useState(
-      `${urlAPI}tyuio/show`.toLocaleLowerCase()
-    );
+    const [galeriVideo, setGaleriVideo] = useState([]);
+    
     const map = data;
-  
+      
+    useEffect(() => {
+      // Panggil getData saat komponen dimuat pertama kali
+      getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+        const response = await axios.get(`${urlAPI}tyuio/show`);
+        setGaleriVideo(response.data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
     const [notification, setNotification] = useState(null);
   
     // Fungsi untuk menampilkan notifikasi
@@ -22,11 +33,7 @@ const TabelGaleriVideo = (prop) => {
       }, 3000);
     };
   
-    const HandlerGaleri = async (id) => {
-      setLinkPage(id);
-      const data = await axios.get(id);
-      setDomain(data.data);
-    };
+   
   
     const handleChange = (e) => {
       const value = e.target.value;
@@ -91,6 +98,7 @@ const TabelGaleriVideo = (prop) => {
         .then((response) => {
           console.log(response);
           showNotification("Data berhasil ditambahkan", true);
+          
           getData();
         })
         .catch((error) => {
@@ -99,10 +107,6 @@ const TabelGaleriVideo = (prop) => {
         });
     };
   
-    const getData = async () => {
-      const data = await axios.get(linkPage);
-      setDomain(data.data);
-    };
   
 
   return (
@@ -151,7 +155,7 @@ const TabelGaleriVideo = (prop) => {
         </tr>
       </thead>
       <tbody className="border-solid border-2">
-      {Galeri.data.map((galeriVideo) => (
+      {galeriVideo.map((galeriVideo) => (
           <tr key={galeriVideo.id}>
             <td className="border-solid border-2">{galeriVideo.id}</td>
             <td className="border-solid border-2">{galeriVideo.title}</td>
@@ -218,27 +222,7 @@ const TabelGaleriVideo = (prop) => {
         ))}
       </tbody>
     </table>
-    <div className="join flex justify-center text-white mt-5">
-      <button
-        className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700  disabled:bg-red-900 ${
-          Galeri.prev_page_url === null ? "btn-disabled" : " "
-        }`}
-        onClick={async () => HandlerGaleri(Galeri.prev_page_url)}
-      >
-        «
-      </button>
-      <button className="join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900">
-        Page {Galeri.current_page}
-      </button>
-      <button
-        className={`join-item btn btn-sm text-white border-primary bg-primary hover:bg-red-700 disabled:bg-red-900 ${
-          Galeri.next_page_url === null ? "btn-disabled" : " "
-        }`}
-        onClick={async () => HandlerGaleri(Galeri.next_page_url)}
-      >
-        »
-      </button>
-    </div>
+   
 
     <dialog id="my_modal_4" className="modal">
       <div className="modal-box w-5/12 max-w-5xl">

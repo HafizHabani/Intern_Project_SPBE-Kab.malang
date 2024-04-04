@@ -1,55 +1,37 @@
 import React, { useState } from "react";
-import { galleryPhoto } from "../constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/swiper-bundle.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import { galleryPhoto, galleryVideo } from "../constants";
 
 const Galeri = () => {
-  const foto = galleryPhoto.data.map((item) => ({
+  const fotoData = galleryPhoto.data.map((item) => ({
     id: item.id,
     title: item.title,
     image: item.image,
     href: item.image,
   }));
 
-  // const video = galleryVideo.data.map((item) => ({
-  //   id: item.id,
-  //   type: "video",
-  //   src: item.image,
-  //   href: item.image,
-  // }));
+  const videoData = galleryVideo.data.map((item) => ({
+    id: item.id,
+    type: "video",
+    src: item.title,
+    href: item.link,
+  }));
 
-  const [cards, setCards] = useState(foto);
-
+  const [cards, setCards] = useState(fotoData);
   const [showVideo, setShowVideo] = useState(false);
 
   const toggleVideo = () => {
     setShowVideo(!showVideo);
-  };
-
-  const slideLeft = () => {
-    setCards((cards) => {
-      const updatedCards = [...cards];
-      const card = updatedCards.pop();
-      updatedCards.unshift(card);
-      return updatedCards;
-    });
-  };
-
-  const slideRight = () => {
-    setCards((cards) => {
-      const updatedCards = [...cards];
-      const card = updatedCards.shift();
-      updatedCards.push(card);
-      return updatedCards;
-    });
+    setCards(showVideo ? fotoData : videoData);
   };
 
   return (
     <div className="md:px-20 pt-20 pb-20">
-      {" "}
-      {/* Added padding on small screens */}
-      {/* Changed to column layout on small screens */}
       <div className="flex md:flex-row items-center justify-between mb-4 md:mb-0">
-        {" "}
-        {/* Added margin bottom on small screens */}
         <div className="flex flex-row pb-2">
           <p className="text-primary pl-2 font-bold text-2xl">Galeri</p>
           <p className="pl-2 font-bold text-2xl">Kegiatan</p>
@@ -61,8 +43,6 @@ const Galeri = () => {
         </div>
       </div>
       <div className="mt-2 md:mt-0 flex items-center">
-        {" "}
-        {/* Added margin left on small screens */}
         <span
           onClick={toggleVideo}
           className={`cursor-pointer border border-solid ${
@@ -88,25 +68,32 @@ const Galeri = () => {
       </div>
       <div className="pt-10">
         <div className="flex items-center justify-center ">
-          <button
-            onClick={slideLeft}
-            className="btn btn-circle bg-primary hover:bg-red-700 border-none text-white top-0 bottom-0 left-0 mr-2"
+          <Swiper
+            pagination={true}
+            autoplay={{ delay: 5000 }}
+            modules={[Pagination, Autoplay]}
+            slidesPerView={3}
+            spaceBetween={20}
+            // style={{ overflowX: "hidden" }}
+            className="carousel-container py-6 carousel-item relative justify-center gap-4 w-full"
           >
-            ❮
-          </button>
-          <div className="carousel-container py-6 carousel-item relative justify-center gap-4 w-full overflow-x-auto">
             {cards.map((card) => (
-              <div
+              <SwiperSlide
                 key={card.id}
                 className={`card ${showVideo ? "video" : "photo"} `}
               >
                 {showVideo ? (
-                  <video
-                    src={card.src}
-                    controls
-                    className="w-full h-full object-cover"
-                    style={{ maxHeight: "300px", maxWidth: "980px" }}
-                  />
+                  <div className="w-full h-full video-container" style={{ overflowX: "hidden",height: "200px" }}>
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={card.href}
+                      
+                      allowFullScreen
+                      title={`Video ${card.id}`}
+                      style={{ overflowX: "hidden", maxHeight: "1000px" }}
+                    ></iframe>
+                  </div>
                 ) : (
                   <img
                     src={card.image.replace(
@@ -123,15 +110,9 @@ const Galeri = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 ></a>
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
-          <button
-            onClick={slideRight}
-            className="btn btn-circle bg-primary hover:bg-red-700 border-none text-white top-0 bottom-0 right-0 ml-2"
-          >
-            ❯
-          </button>
+          </Swiper>
         </div>
       </div>
     </div>
