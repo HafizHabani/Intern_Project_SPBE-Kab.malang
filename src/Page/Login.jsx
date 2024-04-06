@@ -1,12 +1,16 @@
 import React from 'react'
-import Admin from './Admin'
-import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
 import { SPBELogin, kantorlogin } from '../assets'
 import { urlAPI } from '../constants'
 import axios from 'axios'
 
-const Login = ({setToken}) => {
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken))
+}
+
+const Login = () => {
   const [data, setData]=React.useState({})
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const value = e.target.value;
     setData({
@@ -15,16 +19,16 @@ const Login = ({setToken}) => {
     });
   };
 
-
-  const handlerlogin= async ()=>{
+  const handlerlogin= (e)=>{
+    e.preventDefault();
     const userData = {
       email : data.email,
       password : data. password,
     };
-    return await axios.post(`${urlAPI}/xwyz/login`, userData)
+    axios.post(`${urlAPI}xwyz/login`, userData)
     .then((response) => {
-      setToken(response);
-      return <Admin/>
+      setToken(response.token);
+      navigate('/Admin')
     })
     .catch((error) => {
       if (error.response) {
@@ -53,30 +57,20 @@ const Login = ({setToken}) => {
         <p>
             Silahkan Masuk Menggunakan Akun Anda
         </p>
-        <form onSubmit={handlerlogin}>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text text-lg font-bold">Email</span>
-          </label>
-          <input type="email" name='email' placeholder="Masukan Email Anda" onChange={handleChange} className="input input-md input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text text-lg font-bold">Password</span>
-          </label>
-          <input type="password" name='password' placeholder="Masukan Password Anda" onChange={handleChange} className="input input-md input-bordered" required />
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn  btn-primary text-white font-bold text-lg">Login</button>
-        </div>
+        <form className='form-control' method='post' onSubmit={handlerlogin}>
+            <label className="label">
+              <span className="label-text text-lg font-bold">Email</span>
+            </label>
+            <input type="email" name='email' placeholder="Masukan Email Anda" onChange={handleChange} className="input input-md input-bordered" required />
+            <label className="label">
+              <span className="label-text text-lg font-bold">Password</span>
+            </label>
+            <input type="password" name='password' placeholder="Masukan Password Anda" onChange={handleChange} className="input input-md input-bordered" required />
+            <button type='submit' className="btn mt-6 btn-primary text-white font-bold text-lg">Login</button>
         </form>
       </div>
     </div>
   )
 }
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired
-} 
 
 export default Login

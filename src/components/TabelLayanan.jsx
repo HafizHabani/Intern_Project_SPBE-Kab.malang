@@ -171,7 +171,6 @@ const TabelLayanan = (props) => {
                     className="btn btn-square bg-red-500 hover:bg-red-800"
                     onClick={() => {
                       deleteHandler(layanan.id);
-                      console.log(map);
                     }}
                   >
                     <svg

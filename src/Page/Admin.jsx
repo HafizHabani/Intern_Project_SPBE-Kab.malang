@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { logoBaru } from "../assets";
 import {
@@ -32,10 +33,19 @@ import {
   TabelGaleriVideo,
 } from "../components";
 
+function getToken() {
+  const tokenString = sessionStorage.getItem('token')
+  return tokenString
+}
+function removeToken(){ 
+  sessionStorage.removeItem('token')
+}
+
 const Admin = () => {
   const [openDomain, setOpenDomain] = useState(false);
   const [openGaleri, setOpenGaleri] = useState(false);
   const [component, setComponent] = useState(0);
+  const [theToken, setTheToken] = useState(getToken());
 
   const handleOpenDomain = () => {
     setOpenDomain(!openDomain);
@@ -46,6 +56,11 @@ const Admin = () => {
     setOpenGaleri(!openGaleri);
     setOpenDomain(false); // Tutup dropdown domain jika terbuka
   };
+
+
+  if (!theToken) {
+    return <Navigate to='/Login'/>
+  }
 
   return (
     <div>
@@ -174,11 +189,13 @@ const Admin = () => {
                   </List>
                 </AccordionBody>
               </Accordion>
-              <ListItem className="px-4 ml-2 mt-4 font-bold">
-                <div className=" text-white py-1 bg-rose-800 px-3 rounded-md">
-                  Log Out
-                </div>
-              </ListItem>
+              <Link to="/">
+                <ListItem className="px-4 ml-2 mt-4 font-bold" onClick={()=>{setTheToken(""),removeToken()}}>
+                  <div className=" text-white py-1 bg-rose-800 px-3 rounded-md">
+                    Log Out
+                  </div>
+                </ListItem>
+              </Link>
             </List>
           </Card>
         </div>

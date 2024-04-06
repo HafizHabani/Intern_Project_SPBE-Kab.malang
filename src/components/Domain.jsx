@@ -90,8 +90,8 @@ const Domain = () => {
     setKelolaData(data);
   };
 
-  const HandlerLayanan = async (prop) => {
-    const data = await axios.get(prop.link)
+  const HandlerLayanan = async (link) => {
+    const data = await axios.get(link)
     setLayananData(data)
   }
 
@@ -577,7 +577,7 @@ const filteredLayananData = layananData.data.data.filter(layanans => {
           </div>
         </div> */}
       </div>
-      {/* <button className='btn' onClick={console.log(manajemenData.data.next_page_url)}>coba</button> */}
+      {/* <button className='btn' onClick={console.log(layananData.data.data)}>coba</button> */}
     </div>
   );
 };
