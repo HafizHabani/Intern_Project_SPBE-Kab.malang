@@ -200,8 +200,8 @@ const TabelDomain = (prop) => {
           </tr>
         </thead>
         <tbody className="border-solid border-2">
-          {filteredData.map((domain) => (
-            <tr key={domain.id}>
+          {filteredData.map((domain,index) => (
+            <tr key={index}>
               <td className="border-solid border-2">{domain.id}</td>
               <td className="border-solid border-2">{domain.aspek}</td>
               <td className="border-solid border-2 max-w-52">

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { FilePond, registerPlugin,} from 'react-filepond';
-import  FilePondPluginFileValidateType  from 'filepond-plugin-file-validate-type';
-registerPlugin(FilePondPluginFileValidateType);
 import { urlAPI } from '../constants';
 import axios from 'axios';
 
 const TabelGaleri = (props) => {
   const [notification, setNotification] = useState(null);
+  const [file, setFile] = React.useState();
   const [data, setData] = React.useState({});
-  const [files, setFiles] = React.useState([]);
   const [id, setId] = React.useState();
+  const [changeData, setChangeData] = React.useState({});
+  const [galeri, setGaleri] = React.useState(props.galeri);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,29 +17,37 @@ const TabelGaleri = (props) => {
       [name]: value
     });
   };
+  const handleFile = (e) => {
+    setFile(e.target.files[0])
+  }
+
+  const getData = async () => {
+    const data = await axios.get(`${urlAPI}zxcv/show`);
+    setGaleri(data.data);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Pastikan file logo telah dipilih
-    if (!data.image) {
+    if (!file) {
       showNotification('Pilih file logo terlebih dahulu', false);
       return;
     }
-  
     const formData = new FormData();
-    formData.append('image', data.image); 
-    formData.append('nama', data.title || ''); 
-    try {
-      // Mengunggah gambar dan mendapatkan respons dari server
-      const response = await axios.post(`${urlAPI}indikator/create`, formData);
-  
-      console.log(response.data);
-      showNotification('Data berhasil ditambahkan', true);
-    } catch (error) {
-      console.error(error);
-      showNotification('Gagal menambahkan data', false);
-    }
+    formData.append('image', file);
+    formData.append('title', data.title);
+    axios
+      .post(`${urlAPI}zxcv/create`, formData)
+      .then((response) => {
+        console.log(response);
+        showNotification("Data berhasil ditambahkan", true);
+        getData();
+      })
+      .catch((error) => {
+        console.log(error);
+        showNotification("Gagal menambahkan data", false);
+      });
   };
 
   const showNotification = (message, isSuccess) => {
@@ -52,20 +59,18 @@ const TabelGaleri = (props) => {
 
   const handleSubmitUpdate = (e) => {
     e.preventDefault();
-    const userData = {
-      image : data.image,
-      title: data.title,
-      
-    };
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('title', data.title);
 
-    console.log(userData);
+    console.log(formData);
     
     axios
-    .post(`${urlAPI}indikator/update/${id}`.toLocaleLowerCase(), userData)
+    .post(`${urlAPI}zxcv/update/${id}`, formData)
     .then((response) => {
       console.log(response);
       showNotification("Data berhasil diupdate", true);
-      
+      getData();
     })
     .catch((error) => {
       console.log(error);
@@ -75,7 +80,7 @@ const TabelGaleri = (props) => {
 
   const deleteHandler = (id) => {
     axios
-      .delete(`${urlAPI}indikator/delete/${id}`.toLocaleLowerCase())
+      .delete(`${urlAPI}zxcv/delete/${id}`)
       .then((response) => {
         // Notifikasi berhasil dihapus
         console.log("Data berhasil dihapus", response.data.message);
@@ -118,8 +123,8 @@ const TabelGaleri = (props) => {
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {props.galeri.map((galeri)=>(
-            <tr  key={galeri}>
+          {galeri.map((galeri,index)=>(
+            <tr  key={index}>
               <td className='border-solid border-2'>{galeri.id}</td>
               <td className='border-solid border-2'>{galeri.title}</td>
               <td className='border-solid border-2 flex justify-center'>
@@ -134,7 +139,7 @@ const TabelGaleri = (props) => {
                     onClick={() => {
                       document.getElementById("my_modal_3").showModal();
                       setId(galeri.id);
-                      setData(galeri);
+                      setChangeData(galeri);
                     }}
                   >
                     <svg
@@ -152,13 +157,11 @@ const TabelGaleri = (props) => {
                       />
                     </svg>
                   </button>
-
                   {/* Ini button delete */}
                   <button
                     className="btn btn-square bg-red-500 hover:bg-red-800"
                     onClick={() => {
                       deleteHandler(galeri.id);
-                      console.log(map);
                     }}
                   >
                     <svg
@@ -219,7 +222,7 @@ const TabelGaleri = (props) => {
           <input
             type="file"
             name="image"
-            onChange={handleChange}
+            onChange={handleFile}
             id="image"
             accept="image/*"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -275,6 +278,8 @@ const TabelGaleri = (props) => {
                 <input
                   type="text"
                   name="title"
+                  defaultValue={changeData.title}
+                  onSubmit={handleChange}
                   onChange={handleChange}
                   id="title"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -291,11 +296,10 @@ const TabelGaleri = (props) => {
           <input
             type="file"
             name="image"
-            onChange={handleChange}
+            onChange={handleFile}
             id="image"
             accept="image/*"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
           />
         </div>
               

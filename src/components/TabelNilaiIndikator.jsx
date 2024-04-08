@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { FilePond, registerPlugin,} from 'react-filepond';
 import axios from 'axios';
 import 'filepond/dist/filepond.min.css';
 import { urlAPI } from '../constants';
-import  FilePondPluginFileValidateType  from 'filepond-plugin-file-validate-type';
-registerPlugin(FilePondPluginFileValidateType);
 
 
 const NilaiIndikator = (props) => {
 
   const [notification, setNotification] = useState(null);
   const [data, setData] = React.useState({});
-  const [files, setFiles] = React.useState([]);
+  const [nilai, setNilai] = React.useState(props.nilai);
+  const [changeData, setChangeData]= React.useState({});
+  const [file, setFile] = React.useState([]);
   const [id, setId] = React.useState();
 
   const handleChange = (e) => {
@@ -21,29 +20,38 @@ const NilaiIndikator = (props) => {
       [name]: value
     });
   };
+  const handleFile = (e) => {
+    setFile(e.target.files[0])
+  }
+
+  const getData = async () => {
+    const data = await axios.get(`${urlAPI}indikator/show`);
+    setNilai(data.data);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Pastikan file logo telah dipilih
-    if (!data.image) {
+    if (!file) {
       showNotification('Pilih file logo terlebih dahulu', false);
       return;
     }
   
     const formData = new FormData();
-    formData.append('image', data.image); 
-    formData.append('nama', data.tahun || ''); 
-    try {
-      // Mengunggah gambar dan mendapatkan respons dari server
-      const response = await axios.post(`${urlAPI}indikator/create`, formData);
-  
-      console.log(response.data);
-      showNotification('Data berhasil ditambahkan', true);
-    } catch (error) {
-      console.error(error);
-      showNotification('Gagal menambahkan data', false);
-    }
+    formData.append('image', file); 
+    formData.append('tahun', data.tahun); 
+    axios
+      .post(`${urlAPI}indikator/create`, formData)
+      .then((response) => {
+        console.log(response);
+        showNotification("Data berhasil ditambahkan", true);
+        getData();
+      })
+      .catch((error) => {
+        console.log(error);
+        showNotification("Gagal menambahkan data", false);
+      });
   };
 
   const showNotification = (message, isSuccess) => {
@@ -55,25 +63,20 @@ const NilaiIndikator = (props) => {
 
   const handleSubmitUpdate = (e) => {
     e.preventDefault();
-    const userData = {
-      image : data.image,
-      tahun: data.tahun,
-      
-    };
-
-    console.log(userData);
-    
+    const formData = new FormData();
+    formData.append('image', file); 
+    formData.append('tahun', data.tahun); 
     axios
-    .post(`${urlAPI}indikator/update/${id}`.toLocaleLowerCase(), userData)
-    .then((response) => {
-      console.log(response);
-      showNotification("Data berhasil diupdate", true);
-      
-    })
-    .catch((error) => {
-      console.log(error);
-      showNotification("Data tidak berhasil diupdate", false);
-    });
+      .post(`${urlAPI}indikator/update/${id}`, formData)
+      .then((response) => {
+        console.log(response);
+        showNotification("Data berhasil ditambahkan", true);
+        getData();
+      })
+      .catch((error) => {
+        console.log(error);
+        showNotification("Gagal menambahkan data", false);
+      });
   };
 
   const deleteHandler = (id) => {
@@ -119,7 +122,7 @@ const NilaiIndikator = (props) => {
           </tr>
         </thead>
         <tbody className='border-solid border-2'>
-          {props.nilai.map((nilai)=>(
+          {nilai.map((nilai)=>(
             <tr  key={nilai}>
               <td className='border-solid border-2'>{nilai.id}</td>
               <td className='border-solid border-2'>{nilai.tahun}</td>
@@ -134,7 +137,7 @@ const NilaiIndikator = (props) => {
                     onClick={() => {
                       document.getElementById("my_modal_3").showModal();
                       setId(nilai.id);
-                      setData(nilai);
+                      setChangeData(nilai);
                     }}
                   >
                     <svg
@@ -158,7 +161,6 @@ const NilaiIndikator = (props) => {
                     className="btn btn-square bg-red-500 hover:bg-red-800"
                     onClick={() => {
                       deleteHandler(nilai.id);
-                      console.log(map);
                     }}
                   >
                     <svg
@@ -219,7 +221,7 @@ const NilaiIndikator = (props) => {
           <input
             type="file"
             name="image"
-            onChange={handleChange}
+            onChange={handleFile}
             id="image"
             accept="image/*"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -275,6 +277,8 @@ const NilaiIndikator = (props) => {
                 <input
                   type="text"
                   name="tahun"
+                  defaultValue={changeData.tahun}
+                  onSubmit={handleChange}
                   onChange={handleChange}
                   id="tahun"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -291,11 +295,10 @@ const NilaiIndikator = (props) => {
           <input
             type="file"
             name="image"
-            onChange={handleChange}
+            onChange={handleFile}
             id="image"
             accept="image/*"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
           />
         </div>
               

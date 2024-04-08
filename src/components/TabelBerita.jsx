@@ -12,8 +12,7 @@ import "filepond/dist/filepond.min.css";
 const TabelBerita = (props) => {
   const [dataNews, setDataNews] = React.useState({});
   const [data, setData] = React.useState({});
-  const [files, setFiles] = React.useState([]);
-  const [id, setId] = React.useState();
+  const [file, setFile] = React.useState();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -22,16 +21,20 @@ const TabelBerita = (props) => {
       [e.target.name]: value,
     });
   };
+  const handleFile = (e) => {
+    setFile(e.target.files[0])
+  }
 
   const handlerFormSubmit = (e) => {
     e.preventDefault();
-    const newsData = {
-      title: data.judul,
-      description: data.deskripsi,
-    };
+    
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('title', data.title);
+    formData.append('description', data.deskripsi)
 
     axios
-      .post(`${urlAPI}abcd/create/`.toLocaleLowerCase(), newsData)
+      .post(`${urlAPI}abcd/create/`.toLocaleLowerCase(), formData)
       .then((response) => {
         console.log(response);
       })
@@ -185,22 +188,15 @@ const TabelBerita = (props) => {
             <div className="label">
               <span className="label-text font-bold">Gambar Sampul</span>
             </div>
-            <FilePond
-              files={files}
-              onupdatefiles={setFiles}
-              className="mb-5"
-              allowFileTypeValidation={true}
-              acceptedFileTypes={["image/*"]}
+            <input
+              type="file"
               name="image"
-              value=""
-              server={{
-                url: urlAPI,
-                process: "abcd/create/",
-                onload: (response) => {
-                  setId(response.id);
-                },
-              }}
-            ></FilePond>
+              onChange={handleFile}
+              id="image"
+              accept="image/*"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              required
+            />
             <div className="label">
               <span className="label-text font-bold">Deskripsi</span>
             </div>
