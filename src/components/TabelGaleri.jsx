@@ -86,7 +86,7 @@ const TabelGaleri = (props) => {
         console.log("Data berhasil dihapus", response.data.message);
         // Tambahkan logika untuk menampilkan notifikasi UI di sini
         showNotification("Berhasil Menghapus Data", true);
-        
+        getData();
       })
       .catch((error) => {
         // Jika terjadi kesalahan, tampilkan pesan error
@@ -179,6 +179,15 @@ const TabelGaleri = (props) => {
                       />
                     </svg>
                   </button>
+                  {notification && (
+                    <div
+                      className={`notification fixed bottom-4 left-4 p-4 rounded-md ${
+                        notification.isSuccess ? "bg-green-500" : "bg-red-500"
+                      } text-white`}
+                    >
+                      <p>{notification.message}</p>
+                    </div>
+                  )}
                 </div>
               </td>
             </tr>
