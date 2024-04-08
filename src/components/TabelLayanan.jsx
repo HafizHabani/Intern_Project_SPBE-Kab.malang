@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "filepond/dist/filepond.min.css";
+
 import { urlAPI } from "../constants";
 
 const TabelLayanan = (props) => {
