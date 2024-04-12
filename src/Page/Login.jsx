@@ -5,11 +5,13 @@ import { urlAPI } from '../constants';
 import axios from 'axios';
 
 function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
+  localStorage.setItem('token', userToken);
 }
 
 const Login = () => {
   const [data, setData] = React.useState({});
+  const [error, setError] = React.useState(null);
+  const [success, setSuccess] = React.useState(null);
   const navigate = useNavigate();
   
   const handleChange = (e) => {
@@ -26,20 +28,22 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-    axios.post(`${urlAPI}xwyz/login`, userData)
+    axios.post(`${urlAPI}login`, userData)
       .then((response) => {
-        setToken(response.token);
-        navigate('/Admin');
+        setToken(response.data.token); // Assuming token is received in response.data.token
+        setSuccess("Login berhasil");
+        setTimeout(() => {
+          setSuccess(null);
+          navigate('/Admin'); // Redirect to Admin page after successful login
+        }, 1000);
       })
       .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log("server responded");
-        } else if (error.request) {
-          console.log("network error");
-        } else {
-          console.log(error);
-        }
+        // Handle error
+        setError("Email atau password salah");
+        setTimeout(() => {
+          setError(null);
+        }, 1000);
+        console.log(error);
       });
   };
 
@@ -53,6 +57,8 @@ const Login = () => {
           <img src={SPBELogin} className='max-w-full mb-8' alt='SPBE Login' />
           <h2 className='text-3xl font-bold mb-4'>Selamat Datang di Panel SPBE</h2>
           <p className='mb-8'>Silahkan Masuk Menggunakan Akun Anda</p>
+          {error && <p className="bg-red-200 text-red-700 p-3 rounded-md mb-4">{error}</p>}
+          {success && <p className="bg-green-200 text-green-700 p-3 rounded-md mb-4">{success}</p>}
           <form onSubmit={handlerlogin}>
             <label className="label">
               <span className="label-text text-lg font-bold">Email</span>

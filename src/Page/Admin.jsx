@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { logoBaru } from "../assets";
+import axios from 'axios';
+import { urlAPI } from '../constants';
 import {
   Card,
   Typography,
@@ -33,13 +36,6 @@ import {
   TabelGaleriVideo,
 } from "../components";
 
-function getToken() {
-  const tokenString = sessionStorage.getItem('token')
-  return tokenString
-}
-function removeToken(){ 
-  sessionStorage.removeItem('token')
-}
 
 const Admin = () => {
   const [openDomain, setOpenDomain] = useState(false);
@@ -57,10 +53,39 @@ const Admin = () => {
     setOpenDomain(false); // Tutup dropdown domain jika terbuka
   };
 
-
   if (!theToken) {
-    return <Navigate to='/Login'/>
+    return <Navigate to="/Login" />;
   }
+
+  function getToken() {
+    const tokenString = localStorage.getItem("token"); // Mengambil token dari localStorage
+    return tokenString;
+  }
+  function removeToken() {
+    localStorage.removeItem("token"); // Menghapus token dari localStorage
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [user, setUser] = useState({});
+
+  const fetchData = async () => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${theToken}`
+    await axios.get(`${urlAPI}user`)
+    .then((response) => {
+        setUser(response.data);
+    })
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    if(!theToken) {
+        return <Navigate to="/Login" />;
+    }
+    fetchData();
+  }, []);
+
+
+  
 
   return (
     <div>
@@ -73,9 +98,24 @@ const Admin = () => {
               className=" max-h-14 sm:w-auto hover:cursor-pointer"
             />
           </Link>
-          {/* Adjusted logo size */}
         </nav>
       </div>
+   
+         
+      <div className="card-body bg-blue-50 rounded-md p-6">
+        <Typography className="text-2xl font-bold text-gray-800 mb-2">
+          Selamat Datang, <span className="text-indigo-600">{user.name}</span>
+        </Typography>
+        <hr className="border-gray-300 mb-4" />
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <Typography className="text-gray-600">Role: Administrator</Typography>
+            <Typography className="text-gray-600">Terakhir Masuk: {new Date().toLocaleString()}</Typography>
+          </div>
+        </div>
+      </div>
+          
+       
       <div className="flex flex-row">
         <div className="bg-gradient-to-b from-red-600 from-10% to-white to-80% shadow-xl">
           <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 bg-transparent shadow-none">
@@ -185,12 +225,16 @@ const Admin = () => {
                       </ListItemPrefix>
                       Video
                     </ListItem>
-
                   </List>
                 </AccordionBody>
               </Accordion>
               <Link to="/">
-                <ListItem className="px-4 ml-2 mt-4 font-bold" onClick={()=>{setTheToken(""),removeToken()}}>
+                <ListItem
+                  className="px-4 ml-2 mt-4 font-bold"
+                  onClick={() => {
+                    setTheToken(""), removeToken();
+                  }}
+                >
                   <div className=" text-white py-1 bg-rose-800 px-3 rounded-md">
                     Log Out
                   </div>
