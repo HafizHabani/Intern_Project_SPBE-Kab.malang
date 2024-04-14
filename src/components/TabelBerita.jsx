@@ -73,12 +73,12 @@ const TabelBerita = (props) => {
       .post(`${urlAPI}abcd/updateberita/${id}`, formData)
       .then((response) => {
         console.log(response);
-        showNotification("Data berhasil ditambahkan", true);
+        showNotification("Data berhasil diupdate", true);
         getData();
       })
       .catch((error) => {
         console.log(error);
-        showNotification("Gagal menambahkan data", false);
+        showNotification("Gagal mengupdate data", false);
       });
   };
 
