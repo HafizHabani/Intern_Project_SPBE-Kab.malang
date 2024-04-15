@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { berita } from "../assets";
 import { newsDummy } from "../constants";
+import { useNavigate } from "react-router-dom"; 
 
 const Isber = () => {
+  const navigate = useNavigate(); 
   return (
     <div>
       <h6 className="text-lg font-bold border-4 border-solid border-white border-b-primary py-5 pe-40">
@@ -50,7 +52,7 @@ const Isber = () => {
                       day: "numeric",
                     })}
                   </div>
-                  <button className="btn btn-xs md:btn-sm font-normal btn-primary text-xs md:text-sm text-white">
+                  <button className="btn btn-xs md:btn-sm font-normal btn-primary text-xs md:text-sm text-white" onClick={() => navigate(`/Berita/${news.id}`)}>
                     Selengkapnya
                   </button>
                 </div>
@@ -59,6 +61,8 @@ const Isber = () => {
         </div>
       </div>
 
+      {/* kalo pake paginasi */}
+{/* 
       <div className="join flex justify-center mt-5">
         <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">
           «
@@ -75,7 +79,7 @@ const Isber = () => {
         <button className="join-item btn btn-sm bg-primary border-red-700 hover:bg-red-900 text-white">
           »
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

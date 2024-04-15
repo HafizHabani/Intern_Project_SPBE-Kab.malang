@@ -165,7 +165,11 @@ const TabelGaleriVideo = (prop) => {
                 {galeriVideo.link}
               </a>
             </td>
-            <td className="border-solid border-2">{ galeriVideo.created_at}</td>{" "}
+            <td className="border-solid border-2">{new Date(galeriVideo.updated_at).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}</td>{" "}
             <td>
               {/* ini button edit */}
               <div className="flex flex-row justify-center items-center ">

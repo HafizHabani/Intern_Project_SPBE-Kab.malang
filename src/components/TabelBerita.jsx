@@ -142,7 +142,11 @@ const TabelBerita = (props) => {
                 <td className="border-solid border-2">{index + 1}</td>
                 <td className="border-solid border-2">{berita.title}</td>
                 <td className="border-solid border-2">
-                  {berita.updated_at.slice(0, 10)}
+                {new Date(berita.updated_at).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                 </td>
                 <td className="border-solid border-2">
                   <img

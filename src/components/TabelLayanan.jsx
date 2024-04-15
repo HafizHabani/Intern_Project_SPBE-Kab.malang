@@ -147,7 +147,11 @@ const TabelLayanan = (props) => {
               <td className="border-solid border-2">{layanan.id}</td>
               <td className="border-solid border-2">{layanan.nama}</td>
               <td className="border-solid border-2">
-                {layanan.updated_at.slice(0, 10)}
+              {new Date(layanan.updated_at).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
               </td>
               <td className="border-solid border-2 flex justify-center">
                 <img

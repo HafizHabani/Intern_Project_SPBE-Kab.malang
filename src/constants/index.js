@@ -108,6 +108,18 @@ export const socialMedia = [
 
 // Berita
 export const newsDummy = await axios.get(baseUrl+'abcd/show');
+export const getBeritaById = async (id) => {
+  try {
+    
+    const response = await axios.get(baseUrl+`abcd/content/${id}`); 
+    
+    return response.data;
+  } catch (error) {
+    
+    throw new Error('Failed to fetch berita by ID');
+  }
+};
+
 // Galeri Foto
 export const galleryPhoto = await axios.get(baseUrl+'zxcv/show');
 export const galleryVideo = await axios.get(baseUrl+'tyuio/show');

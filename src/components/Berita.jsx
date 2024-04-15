@@ -1,7 +1,10 @@
 import React from "react";
 import { newsDummy } from "../constants";
+import { useNavigate } from 'react-router-dom';
 
-const Berita = () => (
+const Berita = () => {
+  const navigate = useNavigate(); 
+  return (
   <div className="sm:px-4 md:px-8 lg:px-12 py-6">
     {" "}
     {/* Adjusted horizontal padding */}
@@ -48,7 +51,7 @@ const Berita = () => (
                     day: "numeric",
                   })}
                 </div>
-                <button className="btn btn-xs md:btn-sm font-normal btn-primary text-xs md:text-sm text-white">
+                <button className="btn btn-xs md:btn-sm font-normal btn-primary text-xs md:text-sm text-white" onClick={() => navigate(`/Berita/${news.id}`)}>
                   Selengkapnya
                 </button>
               </div>
@@ -57,6 +60,7 @@ const Berita = () => (
         ))}
     </div>
   </div>
-);
+  )
+};
 
 export default Berita;

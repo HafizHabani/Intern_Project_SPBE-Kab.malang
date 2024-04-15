@@ -130,7 +130,11 @@ const TabelGaleri = (props) => {
               <td className='border-solid border-2 flex justify-center'>
                 <img src={galeri.image} alt={galeri.title} className="w-auto max-h-20" style={{ maxHeight: "500px", maxWidth: "200px" }}  />
               </td>
-              <td className='border-solid border-2'>{galeri.created_at}</td>
+              <td className='border-solid border-2'>{new Date(galeri.updated_at).toLocaleDateString("id-ID", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}</td>
               <td>
                 {/* ini button edit */}
                 <div className="flex flex-row justify-center items-center ">
