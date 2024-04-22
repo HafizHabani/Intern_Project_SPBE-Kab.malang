@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getBeritaById } from "../constants";
 import styles from "../style";
-import { Navbar, Homlay, Footer, Media } from "../components";
+import { Navbar, Footer, Media } from "../components";
 
 const ArtikelBerita = () => {
   const { id } = useParams(); // Menangkap ID berita dari URL
